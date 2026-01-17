@@ -23,38 +23,51 @@ var blogPosts = [
       <p>飞鸟点缀在烟雨花城图之上，古典凉亭同高楼齐色。</p>
       <img src="assets/img/life-01-05.jpg" alt="白雾笼罩的城市">
 
-      <p>我在山顶，远眺这座城，心中满是对未来的期待与憧憬。</p>
+      <p>曲折的九公里，让人印象深刻的除去路上遇到的荡胸亭，一边吟诵“荡胸生曾云，决眦入归鸟”之外。
+      览遍众山小后，我们也面临着如何快速下山的问题。
+      停下脚步查攻略地图，最后抵达山脚的欣喜，
+      让我相信：
+      柳暗之处会花明，赐予我新一年逢山开路之勇气。</p>
     `
   },
   {
     id: 2,
-    title: "Exploring Microbiome Research",
-    category: "Research",
-    date: "2025-01-10",
+    title: "主体性与可视化",
+    category: "research",
+    date: "2025-01-09",
     author: "July",
-    image: "assets/img/portfolio-2.jpg",
+    image: "assets/img/research-01.jpg",
     excerpt: "Diving deep into the fascinating world of microbiome research and its implications for human health and disease treatment...",
     content: `
-      <p>The human microbiome represents one of the most exciting frontiers in medical research. These trillions of microorganisms living in and on our bodies play crucial roles in our health.</p>
+    <h2>引言</h2>
+      <p>PBL的wcm老师让我印象挺深刻的，第一节PBL课我作为“主席”需要添加老师微信。</p>
+      <p>当时她掏出了收付款码，我马上说：额不是收款码……</p>
+      <p>她：你不要说出来……</p>
+      <p>她笑得前仰后合，我也是第一次见这么“亲民”的一位老师。</p>
 
-      <h2>What is the Microbiome?</h2>
-      <p>The microbiome refers to all the microorganisms (bacteria, viruses, fungi, and other microbes) that live in a particular environment. In humans, our gut microbiome is particularly important.</p>
+    <h2>主体性</h2>
+      <p>第一节课，老师给我的评价是：July的特点就是很强势，能很快捕捉到别人的意思，甚至比发言人能更加明白他们自己想要表达什么东西。
+      <p>我记得她说</p>
+      <blockquote>强势不一定是一个贬义词</blockquote>
 
-      <h2>Research Applications</h2>
-      <p>Current research is exploring how the microbiome influences:</p>
-      <ul>
-        <li>Immune system function</li>
-        <li>Mental health and mood</li>
-        <li>Metabolic disorders</li>
-        <li>Response to medications</li>
-      </ul>
+      <p>我想起兼职辅导员说</p>
+      <blockquote>科研需要需要人有主体性</blockquote>
+      <p>我觉得这两句话是相辅相成的，科研需要主体性，而主体性不一定是强势的。</p>
 
-      <blockquote>
-        "The microbiome is like a hidden organ that we're only beginning to understand." - Research Insight
-      </blockquote>
+    <h2>学会怎么变成一个Leader</h2>
+      <p>在PBL中，老师让我们轮流当主席，作为主席需要引导讨论，确保每个人都有机会发言，并且把讨论引向正确的方向。</p>
+      <p>其实这个事情本身是很难的，因为你又要掌控时间，又要推进任务。老实说，第一节课我做chairman的时候表面云淡风轻，其实非常紧张，身体微微出汗。</p>
+      <p>但是通过不断的练习，我发现自己慢慢能够更好地掌控讨论的节奏，确保每个人都能参与进来，并且把讨论引向有意义的方向。</p>
+      <p>我觉得这个能力在科研中是非常重要的，因为科研往往需要团队合作，而一个好的leader能够激发团队成员的潜力，推动项目的进展。</p>
+      <p>像一直带我的师姐，和wcm老师，她们都有一个特点，能够清晰地看见别人的优点，并且引导别人看到其他人的优点。</p>
+      <p>在随后的几节课，王老师一直在引导我们更好地完成PBL，我记得最后给王老师留下了这样的评语</p>
+      <img src="assets/img/research-01-01.jpg" alt="王老师评语">
 
-      <h2>My Research Experience</h2>
-      <p>Working in this field has opened my eyes to the complexity of biological systems and the importance of interdisciplinary collaboration.</p>
+    <h2>可视化</h2>
+    <h3>可视化思维，也可视化进步</h3>
+      <p>PBL结课，老师要求以机制图可视化我们的成果。
+      做出这样的机制图，再来回看PBL，有一种收获满满的感觉。</p>  
+      <img src="assets/img/research-01-02.jpg" alt="机制图">
     `
   },
   {
