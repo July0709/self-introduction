@@ -34,7 +34,7 @@ var blogPosts = [
     id: 2,
     title: "主体性与可视化",
     category: "research",
-    date: "2025-01-09",
+    date: "2026-01-09",
     author: "July",
     image: "assets/img/research-01.png",
     excerpt: "从2025年跨年到2026年的PBL，我收获了什么...",
