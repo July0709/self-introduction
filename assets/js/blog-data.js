@@ -92,14 +92,14 @@ var blogPosts = [
     category: "life",
     date: "2026-01-15",
     author: "July",
-    image: "assets/img/life-03.jpg",
+    image: "assets/img/life-03.png",
     excerpt: "考完寄生虫那天中午，说走就走的出逃...",
     content: `
       <p>考完寄生虫那天中午，我说走就走，去了麓湖。</p>
       <img src="assets/img/life-03-01.jpg" alt="麓湖风景">
       <p>站在麓湖的山水画里，感受自然的宁静与美好。</p>
       <img src="assets/img/life-03-02.jpg" alt="麓湖山水画">
-      <img src="assets/img/life-03-03.jpg" alt="麓湖风景">
+      <img src="assets/img/life-03-03.jpg" alt="麓湖风景2">
       <p></p>
     `
   }
