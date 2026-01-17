@@ -37,7 +37,7 @@ var blogPosts = [
     date: "2025-01-09",
     author: "July",
     image: "assets/img/research-01.jpg",
-    excerpt: "Diving deep into the fascinating world of microbiome research and its implications for human health and disease treatment...",
+    excerpt: "从2025年跨年到2026年的PBL，我收获了什么...",
     content: `
     <h2>引言</h2>
       <p>PBL的wcm老师让我印象挺深刻的，第一节PBL课我作为“主席”需要添加老师微信。</p>
