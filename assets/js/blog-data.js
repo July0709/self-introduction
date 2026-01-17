@@ -2,7 +2,7 @@
 var blogPosts = [
   {
     id: 1,
-    title: "2026年的第一天-从9.03km开始",
+    title: "从9.03km开始2026",
     category: "Life",
     date: "2026-01-01",
     author: "July",
@@ -23,18 +23,17 @@ var blogPosts = [
       <p>飞鸟点缀在烟雨花城图之上，古典凉亭同高楼齐色。</p>
       <img src="assets/img/life-01-05.jpg" alt="白雾笼罩的城市">
 
-      <p>曲折的九公里，让人印象深刻的除去路上遇到的荡胸亭，一边吟诵“荡胸生曾云，决眦入归鸟”之外。
-      览遍众山小后，我们也面临着如何快速下山的问题。
-      停下脚步查攻略地图，最后抵达山脚的欣喜，
-      让我相信：
-      柳暗之处会花明，赐予我新一年逢山开路之勇气。</p>
+      <p>曲折的九公里，让人印象深刻的除去路上遇到的荡胸亭，一边吟诵“荡胸生曾云，决眦入归鸟”的潇洒之外。</p>
+      <p>览遍众山小后，我们也面临着如何快速下山的问题。</p>
+      <p>停下脚步查攻略地图，最后抵达山脚的欣喜，</p>
+      <p>让我相信柳暗之处会花明，赐予我新一年逢山开路之勇气。</p>
     `
   },
   {
     id: 2,
     title: "主体性与可视化",
     category: "research",
-    date: "2026-01-09",
+    date: "2026-01-08",
     author: "July",
     image: "assets/img/research-01.png",
     excerpt: "从2025年跨年到2026年的PBL，我收获了什么...",
@@ -72,9 +71,9 @@ var blogPosts = [
   },
   {
     id: 3,
-    title: "朋友, 原谅我，我不下船了",
+    title: "朋友，原谅我，我不下船了",
     category: "life",
-    date: "2025-01-05",
+    date: "2026-01-09",
     author: "July",
     image: "assets/img/life-02.jpg",
     excerpt: "考完微生物那天晚上，我看完了海上钢琴师...",
@@ -85,6 +84,23 @@ var blogPosts = [
       <img src="assets/img/life-02-02.jpg" alt="摘抄的影评1">
       <img src="assets/img/life-02-03.jpg" alt="摘抄的影评2">
       <p>世界缤纷而喧嚣，做一个纯粹的人。</p>
+    `
+  },
+  {
+    id: 4,
+    title: "站在麓湖的山水画里",
+    category: "life",
+    date: "2026-01-15",
+    author: "July",
+    image: "assets/img/life-03.jpg",
+    excerpt: "考完寄生虫那天中午，说走就走的出逃...",
+    content: `
+      <p>考完寄生虫那天中午，我说走就走，去了麓湖。</p>
+      <img src="assets/img/life-03-01.jpg" alt="麓湖风景">
+      <p>站在麓湖的山水画里，感受自然的宁静与美好。</p>
+      <img src="assets/img/life-03-02.jpg" alt="麓湖山水画">
+      <img src="assets/img/life-03-03.jpg" alt="麓湖风景">
+      <p></p>
     `
   }
 ];
