@@ -2,31 +2,28 @@
 var blogPosts = [
   {
     id: 1,
-    title: "My Journey into Clinical Medicine",
-    category: "Medical",
-    date: "2025-01-15",
+    title: "2026年的第一天-从9.03km开始",
+    category: "Life",
+    date: "2026-01-01",
     author: "July",
-    image: "assets/img/portfolio-1.jpg",
-    excerpt: "Sharing my experiences and insights from studying clinical medicine at Southern Medical University. From the challenges to the rewarding moments...",
+    image: "assets/img/life-01.jpg",
+    excerpt: "记录2026年的第一天，新的开始，新的希望...",
     content: `
-      <p>Studying clinical medicine has been one of the most challenging yet rewarding experiences of my life. At Southern Medical University, I've had the opportunity to learn from exceptional faculty and work alongside dedicated peers.</p>
+      <p>新年的第一天去登高，于白云山摩星岭处拥抱整座城市。</p>
+      <p>难忘是白云山入口处满墙铺满的三角梅，那好似象征白云的迎客建筑；</p>
+      <img src="assets/img/life-01-01.jpg" alt="三角梅墙">
 
-      <h2>The Beginning</h2>
-      <p>When I first entered medical school, I was overwhelmed by the sheer volume of information I needed to learn. Anatomy, physiology, biochemistry - each subject presented its own unique challenges.</p>
+      <p>是有氧小径处白发老人草编飞鸟，耳旁的哨笛忽得演一番百鸟朝凤；</p>
+      <img src="assets/img/life-01-04.jpg" alt="草编飞鸟">
 
-      <h2>Finding My Passion</h2>
-      <p>As I progressed through my studies, I discovered a particular interest in the microbiome field. The intricate relationship between microorganisms and human health fascinates me endlessly.</p>
+      <p>去看山涧处兀自盛开的睡莲，去拥大风吹向我们的“我爱广州”的气球，似春风春草温柔的娇羞。</p>
+      <img src="assets/img/life-01-03.jpg" alt="睡莲">
 
-      <h3>Key Learnings</h3>
-      <ul>
-        <li>Patience and perseverance are essential in medicine</li>
-        <li>Collaboration with peers enhances learning</li>
-        <li>Practical experience is invaluable</li>
-        <li>Continuous learning is a lifelong commitment</li>
-      </ul>
+      <p>城市被白雾笼罩，又在风的吹动下，映照在我的心房。</p>
+      <p>飞鸟点缀在烟雨花城图之上，古典凉亭同高楼齐色。</p>
+      <img src="assets/img/life-01-05.jpg" alt="白雾笼罩的城市">
 
-      <h2>Looking Forward</h2>
-      <p>I'm excited about the future and the opportunity to make a difference in healthcare. Combining medical knowledge with technology opens up endless possibilities.</p>
+      <p>我在山顶，远眺这座城，心中满是对未来的期待与憧憬。</p>
     `
   },
   {
@@ -92,6 +89,41 @@ var blogPosts = [
 
       <h2>Lessons Learned</h2>
       <p>This project taught me the importance of user feedback and iterative design. Healthcare professionals have unique needs, and understanding these needs is crucial for creating effective tools.</p>
+    `
+  },
+  {
+    id: 4,  // 新 ID，从 4 开始递增
+    title: "我的医学学习心得",
+    category: "Medical",  // 分类：Medical, Research, Technology 或自定义
+    date: "2025-01-20",  // 发布日期
+    author: "July",
+    image: "assets/img/portfolio-1.jpg",  // 使用现有图片或上传新图片
+    excerpt: "这是文章摘要，显示在博客列表卡片上，建议 50-100 字...",
+    content: `
+      <p>这里开始写正文内容。可以使用 HTML 标签格式化文本。</p>
+
+      <h2>一级标题</h2>
+      <p>这是一个段落。可以写很长的内容。</p>
+
+      <h3>二级标题</h3>
+      <p>更多段落内容...</p>
+
+      <ul>
+        <li>列表项 1</li>
+        <li>列表项 2</li>
+        <li>列表项 3</li>
+      </ul>
+
+      <blockquote>
+        这是一段引用文字，适合用来引用名言或重要观点。
+      </blockquote>
+
+      <p>可以使用 <strong>粗体</strong> 和 <em>斜体</em>。</p>
+
+      <p>代码示例：<code>console.log('Hello')</code></p>
+
+      <h2>总结</h2>
+      <p>文章结尾内容...</p>
     `
   }
 ];
