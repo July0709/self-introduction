@@ -99,7 +99,7 @@ var blogPosts = [
       <img src="assets/img/life-03-01.jpg" alt="麓湖风景">
       <p>站在麓湖的山水画里，感受自然的宁静与美好。</p>
       <img src="assets/img/life-03-02.jpg" alt="麓湖山水画">
-      <img src="assets/img/life-03-03.jpg" alt="麓湖风景2">
+      <img src="assets/img/life-03-04.jpg" alt="麓湖风景2">
       <p></p>
     `
   }
