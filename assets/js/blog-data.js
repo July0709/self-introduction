@@ -72,71 +72,19 @@ var blogPosts = [
   },
   {
     id: 3,
-    title: "Web Design for Medical Projects",
-    category: "Technology",
+    title: "朋友, 原谅我，我不下船了",
+    category: "life",
     date: "2025-01-05",
     author: "July",
-    image: "assets/img/portfolio-3.jpg",
-    excerpt: "How I combine my passion for medicine with web design skills to create user-friendly medical platforms like SMOOTH...",
+    image: "assets/img/life-02.jpg",
+    excerpt: "考完微生物那天晚上，我看完了海上钢琴师...",
     content: `
-      <p>Combining medicine with technology has become increasingly important in modern healthcare. Through my work on the SMOOTH project, I've learned how good design can make medical information more accessible.</p>
-
-      <h2>The SMOOTH Project</h2>
-      <p>SMOOTH is a platform designed to streamline medical data visualization and make it more intuitive for healthcare professionals.</p>
-
-      <h3>Design Principles</h3>
-      <ul>
-        <li><strong>Clarity:</strong> Medical information must be clear and unambiguous</li>
-        <li><strong>Accessibility:</strong> Design should be inclusive and easy to navigate</li>
-        <li><strong>Efficiency:</strong> Quick access to critical information saves lives</li>
-        <li><strong>Reliability:</strong> Systems must be stable and trustworthy</li>
-      </ul>
-
-      <h2>Technologies Used</h2>
-      <p>In building SMOOTH, we utilized modern web technologies including:</p>
-      <ul>
-        <li>Bootstrap for responsive design</li>
-        <li>JavaScript for interactive features</li>
-        <li>Data visualization libraries</li>
-      </ul>
-
-      <h2>Lessons Learned</h2>
-      <p>This project taught me the importance of user feedback and iterative design. Healthcare professionals have unique needs, and understanding these needs is crucial for creating effective tools.</p>
-    `
-  },
-  {
-    id: 4,  // 新 ID，从 4 开始递增
-    title: "我的医学学习心得",
-    category: "Medical",  // 分类：Medical, Research, Technology 或自定义
-    date: "2025-01-20",  // 发布日期
-    author: "July",
-    image: "assets/img/portfolio-1.jpg",  // 使用现有图片或上传新图片
-    excerpt: "这是文章摘要，显示在博客列表卡片上，建议 50-100 字...",
-    content: `
-      <p>这里开始写正文内容。可以使用 HTML 标签格式化文本。</p>
-
-      <h2>一级标题</h2>
-      <p>这是一个段落。可以写很长的内容。</p>
-
-      <h3>二级标题</h3>
-      <p>更多段落内容...</p>
-
-      <ul>
-        <li>列表项 1</li>
-        <li>列表项 2</li>
-        <li>列表项 3</li>
-      </ul>
-
-      <blockquote>
-        这是一段引用文字，适合用来引用名言或重要观点。
-      </blockquote>
-
-      <p>可以使用 <strong>粗体</strong> 和 <em>斜体</em>。</p>
-
-      <p>代码示例：<code>console.log('Hello')</code></p>
-
-      <h2>总结</h2>
-      <p>文章结尾内容...</p>
+      <p>考完微生物那天晚上，我看完了海上钢琴师。</p>
+      <img src="assets/img/life-02-01.jpg" alt="海上钢琴师">
+      <p>看的过程中更像是在欣赏一部音乐剧，我还专门去找了知网上的影评来看。</p>
+      <img src="assets/img/life-02-02.jpg" alt="摘抄的影评1">
+      <img src="assets/img/life-02-03.jpg" alt="摘抄的影评2">
+      <p>世界缤纷而喧嚣，做一个纯粹的人。</p>
     `
   }
 ];
