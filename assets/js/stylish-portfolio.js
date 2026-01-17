@@ -380,6 +380,50 @@
       }, 1500);
     });
   }
+
+  // Load blog posts on homepage
+  function loadBlogPosts() {
+    var blogPostsContainer = document.getElementById('blog-posts');
+    if (!blogPostsContainer) return;
+
+    var posts = getBlogPosts(3); // Load first 3 posts
+    var html = '';
+
+    posts.forEach(function(post) {
+      html += '<div class="col-lg-4 col-md-6 mb-4">';
+      html += '  <div class="blog-card">';
+      html += '    <img src="' + post.image + '" alt="' + post.title + '" class="blog-card-img" loading="lazy">';
+      html += '    <div class="blog-card-body">';
+      html += '      <span class="blog-card-category">' + post.category + '</span>';
+      html += '      <h3 class="blog-card-title">' + post.title + '</h3>';
+      html += '      <div class="blog-card-meta">';
+      html += '        <i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date);
+      html += '        <span class="mx-2">•</span>';
+      html += '        <i class="fa fa-user" aria-hidden="true"></i> ' + post.author;
+      html += '      </div>';
+      html += '      <p class="blog-card-excerpt">' + post.excerpt + '</p>';
+      html += '      <a href="blog-post.html?id=' + post.id + '" class="blog-card-link">';
+      html += '        Read More <i class="fa fa-arrow-right" aria-hidden="true"></i>';
+      html += '      </a>';
+      html += '    </div>';
+      html += '  </div>';
+      html += '</div>';
+    });
+
+    blogPostsContainer.innerHTML = html;
+  }
+
+  // Format date helper function
+  function formatDate(dateString) {
+    var date = new Date(dateString);
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  }
+
+  // Load blog posts when page loads
+  if (typeof getBlogPosts !== 'undefined') {
+    loadBlogPosts();
+  }
 })(); // End of use strict
 
 // Disable Google Maps scrolling
