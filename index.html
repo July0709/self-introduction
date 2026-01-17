@@ -4,7 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>July - Clinical Medicine Student | Southern Medical University</title>
+    <meta name="description" content="Welcome to July's personal portfolio. I am a clinical medicine student at Southern Medical University with expertise in web design, scientific research in microbiome, and proficient English skills.">
+    <meta name="keywords" content="July, Clinical Medicine, Southern Medical University, Web Design, Microbiome Research, Portfolio">
+    <meta name="author" content="July">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://july0709.github.io/self-introduction/">
+    <meta property="og:title" content="July - Clinical Medicine Student Portfolio">
+    <meta property="og:description" content="Clinical medicine student at Southern Medical University. Passionate about web design, microbiome research, and English communication.">
+    <meta property="og:image" content="https://july0709.github.io/self-introduction/assets/img/profile picture.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://july0709.github.io/self-introduction/">
+    <meta property="twitter:title" content="July - Clinical Medicine Student Portfolio">
+    <meta property="twitter:description" content="Clinical medicine student at Southern Medical University. Passionate about web design, microbiome research, and English communication.">
+    <meta property="twitter:image" content="https://july0709.github.io/self-introduction/assets/img/profile picture.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -12,12 +38,24 @@
     <link rel="stylesheet" href="assets/css/bss-overrides.css">
 </head>
 
-<body id="page-top"><a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
+<body id="page-top">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <a class="menu-toggle rounded" href="#" aria-label="Toggle menu"><i class="fa fa-bars"></i></a>
+    <button class="theme-toggle rounded" id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fa fa-moon-o"></i>
+    </button>
+    <button class="lang-toggle rounded" id="lang-toggle" aria-label="Switch language">
+        <span class="lang-text">中文</span>
+    </button>
     <nav class="navbar navbar-expand" id="sidebar-wrapper">
         <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler d-none" data-bs-target="#"></button>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
-                    <li class="nav-item sidebar-brand"><a class="nav-link active" href="#page-top">Brand</a></li>
+                    <li class="nav-item sidebar-brand"><a class="nav-link active" href="#page-top">July</a></li>
                     <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#page-top">Home</a></li>
                     <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#services">Services</a></li>
@@ -27,106 +65,242 @@
             </div>
         </div>
     </nav>
-    <header class="d-flex masthead" style="background-image:url('assets/img/bg-masthead.jpg');">
+    <header class="d-flex masthead fade-in" style="background-image:url('assets/img/bg-masthead.jpg');" role="banner">
         <div class="container my-auto text-center">
-            <h1 class="mb-1" style="color: white;">Self introduction</h1>
-            <h3 class="mb-5" style="color: white;"><em>July</em></h3><a class="btn btn-primary btn-xl" role="button" href="#about">Find Out More</a>
+            <h1 class="mb-1" style="color: white;">Self Introduction</h1>
+            <h3 class="mb-5" style="color: white;"><em>July</em></h3><a class="btn btn-primary btn-xl" role="button" href="#about" aria-label="Learn more about July">Find Out More</a>
         </div>
     </header>
-    <section id="about" class="content-section bg-light">
+    <section id="about" class="content-section bg-light fade-in" role="region" aria-labelledby="about-heading">
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <h2>I am a student from Southern Medical University, majored in clinical medicine.</h2>
-                    <p class="mb-5 lead"></p><a class="btn btn-dark btn-xl" role="button" href="#services">Who I am</a>
+                    <h2 id="about-heading">I am a student from Southern Medical University, majored in clinical medicine.</h2>
+                    <p class="mb-5 lead">Passionate about combining medical knowledge with technology to make a difference in healthcare.</p>
+                    <a class="btn btn-dark btn-xl" role="button" href="#services" aria-label="Learn more about what July does">Who I Am</a>
                 </div>
             </div>
         </div>
     </section>
-    <section id="services" class="content-section bg-primary text-white text-center">
+    <section id="services" class="content-section bg-primary text-white text-center fade-in" role="region" aria-labelledby="services-heading">
         <div class="container">
             <div class="content-section-heading">
                 <h3 class="text-secondary mb-0">Things</h3>
-                <h2 class="mb-5">That I manage</h2>
+                <h2 id="services-heading" class="mb-5">That I Manage</h2>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"><span class="mb-3 mx-auto service-icon rounded-circle"><i class="icon-globe"></i></span>
-                    <h4><strong>web design</strong></h4>
+                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                    <span class="mb-3 mx-auto service-icon rounded-circle" aria-hidden="true"><i class="icon-globe"></i></span>
+                    <h4><strong>Web Design</strong></h4>
                     <p class="mb-0 text-faded">I currently design the page for SMOOTH</p>
                 </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"><span class="mb-3 mx-auto service-icon rounded-circle"><i class="icon-pencil"></i></span>
-                    <h4><strong>scientific research</strong></h4>
-                    <p class="mb-0 text-faded">in the field of microbiome</p>
+                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                    <span class="mb-3 mx-auto service-icon rounded-circle" aria-hidden="true"><i class="icon-pencil"></i></span>
+                    <h4><strong>Scientific Research</strong></h4>
+                    <p class="mb-0 text-faded">In the field of microbiome</p>
                 </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"><span class="mb-3 mx-auto service-icon rounded-circle"><i class="icon-folder-alt"></i></span>
-                    <h4><strong>file management</strong></h4>
-                    <p class="mb-0 text-faded"><span>working with great habits</span><span></span></p>
+                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                    <span class="mb-3 mx-auto service-icon rounded-circle" aria-hidden="true"><i class="icon-folder-alt"></i></span>
+                    <h4><strong>File Management</strong></h4>
+                    <p class="mb-0 text-faded">Working with great habits</p>
                 </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"><span class="mb-3 mx-auto service-icon rounded-circle"><i class="icon-mustache"></i></span>
+                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                    <span class="mb-3 mx-auto service-icon rounded-circle" aria-hidden="true"><i class="icon-mustache"></i></span>
                     <h4><strong>English</strong></h4>
-                    <p class="mb-0 text-faded">spoken English is good</p>
+                    <p class="mb-0 text-faded">Spoken English is good</p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="portfolio" class="content-section">
+    <section id="portfolio" class="content-section fade-in" role="region" aria-labelledby="portfolio-heading">
         <div class="container">
             <div class="content-section-heading text-center">
-                <h3 class="text-secondary mb-0">Things I like</h3>
-                <h2 class="mb-5">Github account</h2><img class="img-fluid" width="2013" height="1481" src="assets/img/clipboard-image.png">
-                <h2 class="mb-5">Other things I like</h2>
+                <h3 class="text-secondary mb-0">Things I Like</h3>
+                <h2 id="portfolio-heading" class="mb-5">GitHub Account</h2>
+                <img class="img-fluid" width="2013" height="1481" src="assets/img/clipboard-image.png" alt="July's GitHub profile screenshot showing repositories and contributions" loading="lazy">
+                <h2 class="mb-5">Other Things I Like</h2>
             </div>
             <div class="row g-0">
-                <div class="col-lg-6"><a class="portfolio-item" href="#">
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#portfolio-modal-1" data-bs-toggle="modal" aria-label="View sunset photo details">
                         <div class="caption">
                             <div class="caption-content">
                                 <h2>Sunset</h2>
                                 <p class="mb-0">A beautiful sunset over the city, with vibrant colors filling the sky.</p>
                             </div>
-                        </div><img class="img-fluid" src="assets/img/portfolio-1.jpg">
-                    </a></div>
-                <div class="col-lg-6"><a class="portfolio-item" href="#">
+                        </div>
+                        <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="Beautiful sunset over the city with vibrant orange and pink colors" loading="lazy">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#portfolio-modal-2" data-bs-toggle="modal" aria-label="View cats photo details">
                         <div class="caption">
                             <div class="caption-content">
                                 <h2>Cats</h2>
                                 <p class="mb-0">Cats are such curious and playful creatures, always getting into mischief!</p>
                             </div>
-                        </div><img class="img-fluid" src="assets/img/portfolio-2.jpg">
-                    </a></div>
-                <div class="col-lg-6"><a class="portfolio-item" href="#">
+                        </div>
+                        <img class="img-fluid" src="assets/img/portfolio-2.jpg" alt="Cute and playful cats" loading="lazy">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#portfolio-modal-3" data-bs-toggle="modal" aria-label="View badminton photo details">
                         <div class="caption">
                             <div class="caption-content">
                                 <h2>Badminton</h2>
                                 <p class="mb-0">Badminton is such a fun and fast-paced sport, perfect for a sunny day!</p>
                             </div>
-                        </div><img class="img-fluid" src="assets/img/portfolio-3.jpg">
-                    </a></div>
-                <div class="col-lg-6"><a class="portfolio-item" href="#">
+                        </div>
+                        <img class="img-fluid" src="assets/img/portfolio-3.jpg" alt="Playing badminton on a sunny day" loading="lazy">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#portfolio-modal-4" data-bs-toggle="modal" aria-label="View stars photo details">
                         <div class="caption">
                             <div class="caption-content">
                                 <h2>Stars</h2>
                                 <p class="mb-0">A beautiful night sky filled with twinkling stars, each one telling its own story.</p>
                             </div>
-                        </div><img class="img-fluid" src="assets/img/portfolio-4.jpg">
-                    </a></div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/portfolio-4.jpg" alt="Beautiful night sky filled with twinkling stars" loading="lazy">
+                    </a>
+                </div>
             </div>
         </div>
     </section>
-    <section class="content-section bg-primary text-white">
+    <section class="content-section bg-primary text-white fade-in" role="region">
         <div class="container text-center">
-            <h2 class="mb-4">The buttons below are impossible to resist..</h2><a class="btn btn-light me-4 btn-xl" role="button" href="#">Click Me!</a><a class="btn btn-dark me-4 btn-xl" role="button" href="#">Look at Me</a>
+            <h2 class="mb-4">Let's Connect!</h2>
+            <a class="btn btn-light me-4 btn-xl" role="button" href="#contact" aria-label="Go to contact section">Contact Me</a>
+            <a class="btn btn-dark me-4 btn-xl" role="button" href="https://github.com/July0709" target="_blank" rel="noopener noreferrer" aria-label="Visit July's GitHub profile">My GitHub</a>
         </div>
     </section>
-    <footer class="footer text-center">
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section bg-light fade-in" role="region" aria-labelledby="contact-heading">
+        <div class="container">
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">Get In Touch</h3>
+                <h2 id="contact-heading" class="mb-5">Contact Me</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" novalidate>
+                        <div class="mb-4">
+                            <label for="name" class="form-label">Name *</label>
+                            <input type="text" class="form-control form-control-lg" id="name" name="name" required aria-required="true" placeholder="Your name">
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" class="form-control form-control-lg" id="email" name="email" required aria-required="true" placeholder="your.email@example.com">
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input type="text" class="form-control form-control-lg" id="subject" name="subject" required aria-required="true" placeholder="What's this about?">
+                            <div class="invalid-feedback">Please enter a subject.</div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea class="form-control form-control-lg" id="message" name="message" rows="5" required aria-required="true" placeholder="Your message here..."></textarea>
+                            <div class="invalid-feedback">Please enter a message.</div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-xl">Send Message</button>
+                        </div>
+                        <div id="formStatus" class="mt-3 text-center" role="alert" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer text-center" role="contentinfo">
         <div class="container">
             <ul class="list-inline mb-5">
-                <li class="list-inline-item">&nbsp;<a class="link-light social-link rounded-circle" href="#"><i class="icon-social-facebook"></i></a></li>
-                <li class="list-inline-item">&nbsp;<a class="link-light social-link rounded-circle" href="#"><i class="icon-social-twitter"></i></a></li>
-                <li class="list-inline-item">&nbsp;<a class="link-light social-link rounded-circle" href="#"><i class="icon-social-github"></i></a></li>
+                <li class="list-inline-item">&nbsp;
+                    <a class="link-light social-link rounded-circle" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit July on Facebook">
+                        <i class="icon-social-facebook" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">&nbsp;
+                    <a class="link-light social-link rounded-circle" href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Visit July on Twitter">
+                        <i class="icon-social-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">&nbsp;
+                    <a class="link-light social-link rounded-circle" href="https://github.com/July0709" target="_blank" rel="noopener noreferrer" aria-label="Visit July on GitHub">
+                        <i class="icon-social-github" aria-hidden="true"></i>
+                    </a>
+                </li>
             </ul>
-            <p class="text-muted mb-0 small">Copyright &nbsp;© Brand 2025</p>
-        </div><a class="scroll-to-top rounded" href="#page-top"><i class="fa fa-angle-up"></i></a>
+            <p class="text-muted mb-0 small">Copyright &copy; July 2025</p>
+        </div>
+        <a class="scroll-to-top rounded" href="#page-top" aria-label="Scroll to top">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </a>
     </footer>
+
+    <!-- Portfolio Modals -->
+    <div class="modal fade" id="portfolio-modal-1" tabindex="-1" aria-labelledby="portfolio-modal-1-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="portfolio-modal-1-label">Sunset</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/img/portfolio-1.jpg" class="img-fluid mb-3" alt="Beautiful sunset over the city">
+                    <p>A beautiful sunset over the city, with vibrant colors filling the sky. There's something magical about watching the day transition into night, with the sky painted in shades of orange, pink, and purple.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="portfolio-modal-2" tabindex="-1" aria-labelledby="portfolio-modal-2-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="portfolio-modal-2-label">Cats</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/img/portfolio-2.jpg" class="img-fluid mb-3" alt="Cute and playful cats">
+                    <p>Cats are such curious and playful creatures, always getting into mischief! Their independence and charm make them wonderful companions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="portfolio-modal-3" tabindex="-1" aria-labelledby="portfolio-modal-3-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="portfolio-modal-3-label">Badminton</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/img/portfolio-3.jpg" class="img-fluid mb-3" alt="Playing badminton">
+                    <p>Badminton is such a fun and fast-paced sport, perfect for a sunny day! It's a great way to stay active and enjoy time with friends.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="portfolio-modal-4" tabindex="-1" aria-labelledby="portfolio-modal-4-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="portfolio-modal-4-label">Stars</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/img/portfolio-4.jpg" class="img-fluid mb-3" alt="Night sky with stars">
+                    <p>A beautiful night sky filled with twinkling stars, each one telling its own story. Stargazing reminds us of the vastness of the universe and our place in it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/stylish-portfolio.js"></script>
 </body>
