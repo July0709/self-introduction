@@ -36,7 +36,7 @@ var blogPosts = [
     category: "research",
     date: "2025-01-09",
     author: "July",
-    image: "assets/img/research-01.jpg",
+    image: "assets/img/research-01.png",
     excerpt: "从2025年跨年到2026年的PBL，我收获了什么...",
     content: `
     <h2>引言</h2>
