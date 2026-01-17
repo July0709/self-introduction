@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blog - July's Portfolio</title>
+    <meta name="description" content="Read July's blog posts about clinical medicine, microbiome research, and web design.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+</head>
+
+<body id="page-top">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <button class="theme-toggle rounded" id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fa fa-moon-o"></i>
+    </button>
+    <button class="lang-toggle rounded" id="lang-toggle" aria-label="Switch language">
+        <span class="lang-text">中文</span>
+    </button>
+
+    <!-- Header -->
+    <header class="blog-post-header">
+        <div class="container">
+            <h1>Blog Posts</h1>
+            <p class="blog-post-meta">Thoughts on Medicine, Research & Technology</p>
+            <a href="index.html" class="btn btn-light mt-3">
+                <i class="fa fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Blog Posts -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row" id="all-blog-posts">
+                <!-- Blog posts will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center bg-dark text-white py-4">
+        <div class="container">
+            <p class="mb-0">&copy; July 2025 | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/blog-data.js"></script>
+    <script>
+        (function() {
+            "use strict";
+
+            // Theme toggle functionality
+            var themeToggle = document.getElementById('theme-toggle');
+            var htmlElement = document.documentElement;
+            var savedTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-bs-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    var currentTheme = htmlElement.getAttribute('data-bs-theme');
+                    var newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                    htmlElement.setAttribute('data-bs-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    updateThemeIcon(newTheme);
+                });
+            }
+
+            function updateThemeIcon(theme) {
+                var icon = themeToggle.querySelector('i');
+                if (icon) {
+                    if (theme === 'dark') {
+                        icon.classList.remove('fa-moon-o');
+                        icon.classList.add('fa-sun-o');
+                    } else {
+                        icon.classList.remove('fa-sun-o');
+                        icon.classList.add('fa-moon-o');
+                    }
+                }
+            }
+
+            // Load all blog posts
+            function loadAllBlogPosts() {
+                var container = document.getElementById('all-blog-posts');
+                if (!container) return;
+
+                var posts = getBlogPosts();
+                var html = '';
+
+                posts.forEach(function(post) {
+                    html += '<div class="col-lg-4 col-md-6 mb-4">';
+                    html += '  <div class="blog-card">';
+                    html += '    <img src="' + post.image + '" alt="' + post.title + '" class="blog-card-img" loading="lazy">';
+                    html += '    <div class="blog-card-body">';
+                    html += '      <span class="blog-card-category">' + post.category + '</span>';
+                    html += '      <h3 class="blog-card-title">' + post.title + '</h3>';
+                    html += '      <div class="blog-card-meta">';
+                    html += '        <i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date);
+                    html += '        <span class="mx-2">•</span>';
+                    html += '        <i class="fa fa-user" aria-hidden="true"></i> ' + post.author;
+                    html += '      </div>';
+                    html += '      <p class="blog-card-excerpt">' + post.excerpt + '</p>';
+                    html += '      <a href="blog-post.html?id=' + post.id + '" class="blog-card-link">';
+                    html += '        Read More <i class="fa fa-arrow-right" aria-hidden="true"></i>';
+                    html += '      </a>';
+                    html += '    </div>';
+                    html += '  </div>';
+                    html += '</div>';
+                });
+
+                container.innerHTML = html;
+            }
+
+            function formatDate(dateString) {
+                var date = new Date(dateString);
+                var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString('en-US', options);
+            }
+
+            // Loading screen
+            window.addEventListener('load', function() {
+                var loadingScreen = document.querySelector('.loading-screen');
+                if (loadingScreen) {
+                    setTimeout(function() {
+                        loadingScreen.classList.add('hidden');
+                    }, 500);
+                }
+            });
+
+            // Load posts
+            loadAllBlogPosts();
+        })();
+    </script>
+</body>
+
+</html>
