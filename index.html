@@ -60,6 +60,7 @@
                     <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#blog">Blog</a></li>
                     <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -122,7 +123,7 @@
             </div>
             <div class="row g-0">
                 <div class="col-lg-6">
-                    <a class="portfolio-item" href="#portfolio-modal-1" data-bs-toggle="modal" aria-label="View sunset photo details">
+                    <div class="portfolio-item">
                         <div class="caption">
                             <div class="caption-content">
                                 <h2>Sunset</h2>
@@ -130,10 +131,10 @@
                             </div>
                         </div>
                         <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="Beautiful sunset over the city with vibrant orange and pink colors" loading="lazy">
-                    </a>
+                    </div>
                 </div>
                 <div class="col-lg-6">
-                    <a class="portfolio-item" href="#portfolio-modal-2" data-bs-toggle="modal" aria-label="View cats photo details">
+                    <div class="portfolio-item">
                         <div class="caption">
                             <div class="caption-content">
                                 <h2>Cats</h2>
@@ -141,10 +142,10 @@
                             </div>
                         </div>
                         <img class="img-fluid" src="assets/img/portfolio-2.jpg" alt="Cute and playful cats" loading="lazy">
-                    </a>
+                    </div>
                 </div>
                 <div class="col-lg-6">
-                    <a class="portfolio-item" href="#portfolio-modal-3" data-bs-toggle="modal" aria-label="View badminton photo details">
+                    <div class="portfolio-item">
                         <div class="caption">
                             <div class="caption-content">
                                 <h2>Badminton</h2>
@@ -152,10 +153,10 @@
                             </div>
                         </div>
                         <img class="img-fluid" src="assets/img/portfolio-3.jpg" alt="Playing badminton on a sunny day" loading="lazy">
-                    </a>
+                    </div>
                 </div>
                 <div class="col-lg-6">
-                    <a class="portfolio-item" href="#portfolio-modal-4" data-bs-toggle="modal" aria-label="View stars photo details">
+                    <div class="portfolio-item">
                         <div class="caption">
                             <div class="caption-content">
                                 <h2>Stars</h2>
@@ -163,11 +164,27 @@
                             </div>
                         </div>
                         <img class="img-fluid" src="assets/img/portfolio-4.jpg" alt="Beautiful night sky filled with twinkling stars" loading="lazy">
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- Blog Section -->
+    <section id="blog" class="content-section bg-light fade-in" role="region" aria-labelledby="blog-heading">
+        <div class="container">
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">My Thoughts</h3>
+                <h2 id="blog-heading" class="mb-5">Blog Posts</h2>
+            </div>
+            <div class="row" id="blog-posts">
+                <!-- Blog posts will be loaded here -->
+            </div>
+            <div class="text-center mt-4">
+                <a class="btn btn-primary btn-xl" href="blog.html" role="button">View All Posts</a>
+            </div>
+        </div>
+    </section>
+
     <section class="content-section bg-primary text-white fade-in" role="region">
         <div class="container text-center">
             <h2 class="mb-4">Let's Connect!</h2>
@@ -240,68 +257,8 @@
             <i class="fa fa-angle-up" aria-hidden="true"></i>
         </a>
     </footer>
-
-    <!-- Portfolio Modals -->
-    <div class="modal fade" id="portfolio-modal-1" tabindex="-1" aria-labelledby="portfolio-modal-1-label" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="portfolio-modal-1-label">Sunset</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="assets/img/portfolio-1.jpg" class="img-fluid mb-3" alt="Beautiful sunset over the city">
-                    <p>A beautiful sunset over the city, with vibrant colors filling the sky. There's something magical about watching the day transition into night, with the sky painted in shades of orange, pink, and purple.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="portfolio-modal-2" tabindex="-1" aria-labelledby="portfolio-modal-2-label" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="portfolio-modal-2-label">Cats</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="assets/img/portfolio-2.jpg" class="img-fluid mb-3" alt="Cute and playful cats">
-                    <p>Cats are such curious and playful creatures, always getting into mischief! Their independence and charm make them wonderful companions.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="portfolio-modal-3" tabindex="-1" aria-labelledby="portfolio-modal-3-label" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="portfolio-modal-3-label">Badminton</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="assets/img/portfolio-3.jpg" class="img-fluid mb-3" alt="Playing badminton">
-                    <p>Badminton is such a fun and fast-paced sport, perfect for a sunny day! It's a great way to stay active and enjoy time with friends.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="portfolio-modal-4" tabindex="-1" aria-labelledby="portfolio-modal-4-label" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="portfolio-modal-4-label">Stars</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="assets/img/portfolio-4.jpg" class="img-fluid mb-3" alt="Night sky with stars">
-                    <p>A beautiful night sky filled with twinkling stars, each one telling its own story. Stargazing reminds us of the vastness of the universe and our place in it.</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/blog-data.js"></script>
     <script src="assets/js/stylish-portfolio.js"></script>
 </body>
 
