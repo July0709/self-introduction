@@ -4,18 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title id="page-title">Blog Post - July's Portfolio</title>
+    <title id="page-title">Blog Post — July's Portfolio</title>
     <meta name="description" content="Read July's blog post.">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/bss-overrides.css">
@@ -27,37 +24,41 @@
         <div class="loading-spinner"></div>
     </div>
 
-    <button class="theme-toggle rounded" id="theme-toggle" aria-label="Toggle dark mode">
-        <i class="fa fa-moon-o"></i>
-    </button>
-    <button class="lang-toggle rounded" id="lang-toggle" aria-label="Switch language">
-        <span class="lang-text">中文</span>
-    </button>
-
-    <!-- Header -->
-    <header class="blog-post-header" id="post-header">
-        <!-- Will be populated by JavaScript -->
-    </header>
-
-    <!-- Blog Post Content -->
-    <div class="blog-post-content" id="post-content">
-        <!-- Will be populated by JavaScript -->
-    </div>
-
     <!-- Navigation -->
-    <section class="bg-light py-5">
-        <div class="container text-center">
-            <a href="blog.html" class="btn btn-primary btn-lg me-3">
-                <i class="fa fa-arrow-left"></i> All Posts
+    <nav class="apple-nav" role="navigation" aria-label="Main navigation">
+        <div class="apple-nav-inner">
+            <a class="apple-nav-brand" href="index.html">July</a>
+            <div class="apple-nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                </button>
+                <a class="apple-btn apple-btn-outline-dark" href="blog.html" style="font-size:0.8125rem; padding: 0.3rem 1rem; height:28px; margin-right:0.4rem;">
+                    <i class="fa fa-arrow-left me-1" aria-hidden="true"></i> All Posts
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Header (populated by JS) -->
+    <header class="blog-post-header" id="post-header"></header>
+
+    <!-- Post Content (populated by JS) -->
+    <div class="blog-post-content" id="post-content"></div>
+
+    <!-- Navigation buttons -->
+    <section class="apple-section apple-section-gray" style="padding: 2.5rem 0;">
+        <div class="container text-center d-flex justify-content-center gap-3 flex-wrap">
+            <a href="blog.html" class="apple-btn apple-btn-primary">
+                <i class="fa fa-arrow-left me-1" aria-hidden="true"></i> All Posts
             </a>
-            <a href="index.html" class="btn btn-outline-primary btn-lg">
-                <i class="fa fa-home"></i> Home
+            <a href="index.html" class="apple-btn apple-btn-outline-dark">
+                <i class="fa fa-home me-1" aria-hidden="true"></i> Home
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer text-center bg-dark text-white py-4">
+    <footer class="apple-footer" role="contentinfo">
         <div class="container">
             <p class="mb-0">&copy; July 2025 | All Rights Reserved</p>
         </div>
@@ -66,98 +67,67 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/blog-data.js"></script>
     <script>
-        (function() {
+        (function () {
             "use strict";
 
-            // Theme toggle functionality
+            /* Theme */
             var themeToggle = document.getElementById('theme-toggle');
-            var htmlElement = document.documentElement;
+            var htmlEl = document.documentElement;
             var savedTheme = localStorage.getItem('theme') || 'light';
-            htmlElement.setAttribute('data-bs-theme', savedTheme);
-            updateThemeIcon(savedTheme);
+            htmlEl.setAttribute('data-bs-theme', savedTheme);
+            setIcon(savedTheme);
 
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function() {
-                    var currentTheme = htmlElement.getAttribute('data-bs-theme');
-                    var newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                    htmlElement.setAttribute('data-bs-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-                    updateThemeIcon(newTheme);
-                });
-            }
-
-            function updateThemeIcon(theme) {
-                var icon = themeToggle.querySelector('i');
-                if (icon) {
-                    if (theme === 'dark') {
-                        icon.classList.remove('fa-moon-o');
-                        icon.classList.add('fa-sun-o');
-                    } else {
-                        icon.classList.remove('fa-sun-o');
-                        icon.classList.add('fa-moon-o');
-                    }
-                }
-            }
-
-            // Get post ID from URL
-            function getPostIdFromURL() {
-                var params = new URLSearchParams(window.location.search);
-                return params.get('id');
-            }
-
-            // Load blog post
-            function loadBlogPost() {
-                var postId = getPostIdFromURL();
-                if (!postId) {
-                    window.location.href = 'blog.html';
-                    return;
-                }
-
-                var post = getBlogPost(postId);
-                if (!post) {
-                    window.location.href = 'blog.html';
-                    return;
-                }
-
-                // Update page title
-                document.getElementById('page-title').textContent = post.title + ' - July\'s Blog';
-
-                // Render header
-                var header = document.getElementById('post-header');
-                header.innerHTML = `
-                    <div class="container">
-                        <span class="blog-card-category">${post.category}</span>
-                        <h1 class="blog-post-title">${post.title}</h1>
-                        <div class="blog-post-meta">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> ${formatDate(post.date)}
-                            <span class="mx-2">•</span>
-                            <i class="fa fa-user" aria-hidden="true"></i> ${post.author}
-                        </div>
-                    </div>
-                `;
-
-                // Render content
-                var content = document.getElementById('post-content');
-                content.innerHTML = post.content;
-            }
-
-            function formatDate(dateString) {
-                var date = new Date(dateString);
-                var options = { year: 'numeric', month: 'long', day: 'numeric' };
-                return date.toLocaleDateString('en-US', options);
-            }
-
-            // Loading screen
-            window.addEventListener('load', function() {
-                var loadingScreen = document.querySelector('.loading-screen');
-                if (loadingScreen) {
-                    setTimeout(function() {
-                        loadingScreen.classList.add('hidden');
-                    }, 500);
-                }
+            themeToggle && themeToggle.addEventListener('click', function () {
+                var t = htmlEl.getAttribute('data-bs-theme') === 'light' ? 'dark' : 'light';
+                htmlEl.setAttribute('data-bs-theme', t);
+                localStorage.setItem('theme', t);
+                setIcon(t);
             });
 
-            // Load post
+            function setIcon(theme) {
+                var icon = themeToggle && themeToggle.querySelector('i');
+                if (!icon) return;
+                icon.className = theme === 'dark' ? 'fa fa-sun-o' : 'fa fa-moon-o';
+            }
+
+            /* Loading screen */
+            window.addEventListener('load', function () {
+                var ls = document.querySelector('.loading-screen');
+                if (ls) setTimeout(function () { ls.classList.add('hidden'); }, 400);
+            });
+
+            /* Helpers */
+            function formatDate(dateString) {
+                return new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            }
+
+            function getPostIdFromURL() {
+                return new URLSearchParams(window.location.search).get('id');
+            }
+
+            /* Load post */
+            function loadBlogPost() {
+                var postId = getPostIdFromURL();
+                if (!postId) { window.location.href = 'blog.html'; return; }
+
+                var post = getBlogPost(postId);
+                if (!post) { window.location.href = 'blog.html'; return; }
+
+                document.getElementById('page-title').textContent = post.title + ' — July\'s Blog';
+
+                document.getElementById('post-header').innerHTML =
+                    '<div class="container">' +
+                    '<span class="blog-card-category" style="background:rgba(64,156,255,0.15);color:#409cff;">' + post.category + '</span>' +
+                    '<h1 class="blog-post-title mt-3">' + post.title + '</h1>' +
+                    '<div class="blog-post-meta">' +
+                    '<i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date) +
+                    ' <span class="mx-2">·</span>' +
+                    '<i class="fa fa-user" aria-hidden="true"></i> ' + post.author +
+                    '</div></div>';
+
+                document.getElementById('post-content').innerHTML = post.content;
+            }
+
             loadBlogPost();
         })();
     </script>

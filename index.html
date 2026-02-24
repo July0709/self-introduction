@@ -4,227 +4,276 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>July - Clinical Medicine Student | Southern Medical University</title>
+    <title>July — Clinical Medicine Student</title>
     <meta name="description" content="Welcome to July's personal portfolio. I am a clinical medicine student at Southern Medical University with expertise in web design, scientific research in microbiome, and proficient English skills.">
     <meta name="keywords" content="July, Clinical Medicine, Southern Medical University, Web Design, Microbiome Research, Portfolio">
     <meta name="author" content="July">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://july0709.github.io/self-introduction/">
-    <meta property="og:title" content="July - Clinical Medicine Student Portfolio">
-    <meta property="og:description" content="Clinical medicine student at Southern Medical University. Passionate about web design, microbiome research, and English communication.">
+    <meta property="og:title" content="July — Clinical Medicine Student">
+    <meta property="og:description" content="Clinical medicine student at Southern Medical University.">
     <meta property="og:image" content="https://july0709.github.io/self-introduction/assets/img/profile picture.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://july0709.github.io/self-introduction/">
-    <meta property="twitter:title" content="July - Clinical Medicine Student Portfolio">
-    <meta property="twitter:description" content="Clinical medicine student at Southern Medical University. Passionate about web design, microbiome research, and English communication.">
-    <meta property="twitter:image" content="https://july0709.github.io/self-introduction/assets/img/profile picture.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
 
-    <!-- Preconnect to external domains for performance -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/bss-overrides.css">
 </head>
 
 <body id="page-top">
+
     <!-- Loading Screen -->
     <div class="loading-screen">
         <div class="loading-spinner"></div>
     </div>
 
-    <a class="menu-toggle rounded" href="#" aria-label="Toggle menu"><i class="fa fa-bars"></i></a>
-    <button class="theme-toggle rounded" id="theme-toggle" aria-label="Toggle dark mode">
-        <i class="fa fa-moon-o"></i>
-    </button>
-    <button class="lang-toggle rounded" id="lang-toggle" aria-label="Switch language">
-        <span class="lang-text">中文</span>
-    </button>
-    <nav class="navbar navbar-expand" id="sidebar-wrapper">
-        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler d-none" data-bs-target="#"></button>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
-                    <li class="nav-item sidebar-brand"><a class="nav-link active" href="#page-top">July</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#page-top">Home</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+    <!-- ==============================
+         Apple-style Top Navigation
+         ============================== -->
+    <nav class="apple-nav" id="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="apple-nav-inner">
+            <!-- Brand -->
+            <a class="apple-nav-brand" href="#page-top">July</a>
+
+            <!-- Mobile toggle -->
+            <button class="apple-nav-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <!-- Nav links -->
+            <ul class="apple-nav-menu" id="nav-menu" role="menubar">
+                <li role="none"><a href="#page-top" role="menuitem">Home</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
+                <li role="none"><a href="#blog" role="menuitem">Blog</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            </ul>
+
+            <!-- Actions -->
+            <div class="apple-nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                </button>
+                <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+                    <span class="lang-text">中文</span>
+                </button>
             </div>
         </div>
     </nav>
-    <header class="d-flex masthead fade-in" style="background-image:url('assets/img/bg-masthead.jpg');" role="banner">
-        <div class="container my-auto text-center">
-            <h1 class="mb-1" style="color: white;">Self Introduction</h1>
-            <h3 class="mb-5" style="color: white;"><em>July</em></h3><a class="btn btn-primary btn-xl" role="button" href="#about" aria-label="Learn more about July">Find Out More</a>
+
+    <!-- ==============================
+         Hero
+         ============================== -->
+    <header class="masthead fade-in" style="background-image:url('assets/img/bg-masthead.jpg');" role="banner" id="hero">
+        <div class="hero-content">
+            <span class="hero-eyebrow" id="hero-eyebrow">Southern Medical University</span>
+            <h1 class="hero-title" id="hero-title">Self Introduction</h1>
+            <p class="hero-subtitle"><em id="hero-subtitle">July</em></p>
+            <a class="apple-btn apple-btn-outline" href="#about" id="hero-btn" aria-label="Learn more about July">
+                Find Out More <i class="fa fa-chevron-down ms-1" aria-hidden="true"></i>
+            </a>
         </div>
     </header>
-    <section id="about" class="content-section bg-light fade-in" role="region" aria-labelledby="about-heading">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h2 id="about-heading">I am a student from Southern Medical University, majored in clinical medicine.</h2>
-                    <p class="mb-5 lead">Passionate about combining medical knowledge with technology to make a difference in healthcare.</p>
-                    <a class="btn btn-dark btn-xl" role="button" href="#services" aria-label="Learn more about what July does">Who I Am</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="services" class="content-section bg-primary text-white text-center fade-in" role="region" aria-labelledby="services-heading">
+
+    <!-- ==============================
+         About
+         ============================== -->
+    <section id="about" class="apple-section apple-section-white fade-in" role="region" aria-labelledby="about-heading">
         <div class="container">
-            <div class="content-section-heading">
-                <h3 class="text-secondary mb-0">Things</h3>
-                <h2 id="services-heading" class="mb-5">That I Manage</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <span class="mb-3 mx-auto service-icon rounded-circle" aria-hidden="true"><i class="icon-globe"></i></span>
-                    <h4><strong>Web Design</strong></h4>
-                    <p class="mb-0 text-faded">I currently design the page for SMOOTH</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <span class="mb-3 mx-auto service-icon rounded-circle" aria-hidden="true"><i class="icon-pencil"></i></span>
-                    <h4><strong>Scientific Research</strong></h4>
-                    <p class="mb-0 text-faded">In the field of microbiome</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <span class="mb-3 mx-auto service-icon rounded-circle" aria-hidden="true"><i class="icon-folder-alt"></i></span>
-                    <h4><strong>File Management</strong></h4>
-                    <p class="mb-0 text-faded">Working with great habits</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <span class="mb-3 mx-auto service-icon rounded-circle" aria-hidden="true"><i class="icon-mustache"></i></span>
-                    <h4><strong>English</strong></h4>
-                    <p class="mb-0 text-faded">Spoken English is good</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolio" class="content-section">
-        <div class="container">
-            <div class="content-section-heading text-center">
-                <h3 class="text-secondary mb-0">Things I like</h3>
-                <h2 class="mb-5">Github account</h2>
-                <img class="img-fluid" width="2013" height="1481" src="assets/img/clipboard-image.png" alt="July's GitHub profile">
-                <h2 class="mb-5">Other things I like</h2>
-            </div>
-            <div class="row g-0">
-                <div class="col-lg-6">
-                    <a class="portfolio-item" href="#">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h2>Sunset</h2>
-                                <p class="mb-0">A beautiful sunset over the city, with vibrant colors filling the sky.</p>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="Sunset">
-                    </a>
-                </div>
-                <div class="col-lg-6">
-                    <a class="portfolio-item" href="#">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h2>Cats</h2>
-                                <p class="mb-0">Cats are such curious and playful creatures, always getting into mischief!</p>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio-2.jpg" alt="Cats">
-                    </a>
-                </div>
-                <div class="col-lg-6">
-                    <a class="portfolio-item" href="#">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h2>Badminton</h2>
-                                <p class="mb-0">Badminton is such a fun and fast-paced sport, perfect for a sunny day!</p>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio-3.jpg" alt="Badminton">
-                    </a>
-                </div>
-                <div class="col-lg-6">
-                    <a class="portfolio-item" href="#">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h2>Stars</h2>
-                                <p class="mb-0">A beautiful night sky filled with twinkling stars, each one telling its own story.</p>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio-4.jpg" alt="Stars">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Blog Section -->
-    <section id="blog" class="content-section bg-light fade-in" role="region" aria-labelledby="blog-heading">
-        <div class="container">
-            <div class="content-section-heading text-center">
-                <h3 class="text-secondary mb-0">My Thoughts</h3>
-                <h2 id="blog-heading" class="mb-5">Blog Posts</h2>
-            </div>
-            <div class="row" id="blog-posts">
-                <!-- Blog posts will be loaded here -->
-            </div>
-            <div class="text-center mt-4">
-                <a class="btn btn-primary btn-xl" href="blog.html" role="button">View All Posts</a>
+            <div class="about-content">
+                <span class="section-eyebrow" id="about-eyebrow">About Me</span>
+                <h2 class="section-title" id="about-heading">
+                    I am a student from Southern Medical University, majored in clinical medicine.
+                </h2>
+                <p class="section-subtitle mb-4" id="about-text">
+                    Passionate about combining medical knowledge with technology to make a difference in healthcare.
+                </p>
+                <a class="apple-btn apple-btn-outline-dark" href="#services" id="about-btn" aria-label="See what July does">
+                    Who I Am
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="content-section bg-primary text-white fade-in" role="region">
-        <div class="container text-center">
-            <h2 class="mb-4">Let's Connect!</h2>
-            <a class="btn btn-light me-4 btn-xl" role="button" href="#contact" aria-label="Go to contact section">Contact Me</a>
-            <a class="btn btn-dark me-4 btn-xl" role="button" href="https://github.com/July0709" target="_blank" rel="noopener noreferrer" aria-label="Visit July's GitHub profile">My GitHub</a>
+    <!-- ==============================
+         Services / Features
+         ============================== -->
+    <section id="services" class="apple-section apple-section-gray fade-in" role="region" aria-labelledby="services-heading">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-eyebrow" id="services-eyebrow">Things</span>
+                <h2 class="section-title" id="services-heading">That I Manage</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="icon-globe" aria-hidden="true"></i></div>
+                    <h3 class="feature-title" id="s1-title">Web Design</h3>
+                    <p class="feature-desc" id="s1-text">I currently design the page for SMOOTH</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #5856d6 0%, #af52de 100%);">
+                        <i class="icon-pencil" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="feature-title" id="s2-title">Scientific Research</h3>
+                    <p class="feature-desc" id="s2-text">In the field of microbiome</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #ff9500 0%, #ff3b30 100%);">
+                        <i class="icon-folder-alt" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="feature-title" id="s3-title">File Management</h3>
+                    <p class="feature-desc" id="s3-text">Working with great habits</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #34c759 0%, #30b0c7 100%);">
+                        <i class="icon-mustache" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="feature-title" id="s4-title">English</h3>
+                    <p class="feature-desc" id="s4-text">Spoken English is good</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="content-section bg-light fade-in" role="region" aria-labelledby="contact-heading">
+    <!-- ==============================
+         Portfolio
+         ============================== -->
+    <section id="portfolio" class="apple-section apple-section-white fade-in" role="region" aria-labelledby="portfolio-heading">
         <div class="container">
-            <div class="content-section-heading text-center">
-                <h3 class="text-secondary mb-0">Get In Touch</h3>
-                <h2 id="contact-heading" class="mb-5">Contact Me</h2>
+            <!-- GitHub -->
+            <div class="text-center mb-5">
+                <span class="section-eyebrow" id="portfolio-eyebrow">Things I Like</span>
+                <h2 class="section-title" id="portfolio-heading">GitHub Account</h2>
+            </div>
+            <img class="portfolio-github-img mb-5" src="assets/img/clipboard-image.png" alt="July's GitHub profile" loading="lazy">
+
+            <!-- Other things I like -->
+            <div class="text-center mt-5 mb-4">
+                <h2 class="section-title" id="portfolio-other-heading">Other Things I Like</h2>
+            </div>
+            <div class="portfolio-grid">
+                <a class="portfolio-item" href="#" aria-label="Sunset photo">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h2>Sunset</h2>
+                            <p>A beautiful sunset over the city, with vibrant colors filling the sky.</p>
+                        </div>
+                    </div>
+                    <img src="assets/img/portfolio-1.jpg" alt="Sunset" loading="lazy">
+                </a>
+                <a class="portfolio-item" href="#" aria-label="Cats photo">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h2>Cats</h2>
+                            <p>Cats are such curious and playful creatures, always getting into mischief!</p>
+                        </div>
+                    </div>
+                    <img src="assets/img/portfolio-2.jpg" alt="Cats" loading="lazy">
+                </a>
+                <a class="portfolio-item" href="#" aria-label="Badminton photo">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h2>Badminton</h2>
+                            <p>Badminton is such a fun and fast-paced sport, perfect for a sunny day!</p>
+                        </div>
+                    </div>
+                    <img src="assets/img/portfolio-3.jpg" alt="Badminton" loading="lazy">
+                </a>
+                <a class="portfolio-item" href="#" aria-label="Stars photo">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h2>Stars</h2>
+                            <p>A beautiful night sky filled with twinkling stars, each one telling its own story.</p>
+                        </div>
+                    </div>
+                    <img src="assets/img/portfolio-4.jpg" alt="Stars" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         Blog
+         ============================== -->
+    <section id="blog" class="apple-section apple-section-gray fade-in" role="region" aria-labelledby="blog-heading">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-eyebrow">My Thoughts</span>
+                <h2 class="section-title" id="blog-heading">Blog Posts</h2>
+            </div>
+            <div class="row g-4" id="blog-posts">
+                <!-- Loaded by JS -->
+            </div>
+            <div class="text-center mt-5">
+                <a class="apple-btn apple-btn-primary" href="blog.html" role="button">View All Posts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         CTA
+         ============================== -->
+    <section class="cta-section fade-in" role="region" aria-label="Call to action">
+        <div class="container text-center">
+            <h2 class="section-title mb-3" id="cta-heading">Let's Connect!</h2>
+            <p class="section-subtitle mx-auto mb-4" style="color:#a1a1a6;">
+                Whether you want to collaborate or just say hello.
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a class="apple-btn apple-btn-primary" href="#contact" id="cta-btn1" aria-label="Go to contact section">Contact Me</a>
+                <a class="apple-btn apple-btn-outline" href="https://github.com/July0709" target="_blank" rel="noopener noreferrer" id="cta-btn2" aria-label="Visit July's GitHub">My GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         Contact
+         ============================== -->
+    <section id="contact" class="apple-section apple-section-white fade-in" role="region" aria-labelledby="contact-heading">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-eyebrow" id="contact-eyebrow">Get In Touch</span>
+                <h2 class="section-title" id="contact-heading">Contact Me</h2>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <form id="contactForm" novalidate>
+                <div class="col-lg-7">
+                    <form id="contactForm" class="apple-form" novalidate>
                         <div class="mb-4">
-                            <label for="name" class="form-label">Name *</label>
-                            <input type="text" class="form-control form-control-lg" id="name" name="name" required aria-required="true" placeholder="Your name">
+                            <label for="name" class="form-label" id="label-name">Name *</label>
+                            <input type="text" class="form-control" id="name" name="name" required placeholder="Your name">
                             <div class="invalid-feedback">Please enter your name.</div>
                         </div>
                         <div class="mb-4">
-                            <label for="email" class="form-label">Email *</label>
-                            <input type="email" class="form-control form-control-lg" id="email" name="email" required aria-required="true" placeholder="your.email@example.com">
+                            <label for="email" class="form-label" id="label-email">Email *</label>
+                            <input type="email" class="form-control" id="email" name="email" required placeholder="your.email@example.com">
                             <div class="invalid-feedback">Please enter a valid email address.</div>
                         </div>
                         <div class="mb-4">
-                            <label for="subject" class="form-label">Subject *</label>
-                            <input type="text" class="form-control form-control-lg" id="subject" name="subject" required aria-required="true" placeholder="What's this about?">
+                            <label for="subject" class="form-label" id="label-subject">Subject *</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required placeholder="What's this about?">
                             <div class="invalid-feedback">Please enter a subject.</div>
                         </div>
                         <div class="mb-4">
-                            <label for="message" class="form-label">Message *</label>
-                            <textarea class="form-control form-control-lg" id="message" name="message" rows="5" required aria-required="true" placeholder="Your message here..."></textarea>
+                            <label for="message" class="form-label" id="label-message">Message *</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
                             <div class="invalid-feedback">Please enter a message.</div>
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-xl">Send Message</button>
+                            <button type="submit" class="apple-btn apple-btn-primary w-100" id="contact-submit" style="border-radius: 10px; font-size:1rem; padding: 0.875rem;">
+                                Send Message
+                            </button>
                         </div>
                         <div id="formStatus" class="mt-3 text-center" role="alert" aria-live="polite"></div>
                     </form>
@@ -232,31 +281,30 @@
             </div>
         </div>
     </section>
-    <footer class="footer text-center" role="contentinfo">
+
+    <!-- ==============================
+         Footer
+         ============================== -->
+    <footer class="apple-footer" role="contentinfo">
         <div class="container">
-            <ul class="list-inline mb-5">
-                <li class="list-inline-item">&nbsp;
-                    <a class="link-light social-link rounded-circle" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit July on Facebook">
-                        <i class="icon-social-facebook" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">&nbsp;
-                    <a class="link-light social-link rounded-circle" href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Visit July on Twitter">
-                        <i class="icon-social-twitter" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">&nbsp;
-                    <a class="link-light social-link rounded-circle" href="https://github.com/July0709" target="_blank" rel="noopener noreferrer" aria-label="Visit July on GitHub">
-                        <i class="icon-social-github" aria-hidden="true"></i>
-                    </a>
-                </li>
-            </ul>
-            <p class="text-muted mb-0 small">Copyright &copy; July 2025</p>
+            <div class="apple-footer-links mb-3">
+                <a class="social-icon" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="icon-social-facebook" aria-hidden="true"></i>
+                </a>
+                <a class="social-icon" href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <i class="icon-social-twitter" aria-hidden="true"></i>
+                </a>
+                <a class="social-icon" href="https://github.com/July0709" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="icon-social-github" aria-hidden="true"></i>
+                </a>
+            </div>
+            <p class="mb-0" id="footer-copy">Copyright &copy; July 2025</p>
         </div>
-        <a class="scroll-to-top rounded" href="#page-top" aria-label="Scroll to top">
+        <a class="scroll-to-top" href="#page-top" aria-label="Scroll to top">
             <i class="fa fa-angle-up" aria-hidden="true"></i>
         </a>
     </footer>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/blog-data.js"></script>
     <script src="assets/js/stylish-portfolio.js"></script>
