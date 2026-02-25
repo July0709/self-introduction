@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:/Users/DELL/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.0.1/src/ui-ux-pro-max\" && python scripts/search.py \"personal portfolio student medical elegant minimal\" --design-system -p \"July Portfolio\" 2>&1)",
+      "Bash(cd \"C:/Users/DELL/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.0.1/src/ui-ux-pro-max\" && python scripts/search.py \"animation scroll entrance hover\" --domain ux 2>&1 && python scripts/search.py \"portfolio minimal typography\" --domain typography 2>&1)"
+    ]
+  }
+}

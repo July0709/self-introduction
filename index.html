@@ -23,7 +23,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -32,6 +32,9 @@
 </head>
 
 <body id="page-top">
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
     <!-- Loading Screen -->
     <div class="loading-screen">
@@ -92,17 +95,24 @@
          ============================== -->
     <section id="about" class="apple-section apple-section-white fade-in" role="region" aria-labelledby="about-heading">
         <div class="container">
-            <div class="about-content">
-                <span class="section-eyebrow" id="about-eyebrow">About Me</span>
-                <h2 class="section-title" id="about-heading">
-                    I am a student from Southern Medical University, majored in clinical medicine.
-                </h2>
-                <p class="section-subtitle mb-4" id="about-text">
-                    Passionate about combining medical knowledge with technology to make a difference in healthcare.
-                </p>
-                <a class="apple-btn apple-btn-outline-dark" href="#services" id="about-btn" aria-label="See what July does">
-                    Who I Am
-                </a>
+            <div class="about-grid">
+                <div class="about-text-col">
+                    <span class="section-eyebrow" id="about-eyebrow">About Me</span>
+                    <h2 class="section-title" id="about-heading">
+                        I am a student from Southern Medical University, majored in clinical medicine.
+                    </h2>
+                    <p class="section-subtitle mb-4" id="about-text">
+                        Passionate about combining medical knowledge with technology to make a difference in healthcare.
+                    </p>
+                    <a class="apple-btn apple-btn-outline-dark" href="#services" id="about-btn" aria-label="See what July does">
+                        Who I Am
+                    </a>
+                </div>
+                <div class="about-photo-col">
+                    <div class="about-photo-wrap">
+                        <img src="assets/img/profile picture.jpg" alt="July — Clinical Medicine Student" class="about-photo" loading="lazy">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -121,6 +131,11 @@
                     <div class="feature-icon"><i class="icon-globe" aria-hidden="true"></i></div>
                     <h3 class="feature-title" id="s1-title">Web Design</h3>
                     <p class="feature-desc" id="s1-text">I currently design the page for SMOOTH</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Figma</span>
+                    </div>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon" style="background: linear-gradient(135deg, #5856d6 0%, #af52de 100%);">
@@ -128,6 +143,10 @@
                     </div>
                     <h3 class="feature-title" id="s2-title">Scientific Research</h3>
                     <p class="feature-desc" id="s2-text">In the field of microbiome</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microbiome</span>
+                        <span class="skill-tag">PBL</span>
+                    </div>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon" style="background: linear-gradient(135deg, #ff9500 0%, #ff3b30 100%);">
@@ -135,13 +154,21 @@
                     </div>
                     <h3 class="feature-title" id="s3-title">File Management</h3>
                     <p class="feature-desc" id="s3-text">Working with great habits</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Notion</span>
+                        <span class="skill-tag">Obsidian</span>
+                    </div>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon" style="background: linear-gradient(135deg, #34c759 0%, #30b0c7 100%);">
-                        <i class="icon-mustache" aria-hidden="true"></i>
+                        <i class="icon-speech" aria-hidden="true"></i>
                     </div>
                     <h3 class="feature-title" id="s4-title">English</h3>
                     <p class="feature-desc" id="s4-text">Spoken English is good</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CET-6</span>
+                        <span class="skill-tag">Spoken</span>
+                    </div>
                 </div>
             </div>
         </div>

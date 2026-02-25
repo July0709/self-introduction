@@ -41,7 +41,7 @@
       labelSubject: 'Subject *', labelMessage: 'Message *',
       contactSubmit: 'Send Message',
       /* Footer */
-      copyright: 'Copyright © July 2025'
+      copyright: 'Copyright © July 2026'
     },
     zh: {
       langButton: 'EN',
@@ -71,7 +71,7 @@
       labelName: '姓名 *', labelEmail: '邮箱 *',
       labelSubject: '主题 *', labelMessage: '留言 *',
       contactSubmit: '发送消息',
-      copyright: '版权所有 © July 2025'
+      copyright: '版权所有 © July 2026'
     }
   };
 
@@ -204,14 +204,29 @@
   }
 
   /* ============================================================
+     Scroll Progress Bar
+     ============================================================ */
+  var scrollProgress = document.getElementById('scroll-progress');
+  function updateScrollProgress() {
+    if (!scrollProgress) return;
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = Math.min(pct, 100) + '%';
+  }
+
+  /* ============================================================
      Scroll-to-top
      ============================================================ */
   var scrollToTop = document.querySelector('.scroll-to-top');
 
-  if (scrollToTop) {
+  if (scrollToTop || scrollProgress) {
     window.addEventListener('scroll', function () {
-      scrollToTop.style.display = window.pageYOffset > 200 ? 'flex' : 'none';
-    });
+      if (scrollToTop) {
+        scrollToTop.style.display = window.pageYOffset > 200 ? 'flex' : 'none';
+      }
+      updateScrollProgress();
+    }, { passive: true });
   }
 
   /* ============================================================
