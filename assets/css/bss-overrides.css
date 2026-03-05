@@ -328,14 +328,22 @@ body {
    ======================================== */
 .masthead {
   min-height: 100svh;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+}
+
+/* Hero video background */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
 }
 .masthead::before {
   content: '';
@@ -1113,6 +1121,7 @@ body {
    Enhancement: Prefers Reduced Motion
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
+  #hero-video { display: none; }
   .fade-in {
     opacity: 1 !important;
     transform: none !important;
@@ -1136,75 +1145,32 @@ body {
 /* ========================================
    Research Timeline
    ======================================== */
+/* ========================================
+   Timeline — flex alternating layout
+   ======================================== */
 .research-timeline {
-  position: relative;
   padding: 2rem 0 3rem;
   margin-bottom: 4rem;
 }
 
-/* Central vertical line */
-.timeline-track {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  transform: translateX(-50%);
-  background: linear-gradient(to bottom, transparent, var(--apple-blue) 8%, var(--apple-blue) 92%, transparent);
-  opacity: 0.35;
-}
-
-/* Each node row */
+/* Each node: flex row, alternating direction */
 .timeline-item {
-  display: grid;
-  grid-template-columns: 1fr 40px 1fr;
-  gap: 0 1.25rem;
-  align-items: start;
-  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 6rem;
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.timeline-item.tl-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.timeline-item:nth-child(3) { transition-delay: 0.15s; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item.tl-visible { opacity: 1; transform: translateY(0); }
+.timeline-item:nth-child(2) { transition-delay: 0.15s; }
+.timeline-item[data-side="left"]  { flex-direction: row; }
+.timeline-item[data-side="right"] { flex-direction: row-reverse; }
 
-/* Left-side: card on left, date on right of dot */
-.timeline-item[data-side="left"] .timeline-date-badge { grid-column: 3; grid-row: 1; }
-.timeline-item[data-side="left"] .timeline-dot        { grid-column: 2; grid-row: 1; }
-.timeline-item[data-side="left"] .timeline-card       { grid-column: 1; grid-row: 1; text-align: right; }
-
-/* Right-side: date on left of dot, card on right */
-.timeline-item[data-side="right"] .timeline-date-badge { grid-column: 1; grid-row: 1; text-align: right; }
-.timeline-item[data-side="right"] .timeline-dot        { grid-column: 2; grid-row: 1; }
-.timeline-item[data-side="right"] .timeline-card       { grid-column: 3; grid-row: 1; }
-
-/* Dot */
-.timeline-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--apple-blue);
-  border: 3px solid var(--apple-card-bg);
-  box-shadow: 0 0 0 2px var(--apple-blue);
-  margin: 0.4rem auto 0;
-  position: relative;
-  z-index: 1;
-}
-.timeline-dot::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: rgba(0, 113, 227, 0.18);
-  animation: dotPulse 2.4s ease-in-out infinite;
-}
-@keyframes dotPulse {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50%       { transform: scale(1.5); opacity: 0; }
-}
+/* Text column */
+.timeline-text { flex: 1; min-width: 0; }
 
 /* Date badge */
 .timeline-date-badge {
@@ -1217,23 +1183,11 @@ body {
   font-size: 0.8125rem;
   font-weight: 600;
   white-space: nowrap;
-  margin-top: 0.3rem;
-  align-self: start;
+  margin-bottom: 0.75rem;
 }
-
-/* Card */
-.timeline-card {
-  background: var(--apple-card-bg);
-  border: 1px solid var(--apple-border);
-  border-radius: var(--apple-radius);
-  padding: 1.5rem 1.75rem;
-  box-shadow: var(--apple-shadow);
-  transition: box-shadow 0.3s ease;
-}
-.timeline-card:hover { box-shadow: var(--apple-shadow-lg); }
 
 .timeline-org {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--apple-text);
   margin: 0 0 0.35rem;
@@ -1252,7 +1206,6 @@ body {
   padding-left: 1.1rem;
   margin: 0 0 1rem;
 }
-.timeline-item[data-side="left"] .timeline-bullets { padding-right: 1.1rem; padding-left: 0; text-align: left; direction: ltr; }
 .timeline-bullets li {
   font-size: 0.875rem;
   color: var(--apple-text-sec);
@@ -1291,7 +1244,7 @@ body {
 /* Awards list */
 .timeline-awards-list {
   list-style: none;
-  padding: 0.75rem 0 0;
+  padding: 0;
   margin: 0;
   max-height: 0;
   overflow: hidden;
@@ -1320,25 +1273,173 @@ body {
   min-width: 72px;
 }
 
+/* ── Circular image (node 1) ── */
+.timeline-circle-wrap {
+  flex-shrink: 0;
+  position: relative;
+}
+.timeline-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  cursor: crosshair;
+}
+.circle-layer-1 { position: absolute; inset: 0; }
+.circle-layer-1 .circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5) translate(0%, 0%);
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+.circle-layer-2 {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--apple-text);
+  letter-spacing: 0.05em;
+}
+.timeline-circle:hover .circle-layer-2 { opacity: 1; }
+.circle-glow {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(0,113,227,0.35), transparent 70%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+/* ── Chip assembly viewer (node 2) ── */
+.timeline-chip-wrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.chip-viewer {
+  position: relative;
+  width: 380px;
+  aspect-ratio: 338.7 / 190.5;
+  background: var(--apple-card-bg);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--apple-radius);
+  overflow: hidden;
+  box-shadow: var(--apple-shadow);
+}
+.chip-layer {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+.chip-bg  { left:14.61%; top:17.32%; width:74.17%; height:70.76%; opacity: 1; }
+.chip-l1  { left:37.38%; top:35.85%; width:24.74%; height:31.23%; }
+.chip-l2  { left:26.60%; top:23.69%; width:35.37%; height:37.69%; }
+.chip-l3a { left:42.46%; top:49.94%; width:13.85%; height:14.80%; }
+.chip-l3b { left:32.89%; top:31.74%; width:25.33%; height:25.88%; }
+.chip-l4  { left:65.75%; top:52.86%; width:28.76%; height:41.94%; }
+.chip-label-badge {
+  position: absolute;
+  left: 4.31%; top: 73.70%;
+  width: 58.72%; height: 16.17%;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0;
+}
+.chip-badge-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--apple-blue);
+  white-space: nowrap;
+}
+.chip-badge-sub {
+  font-size: 0.6rem;
+  color: var(--apple-text-sec);
+  white-space: nowrap;
+}
+.chip-replay-btn {
+  background: none;
+  border: 1px solid var(--apple-border);
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+  font-size: 0.8rem;
+  color: var(--apple-muted, var(--apple-text-sec));
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.chip-replay-btn:hover {
+  background: var(--apple-blue);
+  color: #fff;
+  border-color: var(--apple-blue);
+}
+
+/* Chip assembly keyframes */
+@keyframes chip-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes chip-drop {
+  from { top: 14.80%; opacity: 0; }
+  to   { top: 23.69%; opacity: 1; }
+}
+@keyframes chip-rise {
+  from { top: 58.74%; opacity: 0; }
+  to   { top: 49.94%; opacity: 1; }
+}
+@keyframes chip-drop-b {
+  from { top: 21.21%; opacity: 0; }
+  to   { top: 31.74%; opacity: 1; }
+}
+@keyframes chip-wipe {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
+}
+@keyframes chip-bounce {
+  0%   { top: 16.59%; opacity: 0; }
+  60%  { top: 76.00%; opacity: 1; }
+  80%  { top: 71.00%; }
+  100% { top: 73.70%; }
+}
+
+/* Triggered by .chip-animate class */
+.chip-viewer.chip-animate .chip-l1  { animation: chip-fade-in 0.5s ease         forwards 0.3s; }
+.chip-viewer.chip-animate .chip-l2  { animation: chip-drop    0.7s ease         forwards 0.8s; }
+.chip-viewer.chip-animate .chip-l3a { animation: chip-rise    0.6s ease         forwards 1.4s; }
+.chip-viewer.chip-animate .chip-l3b { animation: chip-drop-b  0.6s ease         forwards 1.4s; }
+.chip-viewer.chip-animate .chip-l4  { animation: chip-wipe    0.5s ease         forwards 1.4s; }
+.chip-viewer.chip-animate .chip-label-badge {
+  animation: chip-bounce 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards 2.2s;
+}
+
 /* ──────── Mobile timeline ──────── */
 @media (max-width: 767px) {
-  .timeline-track { left: 18px; }
-
   .timeline-item {
-    grid-template-columns: 36px 1fr;
-    gap: 0 1rem;
-    margin-bottom: 2rem;
+    flex-direction: column !important;
+    gap: 2rem;
+    margin-bottom: 4rem;
   }
-  .timeline-item[data-side="left"] .timeline-dot,
-  .timeline-item[data-side="right"] .timeline-dot { grid-column: 1; grid-row: 1; margin: 0.35rem 0 0 3px; }
-
-  .timeline-item[data-side="left"] .timeline-date-badge,
-  .timeline-item[data-side="right"] .timeline-date-badge { grid-column: 2; grid-row: 1; text-align: left; }
-
-  .timeline-item[data-side="left"] .timeline-card,
-  .timeline-item[data-side="right"] .timeline-card { grid-column: 2; grid-row: 2; text-align: left; }
-
-  .timeline-item[data-side="left"] .timeline-bullets { padding-left: 1.1rem; padding-right: 0; }
+  .timeline-circle { width: 220px; height: 220px; }
+  .circle-glow { width: 140px; }
+  .chip-viewer { width: 100%; max-width: 340px; }
 }
 
 /* ========================================
