@@ -79,7 +79,11 @@
     <!-- ==============================
          Hero
          ============================== -->
-    <header class="masthead fade-in" style="background-image:url('assets/img/bg-masthead.jpg');" role="banner" id="hero">
+    <header class="masthead fade-in" role="banner" id="hero">
+        <video class="hero-video" id="hero-video" autoplay muted loop playsinline
+               poster="assets/img/bg-masthead.jpg">
+            <source src="assets/video/hero-bg.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
             <span class="hero-eyebrow" id="hero-eyebrow">Southern Medical University</span>
             <h1 class="hero-title" id="hero-title">Self Introduction</h1>
@@ -131,16 +135,14 @@
 
             <!-- ── Timeline ── -->
             <div class="research-timeline" aria-label="Research timeline">
-                <div class="timeline-track" aria-hidden="true"></div>
 
-                <!-- Node 1: 整形外科·微生物大数据 -->
+                <!-- Node 1: 整形外科·微生物大数据 (text-left, circle-right) -->
                 <div class="timeline-item" data-side="left">
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-date-badge" id="tl1-date">2025.02 — Present</div>
-                    <div class="timeline-card">
+                    <div class="timeline-text">
+                        <div class="timeline-date-badge" id="tl1-date">2025.02 — Present</div>
                         <h3 class="timeline-org" id="tl1-org">Department of Plastic Surgery · Microbial Big Data Lab</h3>
                         <p class="timeline-role" id="tl1-role">Core Member &nbsp;|&nbsp; ML · Deep Learning · Skin Microbiome Peptides</p>
-                        <ul class="timeline-bullets" id="tl1-bullets">
+                        <ul class="timeline-bullets">
                             <li id="tl1-b1">Literature review on skin microbiome peptides</li>
                             <li id="tl1-b2">UK Biobank (UKB) database structure exploration &amp; research ideation</li>
                             <li id="tl1-b3">R: microbial co-occurrence network analysis &amp; complex statistical modeling</li>
@@ -149,16 +151,45 @@
                             <li id="tl1-b6">Web development: GitHub Pages and other tools for site deployment</li>
                         </ul>
                     </div>
+                    <div class="timeline-circle-wrap">
+                        <div class="timeline-circle" data-magnify="true">
+                            <div class="circle-layer-1">
+                                <img src="assets/img/bioinformation/image-1-coocurence-network.png"
+                                     alt="Microbial co-occurrence network" class="circle-img" loading="lazy">
+                            </div>
+                            <div class="circle-layer-2" aria-hidden="true">
+                                <span id="tl1-hover">Network Analysis</span>
+                            </div>
+                        </div>
+                        <div class="circle-glow" aria-hidden="true"></div>
+                    </div>
                 </div>
 
-                <!-- Node 2: 南方类器官课题组 -->
+                <!-- Node 2: 南方类器官课题组 (chip-viewer-left, text-right) -->
                 <div class="timeline-item" data-side="right">
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-date-badge" id="tl2-date">2023.09 — 2025.02</div>
-                    <div class="timeline-card">
+                    <div class="timeline-chip-wrap">
+                        <div class="chip-viewer" id="chip-viewer-1">
+                            <img class="chip-layer chip-bg"  src="assets/img/chip/chip-bg.png"  alt="Chip structure diagram" loading="lazy">
+                            <img class="chip-layer chip-l1"  src="assets/img/chip/chip-l1.png"  alt="Protein-coated porous membrane" loading="lazy">
+                            <img class="chip-layer chip-l2"  src="assets/img/chip/chip-l2.png"  alt="Middle channel layer" loading="lazy">
+                            <img class="chip-layer chip-l3a" src="assets/img/chip/chip-l3a.png" alt="Upper structure" loading="lazy">
+                            <img class="chip-layer chip-l3b" src="assets/img/chip/chip-l3b.png" alt="Cover layer" loading="lazy">
+                            <img class="chip-layer chip-l4"  src="assets/img/chip/chip-l4.png"  alt="Lateral interface" loading="lazy">
+                            <div class="chip-label-badge" aria-hidden="true">
+                                <span class="chip-badge-title">ONDP</span>
+                                <span class="chip-badge-sub" id="chip-badge-sub">模仿嗅神经直达通路</span>
+                            </div>
+                        </div>
+                        <button class="chip-replay-btn" id="chip-replay" aria-label="Replay chip assembly animation">
+                            <i class="fa fa-refresh me-1" aria-hidden="true"></i>
+                            <span id="chip-replay-label">重演组装</span>
+                        </button>
+                    </div>
+                    <div class="timeline-text">
+                        <div class="timeline-date-badge" id="tl2-date">2023.09 — 2025.02</div>
                         <h3 class="timeline-org" id="tl2-org">Southern Organoid Research Group</h3>
                         <p class="timeline-role" id="tl2-role">Core Member &nbsp;|&nbsp; Organoids · Organ-on-a-Chip · Nasopharyngeal Carcinoma</p>
-                        <ul class="timeline-bullets" id="tl2-bullets">
+                        <ul class="timeline-bullets">
                             <li id="tl2-b1">Led "Nasal-Brain Pathway" chip design — Provincial 3rd Prize at 10th Basic Medical Innovation Forum</li>
                             <li id="tl2-b2">Led science communication project — Provincial 2nd Prize at 17th Guangdong Science Popularisation Competition</li>
                             <li id="tl2-b3">Core member: visualisation track 1st Prize at SMU MEDofScience Research Competition</li>

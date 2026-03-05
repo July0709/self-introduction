@@ -42,6 +42,10 @@
       tl2b2: 'Led science communication project — Provincial 2nd Prize at 17th Guangdong Science Popularisation Competition',
       tl2b3: 'Core member: visualisation track 1st Prize at SMU MEDofScience Research Competition',
       tl2b4: 'Proficient in basic chemistry, organic chemistry and biochemistry laboratory operations',
+      tl1Hover: 'Network Analysis',
+      tl2Hover: 'Organoid Research',
+      chipReplay: 'Replay Assembly',
+      chipBadgeSub: 'Olfactory Pathway Simulation',
       awardsToggle: 'View Awards', awardsClose: 'Hide Awards',
       aw1: "China International College Students' Innovation Competition — Campus 3rd Prize (core member)",
       aw2: 'SMU "Challenge Cup" — Science & Technology Invention 2nd Prize (core member)',
@@ -119,6 +123,10 @@
       tl2b2: '以负责人身份参加第十七届广东省科普作品创作大赛，荣获省级二等奖',
       tl2b3: '主要成员：南方医科大学 MEDofScience 科研大赛可视化赛道一等奖',
       tl2b4: '熟练掌握基础化学、有机化学及生物化学实验操作',
+      tl1Hover: '微生物网络分析',
+      tl2Hover: '类器官研究',
+      chipReplay: '重演组装',
+      chipBadgeSub: '模仿嗅神经直达通路',
       awardsToggle: '查看奖项', awardsClose: '收起奖项',
       aw1: '中国国际大学生创新大赛校赛三等奖（主要成员）',
       aw2: '南方医科大学"挑战杯"科技发明制作类二等奖（主要成员）',
@@ -214,6 +222,8 @@
     setText('services-eyebrow', t.servicesEyebrow);
     setText('services-heading', t.servicesHeading);
     /* Timeline */
+    setText('tl1-hover', t.tl1Hover); setText('tl2-hover', t.tl2Hover);
+    setText('chip-replay-label', t.chipReplay); setText('chip-badge-sub', t.chipBadgeSub);
     setText('tl1-date', t.tl1Date); setText('tl1-org', t.tl1Org); setText('tl1-role', t.tl1Role);
     setText('tl1-b1', t.tl1b1); setText('tl1-b2', t.tl1b2); setText('tl1-b3', t.tl1b3);
     setText('tl1-b4', t.tl1b4); setText('tl1-b5', t.tl1b5); setText('tl1-b6', t.tl1b6);
@@ -526,6 +536,58 @@
     }
 
     startAuto();
+  })();
+
+  /* ============================================================
+     Mobile: pause hero video to save bandwidth
+     ============================================================ */
+  var heroVideo = document.getElementById('hero-video');
+  if (heroVideo && window.innerWidth <= 768) { heroVideo.pause(); }
+
+  /* ============================================================
+     Timeline circle: mouse-tracking magnifier (node 1)
+     ============================================================ */
+  document.querySelectorAll('.timeline-circle[data-magnify]').forEach(function (circle) {
+    var img = circle.querySelector('.circle-img');
+    if (!img) return;
+    circle.addEventListener('mousemove', function (e) {
+      var rect = circle.getBoundingClientRect();
+      var cx = (e.clientX - rect.left) / rect.width;
+      var cy = (e.clientY - rect.top)  / rect.height;
+      var tx = (0.5 - cx) * 33;
+      var ty = (0.5 - cy) * 33;
+      img.style.transition = 'transform 0.08s linear';
+      img.style.transform  = 'scale(1.5) translate(' + tx + '%, ' + ty + '%)';
+    });
+    circle.addEventListener('mouseleave', function () {
+      img.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)';
+      img.style.transform  = 'scale(1.5) translate(0%, 0%)';
+    });
+  });
+
+  /* ============================================================
+     Chip assembly animation (node 2)
+     ============================================================ */
+  (function () {
+    var viewer    = document.getElementById('chip-viewer-1');
+    var replayBtn = document.getElementById('chip-replay');
+    if (!viewer) return;
+
+    function playChip() {
+      viewer.classList.remove('chip-animate');
+      void viewer.offsetWidth; /* reflow to restart CSS animations */
+      viewer.classList.add('chip-animate');
+    }
+
+    var chipObs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        playChip();
+        chipObs.unobserve(viewer);
+      }
+    }, { threshold: 0.3 });
+    chipObs.observe(viewer);
+
+    if (replayBtn) replayBtn.addEventListener('click', playChip);
   })();
 
 })();
