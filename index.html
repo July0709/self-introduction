@@ -118,59 +118,199 @@
     </section>
 
     <!-- ==============================
-         Services / Features
+         Research & Skills
          ============================== -->
     <section id="services" class="apple-section apple-section-gray fade-in" role="region" aria-labelledby="services-heading">
         <div class="container">
-            <div class="text-center">
-                <span class="section-eyebrow" id="services-eyebrow">Things</span>
-                <h2 class="section-title" id="services-heading">That I Manage</h2>
+
+            <!-- Section header -->
+            <div class="text-center mb-5">
+                <span class="section-eyebrow" id="services-eyebrow">Experience &amp; Skills</span>
+                <h2 class="section-title" id="services-heading">My Research Journey</h2>
             </div>
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon"><i class="icon-globe" aria-hidden="true"></i></div>
-                    <h3 class="feature-title" id="s1-title">Web Design</h3>
-                    <p class="feature-desc" id="s1-text">I currently design the page for SMOOTH</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">Figma</span>
+
+            <!-- ── Timeline ── -->
+            <div class="research-timeline" aria-label="Research timeline">
+                <div class="timeline-track" aria-hidden="true"></div>
+
+                <!-- Node 1: 整形外科·微生物大数据 -->
+                <div class="timeline-item" data-side="left">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-date-badge" id="tl1-date">2025.02 — Present</div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-org" id="tl1-org">Department of Plastic Surgery · Microbial Big Data Lab</h3>
+                        <p class="timeline-role" id="tl1-role">Core Member &nbsp;|&nbsp; ML · Deep Learning · Skin Microbiome Peptides</p>
+                        <ul class="timeline-bullets" id="tl1-bullets">
+                            <li id="tl1-b1">Literature review on skin microbiome peptides</li>
+                            <li id="tl1-b2">UK Biobank (UKB) database structure exploration &amp; research ideation</li>
+                            <li id="tl1-b3">R: microbial co-occurrence network analysis &amp; complex statistical modeling</li>
+                            <li id="tl1-b4">Python: causal machine learning &amp; deep learning exploration</li>
+                            <li id="tl1-b5">Wet lab: mouse behavioural tests, depression model construction &amp; verification, odour collection</li>
+                            <li id="tl1-b6">Web development: GitHub Pages and other tools for site deployment</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #5856d6 0%, #af52de 100%);">
-                        <i class="icon-pencil" aria-hidden="true"></i>
-                    </div>
-                    <h3 class="feature-title" id="s2-title">Scientific Research</h3>
-                    <p class="feature-desc" id="s2-text">In the field of microbiome</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Microbiome</span>
-                        <span class="skill-tag">PBL</span>
-                    </div>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #ff9500 0%, #ff3b30 100%);">
-                        <i class="icon-folder-alt" aria-hidden="true"></i>
-                    </div>
-                    <h3 class="feature-title" id="s3-title">File Management</h3>
-                    <p class="feature-desc" id="s3-text">Working with great habits</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Notion</span>
-                        <span class="skill-tag">Obsidian</span>
-                    </div>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #34c759 0%, #30b0c7 100%);">
-                        <i class="icon-speech" aria-hidden="true"></i>
-                    </div>
-                    <h3 class="feature-title" id="s4-title">English</h3>
-                    <p class="feature-desc" id="s4-text">Spoken English is good</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">CET-6</span>
-                        <span class="skill-tag">Spoken</span>
+
+                <!-- Node 2: 南方类器官课题组 -->
+                <div class="timeline-item" data-side="right">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-date-badge" id="tl2-date">2023.09 — 2025.02</div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-org" id="tl2-org">Southern Organoid Research Group</h3>
+                        <p class="timeline-role" id="tl2-role">Core Member &nbsp;|&nbsp; Organoids · Organ-on-a-Chip · Nasopharyngeal Carcinoma</p>
+                        <ul class="timeline-bullets" id="tl2-bullets">
+                            <li id="tl2-b1">Led "Nasal-Brain Pathway" chip design — Provincial 3rd Prize at 10th Basic Medical Innovation Forum</li>
+                            <li id="tl2-b2">Led science communication project — Provincial 2nd Prize at 17th Guangdong Science Popularisation Competition</li>
+                            <li id="tl2-b3">Core member: visualisation track 1st Prize at SMU MEDofScience Research Competition</li>
+                            <li id="tl2-b4">Proficient in basic chemistry, organic chemistry and biochemistry laboratory operations</li>
+                        </ul>
+                        <!-- Awards toggle -->
+                        <button class="timeline-awards-toggle" aria-expanded="false" id="tl2-toggle">
+                            <span class="toggle-label" id="tl2-toggle-label">View Awards</span>
+                            <i class="fa fa-chevron-down toggle-icon" aria-hidden="true"></i>
+                        </button>
+                        <ul class="timeline-awards-list" id="tl2-awards" aria-hidden="true">
+                            <li><span class="award-year">2025.05</span> <span id="aw1">China International College Students' Innovation Competition — Campus 3rd Prize (core member)</span></li>
+                            <li><span class="award-year">2024.09–02</span> <span id="aw2">SMU "Challenge Cup" — Science &amp; Technology Invention 2nd Prize (core member)</span></li>
+                            <li><span class="award-year">2024.07</span> <span id="aw3">10th Basic Medical Innovation Forum, Interdisciplinary Track — Provincial 3rd Prize (lead)</span></li>
+                            <li><span class="award-year">2024.07</span> <span id="aw4">1st Guangdong College Chemistry Experiment Competition, New Experiment Design — 2nd Prize (core member)</span></li>
+                            <li><span class="award-year">2024.06</span> <span id="aw5">SMU 6th Chemistry Lab Micro-video Competition — 2nd Prize (lead)</span></li>
+                            <li><span class="award-year">2024.04</span> <span id="aw6">17th Guangdong Science Popularisation Competition — Provincial 2nd Prize (lead)</span></li>
+                            <li><span class="award-year">2024.04</span> <span id="aw7">SMU MEDofScience Visualisation Track — 1st Prize (core member)</span></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </div><!-- /timeline -->
+
+            <!-- ── Skills split ── -->
+            <div class="skills-split">
+                <!-- Tab navigation -->
+                <div class="skills-tab-nav" role="tablist" aria-label="Skill categories">
+                    <button class="skill-tab-btn active" role="tab" aria-selected="true"  aria-controls="panel-bioinformatics" id="tab-bio" id="tab-bio-btn">
+                        <i class="icon-chemistry" aria-hidden="true"></i> <span id="tab-bio-label">Bioinformatics</span>
+                    </button>
+                    <button class="skill-tab-btn" role="tab" aria-selected="false" aria-controls="panel-wetlab" id="tab-wet-btn">
+                        <i class="icon-eyeglass" aria-hidden="true"></i> <span id="tab-wet-label">Wet Lab</span>
+                    </button>
+                    <button class="skill-tab-btn" role="tab" aria-selected="false" aria-controls="panel-web" id="tab-web-btn">
+                        <i class="icon-globe" aria-hidden="true"></i> <span id="tab-web-label">Web Design</span>
+                    </button>
+                </div>
+
+                <!-- Panels -->
+                <div class="skills-panels">
+
+                    <!-- Bioinformatics -->
+                    <div class="skill-panel active" id="panel-bioinformatics" role="tabpanel" aria-labelledby="tab-bio-btn">
+                        <div class="bio-skills-layout">
+                            <div class="bio-skill-list">
+                                <div class="bio-skill-item">
+                                    <span class="bio-skill-name">R Language</span>
+                                    <span class="bio-skill-desc" id="bio-r-desc">Microbial co-occurrence network analysis &amp; complex statistical modelling</span>
+                                </div>
+                                <div class="bio-skill-item">
+                                    <span class="bio-skill-name">Python</span>
+                                    <span class="bio-skill-desc" id="bio-py-desc">Causal machine learning (CausalML) &amp; deep learning exploration</span>
+                                </div>
+                                <div class="bio-skill-item">
+                                    <span class="bio-skill-name">UK Biobank</span>
+                                    <span class="bio-skill-desc" id="bio-ukb-desc">Database structure deep-dive &amp; research hypothesis development</span>
+                                </div>
+                            </div>
+                            <!-- Image carousel -->
+                            <div class="viz-carousel" aria-label="Bioinformatics visualisations">
+                                <div class="viz-carousel-track" id="viz-track">
+                                    <div class="viz-carousel-slide">
+                                        <img src="assets/img/bioinformation/image-1-coocurence-network.png" alt="Co-occurrence network analysis" loading="lazy">
+                                        <p class="viz-caption" id="viz-cap1">Co-occurrence Network Analysis</p>
+                                    </div>
+                                    <div class="viz-carousel-slide">
+                                        <img src="assets/img/bioinformation/image-2-module-network.png" alt="Module network" loading="lazy">
+                                        <p class="viz-caption" id="viz-cap2">Module Network</p>
+                                    </div>
+                                    <div class="viz-carousel-slide">
+                                        <img src="assets/img/bioinformation/image-3-module-composition.png" alt="Module composition" loading="lazy">
+                                        <p class="viz-caption" id="viz-cap3">Module Composition</p>
+                                    </div>
+                                    <div class="viz-carousel-slide">
+                                        <img src="assets/img/bioinformation/image-4-module-expression-pattern.png" alt="Module expression pattern" loading="lazy">
+                                        <p class="viz-caption" id="viz-cap4">Module Expression Pattern</p>
+                                    </div>
+                                </div>
+                                <div class="viz-carousel-controls" aria-label="Carousel controls">
+                                    <button class="viz-btn viz-prev" id="viz-prev" aria-label="Previous image">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="viz-dots" id="viz-dots" aria-label="Image indicators"></div>
+                                    <button class="viz-btn viz-next" id="viz-next" aria-label="Next image">
+                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /bioinformatics -->
+
+                    <!-- Wet Lab -->
+                    <div class="skill-panel" id="panel-wetlab" role="tabpanel" aria-labelledby="tab-wet-btn">
+                        <p class="wetlab-intro" id="wetlab-intro">Hands-on experience in animal behaviour research and biochemical laboratory techniques.</p>
+                        <div class="wetlab-groups">
+                            <div class="wetlab-group">
+                                <h4 class="wetlab-group-title" id="wg1-title">Animal Model</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag" id="wt1">Mouse Behavioural Tests</span>
+                                    <span class="skill-tag" id="wt2">Depression Mouse Modelling</span>
+                                    <span class="skill-tag" id="wt3">Model Verification</span>
+                                    <span class="skill-tag" id="wt4">Odour Collection</span>
+                                </div>
+                            </div>
+                            <div class="wetlab-group">
+                                <h4 class="wetlab-group-title" id="wg2-title">Laboratory Operations</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag" id="wt5">Basic Chemistry Experiments</span>
+                                    <span class="skill-tag" id="wt6">Organic Chemistry Experiments</span>
+                                    <span class="skill-tag" id="wt7">Biochemistry Experiments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /wetlab -->
+
+                    <!-- Web Design -->
+                    <div class="skill-panel" id="panel-web" role="tabpanel" aria-labelledby="tab-web-btn">
+                        <p class="web-intro" id="web-intro">Building clean, responsive websites using modern web technologies and GitHub Pages.</p>
+                        <div class="web-projects">
+                            <a class="web-project-card" href="https://july0709.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Visit The SMOOTH Lab website">
+                                <div class="web-project-icon" style="background: linear-gradient(135deg,#5856d6 0%,#af52de 100%);">
+                                    <i class="icon-globe" aria-hidden="true"></i>
+                                </div>
+                                <div class="web-project-info">
+                                    <h4 class="web-project-title" id="wp1-title">The SMOOTH Lab</h4>
+                                    <p class="web-project-desc" id="wp1-desc">Research group website — design &amp; deployment</p>
+                                </div>
+                                <i class="fa fa-external-link web-project-link-icon" aria-hidden="true"></i>
+                            </a>
+                            <a class="web-project-card" href="https://july0709.github.io/self-introduction/" target="_blank" rel="noopener noreferrer" aria-label="Visit July's personal portfolio">
+                                <div class="web-project-icon" style="background: linear-gradient(135deg,#0071e3 0%,#30b0c7 100%);">
+                                    <i class="icon-user" aria-hidden="true"></i>
+                                </div>
+                                <div class="web-project-info">
+                                    <h4 class="web-project-title" id="wp2-title">July's Portfolio</h4>
+                                    <p class="web-project-desc" id="wp2-desc">Personal homepage — this site</p>
+                                </div>
+                                <i class="fa fa-external-link web-project-link-icon" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="skill-tags mt-3">
+                            <span class="skill-tag">HTML / CSS</span>
+                            <span class="skill-tag">Bootstrap 5</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">GitHub Pages</span>
+                            <span class="skill-tag">Figma</span>
+                        </div>
+                    </div><!-- /web -->
+
+                </div><!-- /skills-panels -->
+            </div><!-- /skills-split -->
+
         </div>
     </section>
 
