@@ -46,6 +46,7 @@
       tl2Hover: 'Organoid Research',
       chipReplay: 'Replay Assembly',
       chipBadgeSub: 'Olfactory Pathway Simulation',
+      chip2Toggle: 'View Diagram',
       awardsToggle: 'View Awards', awardsClose: 'Hide Awards',
       aw1: "China International College Students' Innovation Competition — Campus 3rd Prize (core member)",
       aw2: 'SMU "Challenge Cup" — Science & Technology Invention 2nd Prize (core member)',
@@ -127,6 +128,7 @@
       tl2Hover: '类器官研究',
       chipReplay: '重演组装',
       chipBadgeSub: '模仿嗅神经直达通路',
+      chip2Toggle: '查看结构图',
       awardsToggle: '查看奖项', awardsClose: '收起奖项',
       aw1: '中国国际大学生创新大赛校赛三等奖（主要成员）',
       aw2: '南方医科大学"挑战杯"科技发明制作类二等奖（主要成员）',
@@ -224,6 +226,7 @@
     /* Timeline */
     setText('tl1-hover', t.tl1Hover); setText('tl2-hover', t.tl2Hover);
     setText('chip-replay-label', t.chipReplay); setText('chip-badge-sub', t.chipBadgeSub);
+    setText('chip2-toggle-label', t.chip2Toggle);
     setText('tl1-date', t.tl1Date); setText('tl1-org', t.tl1Org); setText('tl1-role', t.tl1Role);
     setText('tl1-b1', t.tl1b1); setText('tl1-b2', t.tl1b2); setText('tl1-b3', t.tl1b3);
     setText('tl1-b4', t.tl1b4); setText('tl1-b5', t.tl1b5); setText('tl1-b6', t.tl1b6);
@@ -590,5 +593,57 @@
     if (replayBtn) replayBtn.addEventListener('click', playChip);
   })();
 
+})();
+
+/* ============================================================
+   Chip2 interactive hotspot viewer (Plan B)
+   ============================================================ */
+(function () {
+  var toggleBtn = document.getElementById('chip2-toggle');
+  var wrap      = document.getElementById('chip2-wrap');
+  var svgEl     = document.getElementById('chip2-svg');
+  var tooltip   = document.getElementById('chip2-tooltip');
+  if (!toggleBtn || !wrap || !svgEl || !tooltip) return;
+
+  /* Toggle expand / collapse */
+  toggleBtn.addEventListener('click', function () {
+    var expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    toggleBtn.setAttribute('aria-expanded', String(!expanded));
+    if (expanded) { wrap.setAttribute('hidden', ''); }
+    else          { wrap.removeAttribute('hidden'); }
+  });
+
+  /* Hotspot hover — tooltip follows mouse */
+  var zones   = svgEl.querySelectorAll('.chip2-zone');
+  var viewer  = document.getElementById('chip2-viewer');
+  var tipName = tooltip.querySelector('.chip2-tip-name');
+  var tipDesc = tooltip.querySelector('.chip2-tip-desc');
+
+  function getLang() {
+    return (document.documentElement.lang || 'zh') === 'en' ? 'en' : 'zh';
+  }
+
+  zones.forEach(function (zone) {
+    zone.addEventListener('mouseenter', function () {
+      var lang = getLang();
+      tipName.textContent = lang === 'en' ? zone.dataset.nameEn : zone.dataset.nameZh;
+      tipDesc.textContent = lang === 'en' ? zone.dataset.descEn : zone.dataset.descZh;
+      tooltip.classList.add('visible');
+      svgEl.classList.add('has-hover');
+    });
+    zone.addEventListener('mousemove', function (e) {
+      var rect = viewer.getBoundingClientRect();
+      var x = e.clientX - rect.left + 14;
+      var y = e.clientY - rect.top  - 60;
+      x = Math.min(x, rect.width  - 210);
+      y = Math.max(y, 6);
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    });
+    zone.addEventListener('mouseleave', function () {
+      tooltip.classList.remove('visible');
+      svgEl.classList.remove('has-hover');
+    });
+  });
 })();
 

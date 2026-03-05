@@ -136,8 +136,28 @@
             <!-- ── Timeline ── -->
             <div class="research-timeline" aria-label="Research timeline">
 
-                <!-- Node 1: 整形外科·微生物大数据 (text-left, circle-right) -->
-                <div class="timeline-item" data-side="left">
+                <!-- Node 1: 整形外科·微生物大数据 — visual LEFT | axis CENTER | text RIGHT -->
+                <div class="timeline-item">
+                    <!-- LEFT: interactive visual -->
+                    <div class="timeline-visual-col">
+                        <div class="timeline-circle-wrap">
+                            <div class="timeline-circle" data-magnify="true">
+                                <div class="circle-layer-1">
+                                    <img src="assets/img/bioinformation/image-1-coocurence-network.png"
+                                         alt="Microbial co-occurrence network" class="circle-img" loading="lazy">
+                                </div>
+                                <div class="circle-layer-2" aria-hidden="true">
+                                    <span id="tl1-hover">Network Analysis</span>
+                                </div>
+                            </div>
+                            <div class="circle-glow" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    <!-- CENTER: timeline axis dot -->
+                    <div class="timeline-axis-col">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <!-- RIGHT: text content -->
                     <div class="timeline-text">
                         <div class="timeline-date-badge" id="tl1-date">2025.02 — Present</div>
                         <h3 class="timeline-org" id="tl1-org">Department of Plastic Surgery · Microbial Big Data Lab</h3>
@@ -151,40 +171,100 @@
                             <li id="tl1-b6">Web development: GitHub Pages and other tools for site deployment</li>
                         </ul>
                     </div>
-                    <div class="timeline-circle-wrap">
-                        <div class="timeline-circle" data-magnify="true">
-                            <div class="circle-layer-1">
-                                <img src="assets/img/bioinformation/image-1-coocurence-network.png"
-                                     alt="Microbial co-occurrence network" class="circle-img" loading="lazy">
-                            </div>
-                            <div class="circle-layer-2" aria-hidden="true">
-                                <span id="tl1-hover">Network Analysis</span>
-                            </div>
-                        </div>
-                        <div class="circle-glow" aria-hidden="true"></div>
-                    </div>
                 </div>
 
-                <!-- Node 2: 南方类器官课题组 (chip-viewer-left, text-right) -->
-                <div class="timeline-item" data-side="right">
-                    <div class="timeline-chip-wrap">
-                        <div class="chip-viewer" id="chip-viewer-1">
-                            <img class="chip-layer chip-bg"  src="assets/img/chip/chip-bg.png"  alt="Chip structure diagram" loading="lazy">
-                            <img class="chip-layer chip-l1"  src="assets/img/chip/chip-l1.png"  alt="Protein-coated porous membrane" loading="lazy">
-                            <img class="chip-layer chip-l2"  src="assets/img/chip/chip-l2.png"  alt="Middle channel layer" loading="lazy">
-                            <img class="chip-layer chip-l3a" src="assets/img/chip/chip-l3a.png" alt="Upper structure" loading="lazy">
-                            <img class="chip-layer chip-l3b" src="assets/img/chip/chip-l3b.png" alt="Cover layer" loading="lazy">
-                            <img class="chip-layer chip-l4"  src="assets/img/chip/chip-l4.png"  alt="Lateral interface" loading="lazy">
-                            <div class="chip-label-badge" aria-hidden="true">
-                                <span class="chip-badge-title">ONDP</span>
-                                <span class="chip-badge-sub" id="chip-badge-sub">模仿嗅神经直达通路</span>
+                <!-- Node 2: 南方类器官课题组 — visual LEFT | axis CENTER | text RIGHT -->
+                <div class="timeline-item">
+                    <!-- LEFT: chip assembly viewer + chip2 hotspot diagram -->
+                    <div class="timeline-visual-col">
+                        <div class="timeline-chip-wrap">
+                            <div class="chip-viewer" id="chip-viewer-1">
+                                <img class="chip-layer chip-bg"  src="assets/img/chip/chip-bg.png"  alt="Chip structure diagram" loading="lazy">
+                                <img class="chip-layer chip-l1"  src="assets/img/chip/chip-l1.png"  alt="Protein-coated porous membrane" loading="lazy">
+                                <img class="chip-layer chip-l2"  src="assets/img/chip/chip-l2.png"  alt="Middle channel layer" loading="lazy">
+                                <img class="chip-layer chip-l3a" src="assets/img/chip/chip-l3a.png" alt="Upper structure" loading="lazy">
+                                <img class="chip-layer chip-l3b" src="assets/img/chip/chip-l3b.png" alt="Cover layer" loading="lazy">
+                                <img class="chip-layer chip-l4"  src="assets/img/chip/chip-l4.png"  alt="Lateral interface" loading="lazy">
+                                <div class="chip-label-badge" aria-hidden="true">
+                                    <span class="chip-badge-title">ONDP</span>
+                                    <span class="chip-badge-sub" id="chip-badge-sub">模仿嗅神经直达通路</span>
+                                </div>
+                            </div>
+                            <!-- Button row: replay + view diagram -->
+                            <div class="chip-btn-row">
+                                <button class="chip-replay-btn" id="chip-replay" aria-label="Replay chip assembly animation">
+                                    <i class="fa fa-refresh me-1" aria-hidden="true"></i>
+                                    <span id="chip-replay-label">重演组装</span>
+                                </button>
+                                <button class="chip2-toggle-btn" id="chip2-toggle" aria-expanded="false">
+                                    <i class="fa fa-search-plus me-1" aria-hidden="true"></i>
+                                    <span id="chip2-toggle-label">查看结构图</span>
+                                </button>
+                            </div>
+                            <!-- chip2: interactive hotspot diagram (collapsed by default) -->
+                            <div class="chip2-wrap" id="chip2-wrap" hidden>
+                                <div class="chip2-viewer" id="chip2-viewer">
+                                    <img src="assets/img/chip2-diagram.png"
+                                         class="chip2-base" alt="气液界面芯片结构示意图" loading="lazy">
+                                    <svg class="chip2-overlay" id="chip2-svg"
+                                         viewBox="0 0 3718 3842"
+                                         preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                                        <!-- Zone 1: 上层 PDMS -->
+                                        <polygon class="chip2-zone" data-color="blue"
+                                            data-name-zh="上层 PDMS" data-name-en="Upper PDMS Layer"
+                                            data-desc-zh="PDMS蚀刻成型的顶层盖板，与底层密封形成微流控腔体"
+                                            data-desc-en="Top PDMS cover shaped by etching, sealing the microfluidic chamber"
+                                            points="180,100 2750,100 2750,1050 180,1050"/>
+                                        <!-- Zone 2: 雾化气泵 -->
+                                        <polygon class="chip2-zone" data-color="teal"
+                                            data-name-zh="雾化气泵" data-name-en="Atomizing Air Pump"
+                                            data-desc-zh="提供湿润空气流，建立气液界面微环境"
+                                            data-desc-en="Supplies humidified airflow to establish the air-liquid interface"
+                                            points="180,100 680,100 680,780 180,780"/>
+                                        <!-- Zone 3: 多孔膜 + 培养基底 -->
+                                        <polygon class="chip2-zone" data-color="green"
+                                            data-name-zh="多孔膜 + 微流控几何约束" data-name-en="Porous Membrane + Microfluidic Channel"
+                                            data-desc-zh="多孔膜承载类器官，几何约束引导细胞极性分化"
+                                            data-desc-en="Porous membrane supports the organoid; geometry guides cell polarity"
+                                            points="400,900 2300,900 2300,1700 400,1700"/>
+                                        <!-- Zone 4: 嗅上皮类器官放大图 -->
+                                        <polygon class="chip2-zone" data-color="pink"
+                                            data-name-zh="嗅上皮类器官" data-name-en="Olfactory Epithelial Organoid"
+                                            data-desc-zh="仿真鼻腔嗅上皮结构，用于模拟鼻-脑直达通路"
+                                            data-desc-en="Mimics olfactory epithelium to model the nasal-brain direct pathway"
+                                            points="2100,1700 3600,1700 3600,2700 2100,2700"/>
+                                        <!-- Zone 5: 下层 PDMS 主体 -->
+                                        <polygon class="chip2-zone" data-color="blue"
+                                            data-name-zh="下层 PDMS 主体" data-name-en="Lower PDMS Body"
+                                            data-desc-zh="组装完成的芯片外壳，两侧设有侧气室开口"
+                                            data-desc-en="Assembled chip housing with side air chamber openings"
+                                            points="100,2150 2850,2150 2850,3750 100,3750"/>
+                                        <!-- Zone 6: 侧气室 -->
+                                        <polygon class="chip2-zone" data-color="teal"
+                                            data-name-zh="侧气室" data-name-en="Side Air Chamber"
+                                            data-desc-zh="侧面拱形开口，维持独立气相腔室，保障气液界面稳定"
+                                            data-desc-en="Arch openings forming isolated air chambers for stable ALI"
+                                            points="100,2600 680,2600 680,3400 100,3400"/>
+                                        <!-- Zone 7: 液相通道 -->
+                                        <polygon class="chip2-zone" data-color="red"
+                                            data-name-zh="液相通道（人工脑脊液）" data-name-en="Liquid Channel (Artificial CSF)"
+                                            data-desc-zh="人工脑脊液经液相通道流过多孔膜底部，为类器官提供营养"
+                                            data-desc-en="Artificial CSF flows through liquid channel to nourish the organoid"
+                                            points="550,2650 2200,2650 2200,3150 550,3150"/>
+                                    </svg>
+                                    <div class="chip2-tooltip" id="chip2-tooltip" aria-live="polite">
+                                        <span class="chip2-tip-name"></span>
+                                        <span class="chip2-tip-desc"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <button class="chip-replay-btn" id="chip-replay" aria-label="Replay chip assembly animation">
-                            <i class="fa fa-refresh me-1" aria-hidden="true"></i>
-                            <span id="chip-replay-label">重演组装</span>
-                        </button>
                     </div>
+                    <!-- CENTER: timeline axis dot -->
+                    <div class="timeline-axis-col">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <!-- RIGHT: text content -->
                     <div class="timeline-text">
                         <div class="timeline-date-badge" id="tl2-date">2023.09 — 2025.02</div>
                         <h3 class="timeline-org" id="tl2-org">Southern Organoid Research Group</h3>
