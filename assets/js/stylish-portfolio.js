@@ -20,13 +20,56 @@
       aboutHeading: 'I am a student from Southern Medical University, majored in clinical medicine.',
       aboutText: 'Passionate about combining medical knowledge with technology to make a difference in healthcare.',
       aboutBtn: 'Who I Am',
-      /* Services */
-      servicesEyebrow: 'Things',
-      servicesHeading: 'That I Manage',
-      s1Title: 'Web Design',       s1Text: 'I currently design the page for SMOOTH',
-      s2Title: 'Scientific Research', s2Text: 'In the field of microbiome',
-      s3Title: 'File Management',  s3Text: 'Working with great habits',
-      s4Title: 'English',          s4Text: 'Spoken English is good',
+      /* Research & Skills */
+      servicesEyebrow: 'Experience & Skills',
+      servicesHeading: 'My Research Journey',
+      /* nav label */
+      navServices: 'Research',
+      /* Timeline */
+      tl1Date: '2025.02 — Present',
+      tl1Org: 'Department of Plastic Surgery · Microbial Big Data Lab',
+      tl1Role: 'Core Member | ML · Deep Learning · Skin Microbiome Peptides',
+      tl1b1: 'Literature review on skin microbiome peptides',
+      tl1b2: 'UK Biobank (UKB) database structure exploration & research ideation',
+      tl1b3: 'R: microbial co-occurrence network analysis & complex statistical modelling',
+      tl1b4: 'Python: causal machine learning & deep learning exploration',
+      tl1b5: 'Wet lab: mouse behavioural tests, depression model construction & verification, odour collection',
+      tl1b6: 'Web development: GitHub Pages and other tools for site deployment',
+      tl2Date: '2023.09 — 2025.02',
+      tl2Org: 'Southern Organoid Research Group',
+      tl2Role: 'Core Member | Organoids · Organ-on-a-Chip · Nasopharyngeal Carcinoma',
+      tl2b1: 'Led "Nasal-Brain Pathway" chip design — Provincial 3rd Prize at 10th Basic Medical Innovation Forum',
+      tl2b2: 'Led science communication project — Provincial 2nd Prize at 17th Guangdong Science Popularisation Competition',
+      tl2b3: 'Core member: visualisation track 1st Prize at SMU MEDofScience Research Competition',
+      tl2b4: 'Proficient in basic chemistry, organic chemistry and biochemistry laboratory operations',
+      awardsToggle: 'View Awards', awardsClose: 'Hide Awards',
+      aw1: "China International College Students' Innovation Competition — Campus 3rd Prize (core member)",
+      aw2: 'SMU "Challenge Cup" — Science & Technology Invention 2nd Prize (core member)',
+      aw3: '10th Basic Medical Innovation Forum, Interdisciplinary Track — Provincial 3rd Prize (lead)',
+      aw4: '1st Guangdong College Chemistry Experiment Competition, New Experiment Design — 2nd Prize (core member)',
+      aw5: 'SMU 6th Chemistry Lab Micro-video Competition — 2nd Prize (lead)',
+      aw6: '17th Guangdong Science Popularisation Competition — Provincial 2nd Prize (lead)',
+      aw7: 'SMU MEDofScience Visualisation Track — 1st Prize (core member)',
+      /* Skill tabs */
+      tabBio: 'Bioinformatics', tabWet: 'Wet Lab', tabWeb: 'Web Design',
+      /* Bio panel */
+      bioRDesc: 'Microbial co-occurrence network analysis & complex statistical modelling',
+      bioPyDesc: 'Causal machine learning (CausalML) & deep learning exploration',
+      bioUkbDesc: 'Database structure deep-dive & research hypothesis development',
+      vizCap1: 'Co-occurrence Network Analysis',
+      vizCap2: 'Module Network',
+      vizCap3: 'Module Composition',
+      vizCap4: 'Module Expression Pattern',
+      /* Wet lab panel */
+      wetlabIntro: 'Hands-on experience in animal behaviour research and biochemical laboratory techniques.',
+      wg1Title: 'Animal Model', wg2Title: 'Laboratory Operations',
+      wt1: 'Mouse Behavioural Tests', wt2: 'Depression Mouse Modelling',
+      wt3: 'Model Verification', wt4: 'Odour Collection',
+      wt5: 'Basic Chemistry Experiments', wt6: 'Organic Chemistry Experiments', wt7: 'Biochemistry Experiments',
+      /* Web panel */
+      webIntro: 'Building clean, responsive websites using modern web technologies and GitHub Pages.',
+      wp1Title: 'The SMOOTH Lab', wp1Desc: 'Research group website — design & deployment',
+      wp2Title: "July's Portfolio", wp2Desc: 'Personal homepage — this site',
       /* Portfolio */
       portfolioEyebrow: 'Things I Like',
       portfolioHeading: 'GitHub Account',
@@ -55,12 +98,55 @@
       aboutHeading: '我是南方医科大学临床医学专业的学生。',
       aboutText: '热衷于将医学知识与技术相结合，为医疗保健领域做出贡献。',
       aboutBtn: '关于我',
-      servicesEyebrow: '我擅长的',
-      servicesHeading: '技能',
-      s1Title: '网页设计',       s1Text: '目前为 SMOOTH 设计页面',
-      s2Title: '科学研究',        s2Text: '微生物组领域',
-      s3Title: '文件管理',        s3Text: '良好的工作习惯',
-      s4Title: '英语',            s4Text: '口语流利',
+      /* 科研与技能 */
+      servicesEyebrow: '科研经历与技能',
+      servicesHeading: '我的研究历程',
+      navServices: '科研',
+      /* 时间线 */
+      tl1Date: '2025.02 — 至今',
+      tl1Org: '整形外科·微生物大数据课题组',
+      tl1Role: '核心成员 | 机器学习 · 深度学习 · 皮肤微生物肽',
+      tl1b1: '皮肤微生物肽文献综述撰写',
+      tl1b2: 'UK Biobank（UKB）数据库数据结构深度探索与研究思路积累',
+      tl1b3: 'R 语言：微生物共现网络分析与复杂统计建模',
+      tl1b4: 'Python：因果机器学习（CausalML）及深度学习探索',
+      tl1b5: '湿实验：小鼠行为学、抑郁鼠造模及验证、气味收集',
+      tl1b6: '网页搭建：熟练使用 GitHub Pages 等工具进行网站部署',
+      tl2Date: '2023.09 — 2025.02',
+      tl2Org: '南方类器官课题组',
+      tl2Role: '核心成员 | 类器官 · 器官芯片 · 鼻咽癌',
+      tl2b1: '以负责人身份设计"鼻脑通路"芯片，荣获第十届基础医学创新研究论坛省级三等奖',
+      tl2b2: '以负责人身份参加第十七届广东省科普作品创作大赛，荣获省级二等奖',
+      tl2b3: '主要成员：南方医科大学 MEDofScience 科研大赛可视化赛道一等奖',
+      tl2b4: '熟练掌握基础化学、有机化学及生物化学实验操作',
+      awardsToggle: '查看奖项', awardsClose: '收起奖项',
+      aw1: '中国国际大学生创新大赛校赛三等奖（主要成员）',
+      aw2: '南方医科大学"挑战杯"科技发明制作类二等奖（主要成员）',
+      aw3: '第十届基础医学创新研究暨实验设计论坛交叉学科赛道省级三等奖（负责人）',
+      aw4: '第一届广东省大学生化学实验竞赛化学新实验设计二等奖（主要成员）',
+      aw5: '南方医科大学第六届化学实验操作微视频竞赛二等奖（负责人）',
+      aw6: '第十七届广东省科普作品创作大赛省级二等奖（负责人）',
+      aw7: '南方医科大学 MEDofScience 科研大赛可视化赛道一等奖（主要成员）',
+      /* 技能标签 */
+      tabBio: '生信技能', tabWet: '湿实验技能', tabWeb: '网站制作技能',
+      /* 生信面板 */
+      bioRDesc: '微生物共现网络分析 & 复杂统计建模',
+      bioPyDesc: '因果机器学习（CausalML）& 深度学习探索',
+      bioUkbDesc: '数据库结构深度探索与研究假设构建',
+      vizCap1: '共现网络分析',
+      vizCap2: '模块网络图',
+      vizCap3: '模块组成分析',
+      vizCap4: '模块表达模式',
+      /* 湿实验面板 */
+      wetlabIntro: '具备动物行为学研究与生化实验室操作的实践经验。',
+      wg1Title: '动物模型', wg2Title: '实验室操作',
+      wt1: '小鼠行为学', wt2: '抑郁鼠造模',
+      wt3: '模型验证', wt4: '气味收集',
+      wt5: '基础化学实验', wt6: '有机化学实验', wt7: '生物化学实验',
+      /* 网站制作面板 */
+      webIntro: '擅长使用 HTML/CSS/Bootstrap 与 GitHub Pages 搭建简洁、响应式网站。',
+      wp1Title: 'The SMOOTH Lab', wp1Desc: '课题组官网 — 设计与部署',
+      wp2Title: 'July 的主页', wp2Desc: '本站 — 个人主页',
       portfolioEyebrow: '我的爱好',
       portfolioHeading: 'GitHub 账号',
       portfolioOtherHeading: '其他爱好',
@@ -124,13 +210,39 @@
     setText('about-text', t.aboutText);
     setText('about-btn', t.aboutBtn);
 
-    /* Services */
+    /* Research & Skills */
     setText('services-eyebrow', t.servicesEyebrow);
     setText('services-heading', t.servicesHeading);
-    setText('s1-title', t.s1Title); setText('s1-text', t.s1Text);
-    setText('s2-title', t.s2Title); setText('s2-text', t.s2Text);
-    setText('s3-title', t.s3Title); setText('s3-text', t.s3Text);
-    setText('s4-title', t.s4Title); setText('s4-text', t.s4Text);
+    /* Timeline */
+    setText('tl1-date', t.tl1Date); setText('tl1-org', t.tl1Org); setText('tl1-role', t.tl1Role);
+    setText('tl1-b1', t.tl1b1); setText('tl1-b2', t.tl1b2); setText('tl1-b3', t.tl1b3);
+    setText('tl1-b4', t.tl1b4); setText('tl1-b5', t.tl1b5); setText('tl1-b6', t.tl1b6);
+    setText('tl2-date', t.tl2Date); setText('tl2-org', t.tl2Org); setText('tl2-role', t.tl2Role);
+    setText('tl2-b1', t.tl2b1); setText('tl2-b2', t.tl2b2); setText('tl2-b3', t.tl2b3); setText('tl2-b4', t.tl2b4);
+    setText('tl2-toggle-label', t.awardsToggle);
+    setText('aw1', t.aw1); setText('aw2', t.aw2); setText('aw3', t.aw3); setText('aw4', t.aw4);
+    setText('aw5', t.aw5); setText('aw6', t.aw6); setText('aw7', t.aw7);
+    /* Skill tabs */
+    setText('tab-bio-label', t.tabBio); setText('tab-wet-label', t.tabWet); setText('tab-web-label', t.tabWeb);
+    /* Bio panel */
+    setText('bio-r-desc', t.bioRDesc); setText('bio-py-desc', t.bioPyDesc); setText('bio-ukb-desc', t.bioUkbDesc);
+    setText('viz-cap1', t.vizCap1); setText('viz-cap2', t.vizCap2);
+    setText('viz-cap3', t.vizCap3); setText('viz-cap4', t.vizCap4);
+    /* Wet lab panel */
+    setText('wetlab-intro', t.wetlabIntro);
+    setText('wg1-title', t.wg1Title); setText('wg2-title', t.wg2Title);
+    setText('wt1', t.wt1); setText('wt2', t.wt2); setText('wt3', t.wt3); setText('wt4', t.wt4);
+    setText('wt5', t.wt5); setText('wt6', t.wt6); setText('wt7', t.wt7);
+    /* Web panel */
+    setText('web-intro', t.webIntro);
+    setText('wp1-title', t.wp1Title); setText('wp1-desc', t.wp1Desc);
+    setText('wp2-title', t.wp2Title); setText('wp2-desc', t.wp2Desc);
+    /* Awards toggle label when open */
+    var toggle = document.getElementById('tl2-toggle');
+    if (toggle) {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      setText('tl2-toggle-label', isOpen ? t.awardsClose : t.awardsToggle);
+    }
 
     /* Portfolio */
     setText('portfolio-eyebrow', t.portfolioEyebrow);
@@ -323,4 +435,98 @@
     loadBlogPosts();
   }
 
+  /* ============================================================
+     Timeline scroll animation
+     ============================================================ */
+  var tlObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tl-visible');
+        tlObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.timeline-item').forEach(function (el) {
+    tlObserver.observe(el);
+  });
+
+  /* Awards toggle */
+  var awardsToggle = document.getElementById('tl2-toggle');
+  var awardsList   = document.getElementById('tl2-awards');
+  if (awardsToggle && awardsList) {
+    awardsToggle.addEventListener('click', function () {
+      var open = awardsToggle.getAttribute('aria-expanded') === 'true';
+      awardsToggle.setAttribute('aria-expanded', String(!open));
+      awardsList.setAttribute('aria-hidden', String(open));
+      awardsList.classList.toggle('open', !open);
+      var t = translations[currentLang];
+      setText('tl2-toggle-label', open ? t.awardsToggle : t.awardsClose);
+    });
+  }
+
+  /* ============================================================
+     Skills tabs
+     ============================================================ */
+  var tabBtns = document.querySelectorAll('.skill-tab-btn');
+  var panels  = document.querySelectorAll('.skill-panel');
+
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabBtns.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      panels.forEach(function (p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      var target = document.getElementById(btn.getAttribute('aria-controls'));
+      if (target) target.classList.add('active');
+    });
+  });
+
+  /* ============================================================
+     Bioinformatics image carousel
+     ============================================================ */
+  (function () {
+    var track    = document.getElementById('viz-track');
+    var dotsWrap = document.getElementById('viz-dots');
+    var prevBtn  = document.getElementById('viz-prev');
+    var nextBtn  = document.getElementById('viz-next');
+    if (!track) return;
+
+    var slides    = track.querySelectorAll('.viz-carousel-slide');
+    var total     = slides.length;
+    var current   = 0;
+    var autoTimer = null;
+
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'viz-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+
+    function goTo(idx) {
+      current = (idx + total) % total;
+      track.style.transform = 'translateX(-' + current * 100 + '%)';
+      dotsWrap.querySelectorAll('.viz-dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function startAuto() { autoTimer = setInterval(function () { goTo(current + 1); }, 3500); }
+    function stopAuto()  { clearInterval(autoTimer); }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { stopAuto(); goTo(current - 1); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { stopAuto(); goTo(current + 1); startAuto(); });
+
+    var carousel = track.closest('.viz-carousel');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+    }
+
+    startAuto();
+  })();
+
 })();
+
