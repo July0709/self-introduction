@@ -76,9 +76,20 @@
       wp1Title: 'The SMOOTH Lab', wp1Desc: 'Research group website — design & deployment',
       wp2Title: "July's Portfolio", wp2Desc: 'Personal homepage — this site',
       /* Portfolio */
-      portfolioEyebrow: 'Things I Like',
-      portfolioHeading: 'GitHub Account',
-      portfolioOtherHeading: 'Other Things I Like',
+      portfolioEyebrow: 'Academic Vision',
+      portfolioHeading: 'Research Philosophy',
+      portfolioSubtitle: 'Driven by curiosity, guided by evidence, and committed to bridging laboratory discoveries with clinical impact.',
+      acadQuote: '"Medicine is a science of uncertainty and an art of probability — my research aims to narrow that uncertainty through rigorous, data-driven inquiry."',
+      pillar1Title: 'Computational Medicine',
+      pillar1Desc: 'Leveraging bioinformatics, causal machine learning, and population-scale biobanks to uncover disease mechanisms hidden in large-scale biological data.',
+      pillar2Title: 'Translational Research',
+      pillar2Desc: 'Bridging bench discoveries to bedside applications through organoid models, organ-on-a-chip platforms, and in vivo validation studies.',
+      pillar3Title: 'Open & Reproducible Science',
+      pillar3Desc: 'Committed to transparent methodology, open data practices, and interdisciplinary collaboration as foundations of trustworthy science.',
+      interestsEyebrow: 'Research Interests',
+      tag1: 'Skin Microbiome', tag2: 'Causal Machine Learning', tag3: 'Organ-on-a-Chip',
+      tag4: 'UK Biobank', tag5: 'Nasopharyngeal Carcinoma', tag6: 'Olfactory Pathway',
+      tag7: 'Microbiome Peptides', tag8: 'Depression Models',
       /* CTA */
       ctaHeading: "Let's Connect!",
       ctaBtn1: 'Contact Me', ctaBtn2: 'My GitHub',
@@ -157,9 +168,20 @@
       webIntro: '擅长使用 HTML/CSS/Bootstrap 与 GitHub Pages 搭建简洁、响应式网站。',
       wp1Title: 'The SMOOTH Lab', wp1Desc: '课题组官网 — 设计与部署',
       wp2Title: 'July 的主页', wp2Desc: '本站 — 个人主页',
-      portfolioEyebrow: '我的爱好',
-      portfolioHeading: 'GitHub 账号',
-      portfolioOtherHeading: '其他爱好',
+      portfolioEyebrow: '学术愿景',
+      portfolioHeading: '研究理念',
+      portfolioSubtitle: '以好奇心为驱动，以证据为引导，致力于将实验室发现转化为临床影响。',
+      acadQuote: '"医学是不确定性的科学，也是概率的艺术——我的研究目标是通过严谨的数据驱动探索，缩小这种不确定性。"',
+      pillar1Title: '计算医学',
+      pillar1Desc: '运用生物信息学、因果机器学习及大规模生物样本库，挖掘藏于海量生物数据中的疾病机制。',
+      pillar2Title: '转化医学研究',
+      pillar2Desc: '借助类器官模型、器官芯片平台及体内验证实验，将实验室发现转化为临床应用。',
+      pillar3Title: '开放与可重复科学',
+      pillar3Desc: '坚持透明的研究方法、开放数据实践与跨学科合作，以此为值得信赖的科学奠定基础。',
+      interestsEyebrow: '研究兴趣',
+      tag1: '皮肤微生物组', tag2: '因果机器学习', tag3: '器官芯片',
+      tag4: 'UK Biobank', tag5: '鼻咽癌', tag6: '嗅觉通路',
+      tag7: '微生物肽', tag8: '抑郁症模型',
       ctaHeading: '让我们联系吧！',
       ctaBtn1: '联系我', ctaBtn2: '我的 GitHub',
       contactEyebrow: '保持联系',
@@ -257,10 +279,18 @@
       setText('tl2-toggle-label', isOpen ? t.awardsClose : t.awardsToggle);
     }
 
-    /* Portfolio */
-    setText('portfolio-eyebrow', t.portfolioEyebrow);
-    setText('portfolio-heading', t.portfolioHeading);
-    setText('portfolio-other-heading', t.portfolioOtherHeading);
+    /* Portfolio — Academic Vision */
+    setText('portfolio-eyebrow',  t.portfolioEyebrow);
+    setText('portfolio-heading',  t.portfolioHeading);
+    setText('portfolio-subtitle', t.portfolioSubtitle);
+    setText('acad-quote-text',    t.acadQuote);
+    setText('pillar1-title', t.pillar1Title); setText('pillar1-desc', t.pillar1Desc);
+    setText('pillar2-title', t.pillar2Title); setText('pillar2-desc', t.pillar2Desc);
+    setText('pillar3-title', t.pillar3Title); setText('pillar3-desc', t.pillar3Desc);
+    setText('interests-eyebrow',  t.interestsEyebrow);
+    setText('tag1', t.tag1); setText('tag2', t.tag2); setText('tag3', t.tag3);
+    setText('tag4', t.tag4); setText('tag5', t.tag5); setText('tag6', t.tag6);
+    setText('tag7', t.tag7); setText('tag8', t.tag8);
 
     /* CTA */
     setText('cta-heading', t.ctaHeading);
@@ -424,24 +454,56 @@
     if (!container) return;
 
     var posts = getBlogPosts(3);
-    container.innerHTML = posts.map(function (post) {
-      return '<div class="col-lg-4 col-md-6 fade-in">' +
-        '<div class="blog-card">' +
-        '<img src="' + post.image + '" alt="' + post.title + '" class="blog-card-img" loading="lazy">' +
-        '<div class="blog-card-body">' +
-        '<span class="blog-card-category">' + post.category + '</span>' +
-        '<h3 class="blog-card-title">' + post.title + '</h3>' +
-        '<div class="blog-card-meta"><i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date) +
-        ' <span class="mx-2">·</span><i class="fa fa-user" aria-hidden="true"></i> ' + post.author + '</div>' +
-        '<p class="blog-card-excerpt">' + post.excerpt + '</p>' +
-        '<a href="blog-post.html?id=' + post.id + '" class="blog-card-link">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>' +
-        '</div></div></div>';
-    }).join('');
+    var html = '';
 
-    /* Observe newly added elements */
+    posts.forEach(function (post, i) {
+      if (i === 0) {
+        /* ── Featured post: large horizontal card ── */
+        html += '<div class="col-12 fade-in">' +
+          '<a class="blog-featured" href="blog-post.html?id=' + post.id + '" aria-label="' + post.title + '">' +
+          '<img src="' + post.image + '" alt="' + post.title + '" class="blog-featured-img" loading="lazy">' +
+          '<div class="blog-featured-body">' +
+          '<span class="blog-featured-label">' + post.category + '</span>' +
+          '<h3 class="blog-featured-title">' + post.title + '</h3>' +
+          '<div class="blog-card-meta"><i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date) +
+          ' <span class="mx-2">·</span><i class="fa fa-user" aria-hidden="true"></i> ' + post.author + '</div>' +
+          '<p class="blog-featured-excerpt">' + post.excerpt + '</p>' +
+          '<span class="blog-card-link">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></span>' +
+          '</div></a></div>';
+      } else if (i === 1) {
+        /* ── Sub-grid wrapper opens on second post ── */
+        html += '<div class="col-12"><div class="blog-sub-grid">';
+        html += buildSmallCard(post);
+      } else {
+        /* ── Third post closes the sub-grid ── */
+        html += buildSmallCard(post);
+        html += '</div></div>';
+      }
+    });
+
+    /* If only 2 posts, close the sub-grid */
+    if (posts.length === 2) { html += '</div></div>'; }
+
+    container.innerHTML = html;
+
+    /* Observe newly added fade-in elements */
     container.querySelectorAll('.fade-in').forEach(function (el) {
       fadeObserver.observe(el);
     });
+  }
+
+  function buildSmallCard(post) {
+    return '<div class="fade-in">' +
+      '<div class="blog-card">' +
+      '<img src="' + post.image + '" alt="' + post.title + '" class="blog-card-img" loading="lazy">' +
+      '<div class="blog-card-body">' +
+      '<span class="blog-card-category">' + post.category + '</span>' +
+      '<h3 class="blog-card-title">' + post.title + '</h3>' +
+      '<div class="blog-card-meta"><i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date) +
+      ' <span class="mx-2">·</span><i class="fa fa-user" aria-hidden="true"></i> ' + post.author + '</div>' +
+      '<p class="blog-card-excerpt">' + post.excerpt + '</p>' +
+      '<a href="blog-post.html?id=' + post.id + '" class="blog-card-link">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>' +
+      '</div></div></div>';
   }
 
   if (typeof getBlogPosts !== 'undefined') {
@@ -593,6 +655,82 @@
     if (replayBtn) replayBtn.addEventListener('click', playChip);
   })();
 
+})();
+
+/* ============================================================
+   Falling Leaves Animation
+   ============================================================ */
+(function () {
+  var container = document.getElementById('leaves-container');
+  if (!container) return;
+
+  /* Respect reduced motion preference */
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* Leaf color palette — multiple green shades + occasional warm-gold */
+  var colors = [
+    '#2d9e6b', '#1a7a52', '#4ecb8a', '#34b87a',
+    '#3dbd80', '#26a66b', '#52c788', '#8bc34a'
+  ];
+
+  /* Leaf size variants (px) */
+  var sizes = [12, 15, 18, 20, 14, 22, 16];
+
+  /* Animation variants (CSS class suffix) */
+  var anims = [1, 2, 3];
+
+  var spawnInterval = null;
+
+  function createLeaf() {
+    var leaf      = document.createElement('div');
+    var size      = sizes[Math.floor(Math.random() * sizes.length)];
+    var color     = colors[Math.floor(Math.random() * colors.length)];
+    var animIdx   = anims[Math.floor(Math.random() * anims.length)];
+    var leftPct   = Math.random() * 96;          /* 0–96% horizontal position */
+    var duration  = 9 + Math.random() * 10;      /* 9–19 seconds per fall */
+    var delay     = Math.random() * 1.5;         /* 0–1.5s stagger */
+    /* Vary opacity slightly: subtle decoration (0.18–0.38) */
+    var opacity   = 0.18 + Math.random() * 0.20;
+
+    leaf.className = 'leaf leaf-anim-' + animIdx;
+    leaf.style.cssText = [
+      'width:'             + size     + 'px',
+      'height:'            + size     + 'px',
+      'left:'              + leftPct  + '%',
+      'top:-25px',
+      'background:'        + color,
+      'opacity:'           + opacity,
+      'animation-duration:'  + duration + 's',
+      'animation-delay:'     + delay    + 's',
+      'animation-fill-mode:forwards'
+    ].join(';');
+
+    container.appendChild(leaf);
+
+    /* Auto-remove after animation completes to avoid DOM bloat */
+    setTimeout(function () {
+      if (leaf.parentNode) leaf.parentNode.removeChild(leaf);
+    }, (duration + delay + 0.8) * 1000);
+  }
+
+  /* Initial burst: 10 leaves staggered */
+  for (var i = 0; i < 10; i++) {
+    (function (idx) {
+      setTimeout(createLeaf, idx * 280);
+    })(i);
+  }
+
+  /* Continuous: one leaf every ~900ms */
+  spawnInterval = setInterval(createLeaf, 900);
+
+  /* Pause leaves when page is hidden to save CPU */
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      clearInterval(spawnInterval);
+    } else {
+      spawnInterval = setInterval(createLeaf, 900);
+    }
+  });
 })();
 
 /* ============================================================

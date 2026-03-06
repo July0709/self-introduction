@@ -33,6 +33,9 @@
 
 <body id="page-top">
 
+    <!-- Falling Leaves Decoration -->
+    <div id="leaves-container" aria-hidden="true"></div>
+
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
@@ -426,59 +429,69 @@
     </section>
 
     <!-- ==============================
-         Portfolio
+         Portfolio — Academic Vision
          ============================== -->
     <section id="portfolio" class="apple-section apple-section-white fade-in" role="region" aria-labelledby="portfolio-heading">
         <div class="container">
-            <!-- GitHub -->
-            <div class="text-center mb-5">
-                <span class="section-eyebrow" id="portfolio-eyebrow">Things I Like</span>
-                <h2 class="section-title" id="portfolio-heading">GitHub Account</h2>
-            </div>
-            <img class="portfolio-github-img mb-5" src="assets/img/clipboard-image.png" alt="July's GitHub profile" loading="lazy">
 
-            <!-- Other things I like -->
-            <div class="text-center mt-5 mb-4">
-                <h2 class="section-title" id="portfolio-other-heading">Other Things I Like</h2>
+            <!-- Section header -->
+            <div class="text-center mb-5">
+                <span class="section-eyebrow" id="portfolio-eyebrow">Academic Vision</span>
+                <h2 class="section-title" id="portfolio-heading">Research Philosophy</h2>
+                <p class="section-subtitle mx-auto" id="portfolio-subtitle">
+                    Driven by curiosity, guided by evidence, and committed to bridging laboratory discoveries with clinical impact.
+                </p>
             </div>
-            <div class="portfolio-grid">
-                <a class="portfolio-item" href="#" aria-label="Sunset photo">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h2>Sunset</h2>
-                            <p>A beautiful sunset over the city, with vibrant colors filling the sky.</p>
-                        </div>
+
+            <!-- Philosophy quote -->
+            <blockquote class="acad-quote fade-in">
+                <p id="acad-quote-text">"Medicine is a science of uncertainty and an art of probability — my research aims to narrow that uncertainty through rigorous, data-driven inquiry."</p>
+            </blockquote>
+
+            <!-- Three research pillars -->
+            <div class="acad-pillars">
+
+                <div class="acad-pillar fade-in">
+                    <div class="acad-pillar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
                     </div>
-                    <img src="assets/img/portfolio-1.jpg" alt="Sunset" loading="lazy">
-                </a>
-                <a class="portfolio-item" href="#" aria-label="Cats photo">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h2>Cats</h2>
-                            <p>Cats are such curious and playful creatures, always getting into mischief!</p>
-                        </div>
+                    <h3 class="acad-pillar-title" id="pillar1-title">Computational Medicine</h3>
+                    <p class="acad-pillar-desc" id="pillar1-desc">Leveraging bioinformatics, causal machine learning, and population-scale biobanks to uncover disease mechanisms hidden in large-scale biological data.</p>
+                </div>
+
+                <div class="acad-pillar fade-in">
+                    <div class="acad-pillar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                     </div>
-                    <img src="assets/img/portfolio-2.jpg" alt="Cats" loading="lazy">
-                </a>
-                <a class="portfolio-item" href="#" aria-label="Badminton photo">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h2>Badminton</h2>
-                            <p>Badminton is such a fun and fast-paced sport, perfect for a sunny day!</p>
-                        </div>
+                    <h3 class="acad-pillar-title" id="pillar2-title">Translational Research</h3>
+                    <p class="acad-pillar-desc" id="pillar2-desc">Bridging bench discoveries to bedside applications through organoid models, organ-on-a-chip platforms, and in vivo validation studies.</p>
+                </div>
+
+                <div class="acad-pillar fade-in">
+                    <div class="acad-pillar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.055 11H5a2 2 0 0 1 2 2v1a2 2 0 0 0 2 2 2 2 0 0 1 2 2v2.945M8 3.935V5.5A2.5 2.5 0 0 0 10.5 8h.5a2 2 0 0 1 2 2 2 2 0 0 0 4 0 2 2 0 0 1 2-2h1.064M15 20.488V18a2 2 0 0 1 2-2h3.064M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
                     </div>
-                    <img src="assets/img/portfolio-3.jpg" alt="Badminton" loading="lazy">
-                </a>
-                <a class="portfolio-item" href="#" aria-label="Stars photo">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h2>Stars</h2>
-                            <p>A beautiful night sky filled with twinkling stars, each one telling its own story.</p>
-                        </div>
-                    </div>
-                    <img src="assets/img/portfolio-4.jpg" alt="Stars" loading="lazy">
-                </a>
+                    <h3 class="acad-pillar-title" id="pillar3-title">Open &amp; Reproducible Science</h3>
+                    <p class="acad-pillar-desc" id="pillar3-desc">Committed to transparent methodology, open data practices, and interdisciplinary collaboration as foundations of trustworthy science.</p>
+                </div>
+
+            </div><!-- /acad-pillars -->
+
+            <!-- Research interest tags -->
+            <div class="text-center mt-5">
+                <span class="section-eyebrow" id="interests-eyebrow">Research Interests</span>
+                <div class="acad-tags">
+                    <span class="acad-tag" id="tag1">Skin Microbiome</span>
+                    <span class="acad-tag" id="tag2">Causal Machine Learning</span>
+                    <span class="acad-tag" id="tag3">Organ-on-a-Chip</span>
+                    <span class="acad-tag" id="tag4">UK Biobank</span>
+                    <span class="acad-tag" id="tag5">Nasopharyngeal Carcinoma</span>
+                    <span class="acad-tag" id="tag6">Olfactory Pathway</span>
+                    <span class="acad-tag" id="tag7">Microbiome Peptides</span>
+                    <span class="acad-tag" id="tag8">Depression Models</span>
+                </div>
             </div>
+
         </div>
     </section>
 
