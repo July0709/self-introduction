@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title id="page-title">书架 — July's Portfolio</title>
+    <meta name="description" content="July 的书架：博客文章、阅读书目与电影清单。">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+</head>
+
+<body id="page-top">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="apple-nav" role="navigation" aria-label="Main navigation">
+        <div class="apple-nav-inner">
+            <a class="apple-nav-brand" href="index.html">July</a>
+            <div class="apple-nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                </button>
+                <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+                    <span class="lang-text">EN</span>
+                </button>
+                <a class="apple-btn apple-btn-outline-dark" href="index.html"
+                   style="font-size:0.8125rem;padding:0.3rem 1rem;height:28px;margin-left:0.25rem;">
+                    <i class="fa fa-arrow-left me-1" aria-hidden="true"></i>
+                    <span id="nav-back">主页</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bookshelf-page-header fade-in">
+        <div class="container">
+            <span class="section-eyebrow" id="shelf-eyebrow">我的书架</span>
+            <h1 class="bookshelf-page-title mt-2" id="shelf-heading">阅读与写作</h1>
+            <p class="bookshelf-page-sub" id="shelf-sub">博客 · 书籍 · 电影</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="apple-section apple-section-gray">
+        <div class="container">
+
+            <!-- Tab Bar -->
+            <div class="shelf-tabs" role="tablist">
+                <button class="shelf-tab-btn active" id="tab-blog-btn" role="tab"
+                        aria-selected="true" aria-controls="panel-blog" data-tab="blog">
+                    <span id="tab-blog-label">个人博客</span>
+                </button>
+                <button class="shelf-tab-btn" id="tab-books-btn" role="tab"
+                        aria-selected="false" aria-controls="panel-books" data-tab="books">
+                    <span id="tab-books-label">阅读书籍</span>
+                </button>
+                <button class="shelf-tab-btn" id="tab-movies-btn" role="tab"
+                        aria-selected="false" aria-controls="panel-movies" data-tab="movies">
+                    <span id="tab-movies-label">电影</span>
+                </button>
+            </div>
+
+            <!-- Panel: Blog -->
+            <div class="shelf-panel active" id="panel-blog" role="tabpanel" aria-labelledby="tab-blog-btn">
+                <div class="blog-books-grid" id="blog-grid"></div>
+            </div>
+
+            <!-- Panel: Books -->
+            <div class="shelf-panel" id="panel-books" role="tabpanel" aria-labelledby="tab-books-btn">
+                <!-- Sub-tabs -->
+                <div class="shelf-subtabs">
+                    <button class="shelf-subtab-btn active" data-subtab="reading" id="subtab-reading-btn">
+                        <span id="subtab-reading-label">在读</span>
+                    </button>
+                    <button class="shelf-subtab-btn" data-subtab="read" id="subtab-read-btn">
+                        <span id="subtab-read-label">已读</span>
+                    </button>
+                </div>
+                <!-- Reading sub-panel -->
+                <div class="shelf-subpanel" id="subpanel-reading">
+                    <div class="shelf-header mb-3">
+                        <span class="shelf-header-icon">📖</span>
+                        <span class="shelf-header-title" id="books-reading-label">正在阅读</span>
+                        <span class="shelf-header-title ms-2" style="font-weight:400;color:var(--apple-text-sec);"
+                              id="books-reading-count"></span>
+                    </div>
+                    <div class="books-grid" id="books-reading-grid"></div>
+                </div>
+                <!-- Read sub-panel -->
+                <div class="shelf-subpanel" id="subpanel-read" style="display:none;">
+                    <div class="shelf-header mb-3">
+                        <span class="shelf-header-icon">📚</span>
+                        <span class="shelf-header-title" id="books-read-label">已读书目</span>
+                        <span class="shelf-header-title ms-2" style="font-weight:400;color:var(--apple-text-sec);"
+                              id="books-read-count"></span>
+                    </div>
+                    <div class="books-grid" id="books-read-grid"></div>
+                </div>
+            </div>
+
+            <!-- Panel: Movies -->
+            <div class="shelf-panel" id="panel-movies" role="tabpanel" aria-labelledby="tab-movies-btn">
+                <div class="shelf-header mb-3">
+                    <span class="shelf-header-icon">🎬</span>
+                    <span class="shelf-header-title" id="movies-label">电影清单</span>
+                    <span class="shelf-header-title ms-2" style="font-weight:400;color:var(--apple-text-sec);"
+                          id="movies-count"></span>
+                </div>
+                <div class="movies-grid" id="movies-grid"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="apple-footer" role="contentinfo">
+        <div class="container">
+            <p class="mb-0" id="footer-copy">&copy; July 2026 | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/blog-data.js"></script>
+    <script src="assets/js/books-data.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        /* ── Translations ── */
+        var t = {
+            zh: {
+                langBtn: 'EN', back: '主页',
+                pageTitle: '书架 — July\'s Portfolio',
+                eyebrow: '我的书架', heading: '阅读与写作', sub: '博客 · 书籍 · 电影',
+                tabBlog: '个人博客', tabBooks: '阅读书籍', tabMovies: '电影',
+                subtabReading: '在读', subtabRead: '已读',
+                booksReadingLabel: '正在阅读', booksReadLabel: '已读书目',
+                moviesLabel: '电影清单',
+                statusReading: '在读', statusRead: '已读',
+                readMore: '阅读全文 →',
+                copyright: '版权所有 © July 2026'
+            },
+            en: {
+                langBtn: '中文', back: 'Home',
+                pageTitle: 'Bookshelf — July\'s Portfolio',
+                eyebrow: 'My Bookshelf', heading: 'Books & Writings', sub: 'Blog · Books · Movies',
+                tabBlog: 'Blog', tabBooks: 'Books', tabMovies: 'Movies',
+                subtabReading: 'Reading', subtabRead: 'Read',
+                booksReadingLabel: 'Currently Reading', booksReadLabel: 'Already Read',
+                moviesLabel: 'Movie List',
+                statusReading: 'Reading', statusRead: 'Read',
+                readMore: 'Read Post →',
+                copyright: 'Copyright © July 2026'
+            }
+        };
+
+        /* ── State ── */
+        var lang  = localStorage.getItem('language') || 'zh';
+        var theme = localStorage.getItem('theme')    || 'light';
+        var htmlEl = document.documentElement;
+
+        /* ── Theme ── */
+        htmlEl.setAttribute('data-bs-theme', theme);
+        var themeBtn = document.getElementById('theme-toggle');
+        function setThemeIcon(th) {
+            var ic = themeBtn && themeBtn.querySelector('i');
+            if (ic) ic.className = th === 'dark' ? 'fa fa-sun-o' : 'fa fa-moon-o';
+        }
+        setThemeIcon(theme);
+        themeBtn && themeBtn.addEventListener('click', function () {
+            theme = theme === 'light' ? 'dark' : 'light';
+            htmlEl.setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+            setThemeIcon(theme);
+        });
+
+        /* ── Language ── */
+        var langBtn = document.getElementById('lang-toggle');
+        function applyLang(l) {
+            var tr = t[l];
+            htmlEl.lang = l === 'zh' ? 'zh-CN' : 'en';
+            document.getElementById('page-title').textContent = tr.pageTitle;
+            if (langBtn) langBtn.querySelector('.lang-text').textContent = tr.langBtn;
+            setT('nav-back',           tr.back);
+            setT('shelf-eyebrow',      tr.eyebrow);
+            setT('shelf-heading',      tr.heading);
+            setT('shelf-sub',          tr.sub);
+            setT('tab-blog-label',     tr.tabBlog);
+            setT('tab-books-label',    tr.tabBooks);
+            setT('tab-movies-label',   tr.tabMovies);
+            setT('subtab-reading-label', tr.subtabReading);
+            setT('subtab-read-label',    tr.subtabRead);
+            setT('books-reading-label',  tr.booksReadingLabel);
+            setT('books-read-label',     tr.booksReadLabel);
+            setT('movies-label',         tr.moviesLabel);
+            setT('footer-copy',          tr.copyright);
+            renderAll(l);
+        }
+        langBtn && langBtn.addEventListener('click', function () {
+            lang = lang === 'zh' ? 'en' : 'zh';
+            localStorage.setItem('language', lang);
+            applyLang(lang);
+        });
+
+        function setT(id, text) {
+            var el = document.getElementById(id);
+            if (el) el.textContent = text;
+        }
+
+        /* ── Render Blog ── */
+        function renderBlog(l) {
+            var container = document.getElementById('blog-grid');
+            if (!container) return;
+            var posts = getBlogPosts();
+            container.innerHTML = posts.map(function (p) {
+                var title   = l === 'zh' ? p.title   : (p.titleEn   || p.title);
+                var excerpt = l === 'zh' ? p.excerpt : (p.excerptEn || p.excerpt);
+                var readBtn = t[l].readMore;
+                return '<a class="book-card" href="blog-post.html?id=' + p.id + '" aria-label="' + title + '">' +
+                    '<img src="' + p.image + '" alt="' + title + '" class="book-cover-img" loading="lazy">' +
+                    '<span class="book-cat-badge">' + p.category + '</span>' +
+                    '<div class="book-overlay">' +
+                        '<div class="book-overlay-title">' + title + '</div>' +
+                        '<div class="book-overlay-sub">' + excerpt + '</div>' +
+                        '<span class="book-overlay-btn">' + readBtn + '</span>' +
+                    '</div>' +
+                '</a>';
+            }).join('');
+        }
+
+        /* ── Render Books ── */
+        function renderBooks(l) {
+            renderBookList('books-reading-grid', 'books-reading-count', getBooks('reading'), l);
+            renderBookList('books-read-grid',    'books-read-count',    getBooks('read'),    l);
+        }
+        function renderBookList(gridId, countId, list, l) {
+            var grid  = document.getElementById(gridId);
+            var count = document.getElementById(countId);
+            if (!grid) return;
+            if (count) count.textContent = '(' + list.length + ')';
+            grid.innerHTML = list.map(function (b) {
+                var title  = l === 'zh' ? b.title  : (b.titleEn  || b.title);
+                var author = l === 'zh' ? b.author : (b.authorEn || b.author);
+                var genre  = l === 'zh' ? b.genre  : (b.genreEn  || b.genre);
+                var badge  = b.status === 'reading' ? t[l].statusReading : t[l].statusRead;
+                var badgeCls = b.status === 'reading' ? 'badge-reading' : 'badge-read';
+                var inner = b.cover
+                    ? '<img src="' + b.cover + '" alt="' + title + '" class="book-cover-img" loading="lazy">'
+                    : '<div class="book-cover-color" style="background:' + b.color + ';">' +
+                          '<span class="book-spine-title">' + title + '</span>' +
+                          '<span class="book-spine-author">' + author + '</span>' +
+                      '</div>';
+                return '<div class="book-card">' +
+                    inner +
+                    '<span class="book-status-badge ' + badgeCls + '">' + badge + '</span>' +
+                    '<div class="book-overlay">' +
+                        '<div class="book-overlay-title">' + title + '</div>' +
+                        '<div class="book-overlay-sub">' + author + '</div>' +
+                        (genre ? '<div class="book-overlay-sub" style="opacity:0.5;">' + genre + '</div>' : '') +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }
+
+        /* ── Render Movies ── */
+        function renderMovies(l) {
+            var grid  = document.getElementById('movies-grid');
+            var count = document.getElementById('movies-count');
+            if (!grid) return;
+            var movies = getMovies();
+            if (count) count.textContent = '(' + movies.length + ')';
+            grid.innerHTML = movies.map(function (m) {
+                var title    = l === 'zh' ? m.title : (m.titleEn || m.title);
+                var titleSub = l === 'zh' ? (m.titleEn || '') : m.title;
+                var inner = m.cover
+                    ? '<img src="' + m.cover + '" alt="' + title + '" class="book-cover-img" loading="lazy">'
+                    : '<div class="book-cover-color" style="background:' + m.color + ';">' +
+                          '<span class="book-spine-title">' + title + '</span>' +
+                          '<span class="book-spine-year">' + m.year + '</span>' +
+                      '</div>';
+                return '<div class="book-card">' +
+                    inner +
+                    '<div class="book-overlay">' +
+                        '<div class="book-overlay-title">' + title + '</div>' +
+                        (titleSub ? '<div class="book-overlay-sub">' + titleSub + '</div>' : '') +
+                        '<div class="book-overlay-sub" style="opacity:0.6;">' + m.year + '</div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }
+
+        function renderAll(l) {
+            renderBlog(l);
+            renderBooks(l);
+            renderMovies(l);
+        }
+
+        /* ── Tab switching ── */
+        var tabBtns = document.querySelectorAll('.shelf-tab-btn');
+        tabBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var target = btn.getAttribute('data-tab');
+                tabBtns.forEach(function (b) {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                document.querySelectorAll('.shelf-panel').forEach(function (p) {
+                    p.classList.remove('active');
+                });
+                var panel = document.getElementById('panel-' + target);
+                if (panel) panel.classList.add('active');
+            });
+        });
+
+        /* ── Book sub-tabs ── */
+        var subBtns = document.querySelectorAll('.shelf-subtab-btn');
+        subBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var target = btn.getAttribute('data-subtab');
+                subBtns.forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                document.querySelectorAll('.shelf-subpanel').forEach(function (p) {
+                    p.style.display = 'none';
+                });
+                var sub = document.getElementById('subpanel-' + target);
+                if (sub) sub.style.display = 'block';
+            });
+        });
+
+        /* ── Fade-in observer ── */
+        var fadeObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.fade-in').forEach(function (el) { fadeObs.observe(el); });
+
+        /* ── Loading screen ── */
+        window.addEventListener('load', function () {
+            var ls = document.querySelector('.loading-screen');
+            if (ls) setTimeout(function () { ls.classList.add('hidden'); }, 400);
+        });
+
+        /* ── Init ── */
+        applyLang(lang);
+
+    })();
+    </script>
+</body>
+
+</html>

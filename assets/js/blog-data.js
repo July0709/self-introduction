@@ -3,49 +3,57 @@ var blogPosts = [
   {
     id: 1,
     title: "从9.03km开始2026",
+    titleEn: "Starting 2026 with 9.03 km",
     category: "Life",
     date: "2026-01-01",
     author: "July",
     image: "assets/img/life-01.jpg",
     excerpt: "记录2026年的第一天，新的开始，新的希望...",
+    excerptEn: "Recording the very first day of 2026 — a new beginning, new hopes...",
     content: `
       <p>新年的第一天去登高，于白云山摩星岭处拥抱整座城市。</p>
       <p>难忘是白云山入口处满墙铺满的三角梅，那好似象征白云的迎客建筑；</p>
-      <img src="assets/img/life-01-01.jpg" alt="三角梅墙">
-
       <p>是有氧小径处白发老人草编飞鸟，耳旁的哨笛忽得演一番百鸟朝凤；</p>
-      <img src="assets/img/life-01-04.jpg" alt="草编飞鸟">
-
-      <p>去看山涧处兀自盛开的睡莲，去拥大风吹向我们的“我爱广州”的气球，似春风春草温柔的娇羞。</p>
-      <img src="assets/img/life-01-03.jpg" alt="睡莲">
-
+      <p>去看山涧处兀自盛开的睡莲，去拥大风吹向我们的"我爱广州"的气球，似春风春草温柔的娇羞。</p>
       <p>城市被白雾笼罩，又在风的吹动下，映照在我的心房。</p>
       <p>飞鸟点缀在烟雨花城图之上，古典凉亭同高楼齐色。</p>
-      <img src="assets/img/life-01-05.jpg" alt="白雾笼罩的城市">
-
-      <p>曲折的九公里，让人印象深刻的除去路上遇到的荡胸亭，一边吟诵“荡胸生曾云，决眦入归鸟”的潇洒之外。</p>
+      <p>曲折的九公里，让人印象深刻的除去路上遇到的荡胸亭，一边吟诵"荡胸生曾云，决眦入归鸟"的潇洒之外。</p>
       <p>览遍众山小后，我们也面临着如何快速下山的问题。</p>
       <p>停下脚步查攻略地图，最后抵达山脚的欣喜，</p>
       <p>让我相信柳暗之处会花明，赐予我新一年逢山开路之勇气。</p>
+    `,
+    contentEn: `
+      <p>On the first day of the new year, I climbed Baiyun Mountain and embraced the whole city from Moxinglin Peak.</p>
+      <p>Unforgettable: the wall of bougainvillea at the mountain entrance, like a welcoming arch of clouds;</p>
+      <p>an elderly man weaving grass birds along the aerobic trail, his bamboo whistle suddenly performing a symphony of a hundred birds;</p>
+      <p>lotus flowers blooming quietly by the mountain stream; giant "I Love Guangzhou" balloons carried by the wind, gentle and tender like spring grass.</p>
+      <p>The city was veiled in white mist, then reflected in my heart as the wind stirred.</p>
+      <p>Birds dotted the ink-wash cityscape; ancient pavilions stood side by side with modern towers.</p>
+      <p>Along the winding nine kilometres, what stood out most — beyond the "Dangxiong Pavilion" where we recited Du Fu's verses with abandon — was the simple joy of the journey.</p>
+      <p>After surveying all the mountains below, we faced the practical challenge of descending quickly.</p>
+      <p>We stopped to consult maps, found our way, and arrived at the foot of the mountain with a rush of happiness.</p>
+      <p>That feeling made me believe that light always follows darkness — and gifted me the courage to forge my own path in the new year ahead.</p>
     `
   },
   {
     id: 2,
     title: "主体性与可视化",
-    category: "research",
+    titleEn: "Agency and Visualization",
+    category: "Research",
     date: "2026-01-08",
     author: "July",
     image: "assets/img/research-01.png",
     excerpt: "从2025年跨年到2026年的PBL，我收获了什么...",
+    excerptEn: "What I gained from the PBL course that bridged 2025 into 2026...",
     content: `
     <h2>引言</h2>
-      <p>PBL的wcm老师让我印象挺深刻的，第一节PBL课我作为“主席”需要添加老师微信。</p>
+      <p>PBL的wcm老师让我印象挺深刻的，第一节PBL课我作为"主席"需要添加老师微信。</p>
       <p>当时她掏出了收付款码，我马上说：额不是收款码……</p>
       <p>她：你不要说出来……</p>
-      <p>她笑得前仰后合，我也是第一次见这么“亲民”的一位老师。</p>
+      <p>她笑得前仰后合，我也是第一次见这么"亲民"的一位老师。</p>
 
     <h2>主体性</h2>
-      <p>第一节课，老师给我的评价是：July的特点就是很强势，能很快捕捉到别人的意思，甚至比发言人能更加明白他们自己想要表达什么东西。
+      <p>第一节课，老师给我的评价是：July的特点就是很强势，能很快捕捉到别人的意思，甚至比发言人能更加明白他们自己想要表达什么东西。</p>
       <p>我记得她说</p>
       <blockquote>强势不一定是一个贬义词</blockquote>
 
@@ -59,48 +67,78 @@ var blogPosts = [
       <p>但是通过不断的练习，我发现自己慢慢能够更好地掌控讨论的节奏，确保每个人都能参与进来，并且把讨论引向有意义的方向。</p>
       <p>我觉得这个能力在科研中是非常重要的，因为科研往往需要团队合作，而一个好的leader能够激发团队成员的潜力，推动项目的进展。</p>
       <p>像一直带我的师姐，和wcm老师，她们都有一个特点，能够清晰地看见别人的优点，并且引导别人看到其他人的优点。</p>
-      <p>在随后的几节课，王老师一直在引导我们更好地完成PBL，我记得最后给王老师留下了这样的评语</p>
-      <img src="assets/img/research-01-01.jpg" alt="王老师评语">
 
     <h2>可视化</h2>
     <h3>可视化思维，也可视化进步</h3>
-      <p>PBL结课，老师要求以机制图可视化我们的成果。
-      做出这样的机制图，再来回看PBL，有一种收获满满的感觉。</p>  
-      <img src="assets/img/research-01-02.jpg" alt="机制图">
+      <p>PBL结课，老师要求以机制图可视化我们的成果。做出这样的机制图，再来回看PBL，有一种收获满满的感觉。</p>
+    `,
+    contentEn: `
+    <h2>Introduction</h2>
+      <p>My PBL teacher, Professor W, left a strong impression on me. In the very first class, I was assigned as "chairman" and needed to add her on WeChat.</p>
+      <p>She pulled out a payment QR code by mistake. I immediately said: "Wait, that's a payment code…"</p>
+      <p>She replied: "Don't say it out loud…"</p>
+      <p>She burst into laughter, and I realised I had never met such a down-to-earth teacher before.</p>
+
+    <h2>Agency</h2>
+      <p>After the first class, her feedback on me was: "July's defining trait is being assertive — she can quickly grasp what others mean, often understanding a speaker's intent better than they do themselves."</p>
+      <p>I remembered her saying:</p>
+      <blockquote>Being assertive is not necessarily a negative thing.</blockquote>
+      <p>That reminded me of something a part-time counsellor once told me:</p>
+      <blockquote>Research requires people to have genuine agency.</blockquote>
+      <p>I think these two ideas complement each other. Research demands agency, and agency does not have to mean being forceful.</p>
+
+    <h2>Learning to Be a Leader</h2>
+      <p>In PBL, the teacher had us take turns as chairman. The role required guiding discussion, ensuring everyone had a chance to speak, and steering the conversation in a productive direction.</p>
+      <p>It is genuinely hard — you have to manage time while also moving the task forward. Honestly, the first time I served as chairman, I appeared calm on the outside but was quietly nervous, my body slightly sweating.</p>
+      <p>Through repeated practice, I gradually found I could better control the rhythm of discussion, ensure everyone's participation, and guide things toward meaningful conclusions.</p>
+      <p>This skill, I believe, is deeply important in research — teamwork is essential, and a good leader can bring out the potential in every member and drive the project forward.</p>
+      <p>Both my senior mentor and Professor W share a quality: they can clearly see the strengths in others and help people recognise each other's value.</p>
+
+    <h2>Visualization</h2>
+    <h3>Visualise Your Thinking. Visualise Your Progress.</h3>
+      <p>At the end of the PBL course, we were asked to create a mechanism diagram to visualise our findings. Looking back on the whole PBL journey through that diagram gave me a profound sense of accomplishment.</p>
     `
   },
   {
     id: 3,
     title: "朋友，原谅我，我不下船了",
-    category: "life",
+    titleEn: "Friend, Forgive Me — I'm Staying Aboard",
+    category: "Life",
     date: "2026-01-09",
     author: "July",
     image: "assets/img/life-02.jpg",
     excerpt: "考完微生物那天晚上，我看完了海上钢琴师...",
+    excerptEn: "The night after my microbiology exam, I finished watching The Legend of 1900...",
     content: `
       <p>考完微生物那天晚上，我看完了海上钢琴师。</p>
-      <img src="assets/img/life-02-01.jpg" alt="海上钢琴师">
       <p>看的过程中更像是在欣赏一部音乐剧，我还专门去找了知网上的影评来看。</p>
-      <img src="assets/img/life-02-02.jpg" alt="摘抄的影评1">
-      <img src="assets/img/life-02-03.jpg" alt="摘抄的影评2">
       <p>世界缤纷而喧嚣，做一个纯粹的人。</p>
+    `,
+    contentEn: `
+      <p>The night after my microbiology exam, I finally finished watching <em>The Legend of 1900</em>.</p>
+      <p>Watching it felt less like cinema and more like attending a live musical. Afterwards, I went looking for film reviews on CNKI to read alongside my own impressions.</p>
+      <p>The world is colourful and noisy. Be a pure person.</p>
     `
   },
   {
     id: 4,
     title: "站在麓湖的山水画里",
-    category: "life",
+    titleEn: "Standing Inside Luhu's Ink Painting",
+    category: "Life",
     date: "2026-01-15",
     author: "July",
     image: "assets/img/life-03.png",
     excerpt: "考完寄生虫那天中午，说走就走的出逃...",
+    excerptEn: "A spontaneous escape the afternoon my parasitology exam ended...",
     content: `
       <p>考完寄生虫那天中午，我说走就走，去了麓湖。</p>
-      <img src="assets/img/life-03-01.jpg" alt="麓湖风景">
       <p>站在麓湖的山水画里，感受自然的宁静与美好。</p>
-      <img src="assets/img/life-03-02.jpg" alt="麓湖山水画">
-      <img src="assets/img/life-03-04.jpg" alt="麓湖风景2">
-      <p></p>
+      <p>那一刻，所有的疲惫都消散了，只剩下内心的平静与满足。</p>
+    `,
+    contentEn: `
+      <p>The afternoon my parasitology exam ended, I made a spontaneous decision and headed straight to Luhu.</p>
+      <p>Standing inside Luhu's living ink painting, I let the tranquillity and beauty of nature wash over me.</p>
+      <p>In that moment, all the exhaustion dissolved — leaving only a quiet, deep sense of contentment.</p>
     `
   }
 ];
