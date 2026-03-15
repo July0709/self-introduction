@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+<html data-bs-theme="light" lang="zh-CN">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Blog — July's Portfolio</title>
-    <meta name="description" content="Read July's blog posts about clinical medicine, microbiome research, and daily life.">
+    <title id="page-title">博客 — July's Portfolio</title>
+    <meta name="description" content="July 的博客：记录医学、科研与生活的文字。">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,8 +32,13 @@
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                     <i class="fa fa-moon-o" aria-hidden="true"></i>
                 </button>
-                <a class="apple-btn apple-btn-outline-dark" href="index.html" style="font-size:0.8125rem; padding: 0.3rem 1rem; height:28px;">
-                    <i class="fa fa-arrow-left me-1" aria-hidden="true"></i> Home
+                <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+                    <span class="lang-text">EN</span>
+                </button>
+                <a class="apple-btn apple-btn-outline-dark" href="bookshelf.html"
+                   style="font-size:0.8125rem;padding:0.3rem 1rem;height:28px;margin-left:0.25rem;">
+                    <i class="fa fa-arrow-left me-1" aria-hidden="true"></i>
+                    <span id="nav-back">书架</span>
                 </a>
             </div>
         </div>
@@ -42,95 +47,130 @@
     <!-- Header -->
     <header class="blog-post-header fade-in">
         <div class="container">
-            <span class="section-eyebrow" style="color:#409cff;">My Thoughts</span>
-            <h1 class="blog-post-title mt-2">Blog Posts</h1>
-            <p class="blog-post-meta">Thoughts on Medicine, Research &amp; Life</p>
+            <span class="section-eyebrow" style="color:#409cff;" id="blog-eyebrow">我的文字</span>
+            <h1 class="blog-post-title mt-2" id="blog-heading">博客</h1>
+            <p class="blog-post-meta" id="blog-sub">关于医学、科研与生活的思考</p>
         </div>
     </header>
 
     <!-- All Posts -->
     <section class="apple-section apple-section-gray">
         <div class="container">
-            <div class="row g-4" id="all-blog-posts">
-                <!-- Loaded by JS -->
-            </div>
+            <div class="blog-books-grid" id="all-blog-posts"></div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="apple-footer" role="contentinfo">
         <div class="container">
-            <p class="mb-0">&copy; July 2025 | All Rights Reserved</p>
+            <p class="mb-0" id="footer-copy">&copy; July 2026 | All Rights Reserved</p>
         </div>
     </footer>
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/blog-data.js"></script>
     <script>
-        (function () {
-            "use strict";
+    (function () {
+        'use strict';
 
-            /* Theme */
-            var themeToggle = document.getElementById('theme-toggle');
-            var htmlEl = document.documentElement;
-            var savedTheme = localStorage.getItem('theme') || 'light';
-            htmlEl.setAttribute('data-bs-theme', savedTheme);
-            setIcon(savedTheme);
-
-            themeToggle && themeToggle.addEventListener('click', function () {
-                var t = htmlEl.getAttribute('data-bs-theme') === 'light' ? 'dark' : 'light';
-                htmlEl.setAttribute('data-bs-theme', t);
-                localStorage.setItem('theme', t);
-                setIcon(t);
-            });
-
-            function setIcon(theme) {
-                var icon = themeToggle && themeToggle.querySelector('i');
-                if (!icon) return;
-                icon.className = theme === 'dark' ? 'fa fa-sun-o' : 'fa fa-moon-o';
+        var t = {
+            zh: {
+                langBtn: 'EN', back: '书架',
+                pageTitle: '博客 — July\'s Portfolio',
+                eyebrow: '我的文字', heading: '博客',
+                sub: '关于医学、科研与生活的思考',
+                readMore: '阅读全文 →',
+                copyright: '版权所有 © July 2026'
+            },
+            en: {
+                langBtn: '中文', back: 'Bookshelf',
+                pageTitle: 'Blog — July\'s Portfolio',
+                eyebrow: 'My Writings', heading: 'Blog',
+                sub: 'Thoughts on Medicine, Research & Life',
+                readMore: 'Read Post →',
+                copyright: 'Copyright © July 2026'
             }
+        };
 
-            /* Fade-in */
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.fade-in').forEach(function (el) { observer.observe(el); });
+        var lang  = localStorage.getItem('language') || 'zh';
+        var theme = localStorage.getItem('theme')    || 'light';
+        var htmlEl = document.documentElement;
 
-            /* Loading screen */
-            window.addEventListener('load', function () {
-                var ls = document.querySelector('.loading-screen');
-                if (ls) setTimeout(function () { ls.classList.add('hidden'); }, 400);
-            });
+        /* Theme */
+        htmlEl.setAttribute('data-bs-theme', theme);
+        var themeBtn = document.getElementById('theme-toggle');
+        function setThemeIcon(th) {
+            var ic = themeBtn && themeBtn.querySelector('i');
+            if (ic) ic.className = th === 'dark' ? 'fa fa-sun-o' : 'fa fa-moon-o';
+        }
+        setThemeIcon(theme);
+        themeBtn && themeBtn.addEventListener('click', function () {
+            theme = theme === 'light' ? 'dark' : 'light';
+            htmlEl.setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+            setThemeIcon(theme);
+        });
 
-            /* Posts */
-            function formatDate(dateString) {
-                return new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            }
+        /* Language */
+        var langBtn = document.getElementById('lang-toggle');
+        function applyLang(l) {
+            var tr = t[l];
+            htmlEl.lang = l === 'zh' ? 'zh-CN' : 'en';
+            document.getElementById('page-title').textContent = tr.pageTitle;
+            if (langBtn) langBtn.querySelector('.lang-text').textContent = tr.langBtn;
+            setT('nav-back',     tr.back);
+            setT('blog-eyebrow', tr.eyebrow);
+            setT('blog-heading', tr.heading);
+            setT('blog-sub',     tr.sub);
+            setT('footer-copy',  tr.copyright);
+            renderPosts(l);
+        }
+        langBtn && langBtn.addEventListener('click', function () {
+            lang = lang === 'zh' ? 'en' : 'zh';
+            localStorage.setItem('language', lang);
+            applyLang(lang);
+        });
 
-            function loadAllBlogPosts() {
-                var container = document.getElementById('all-blog-posts');
-                if (!container) return;
-                var posts = getBlogPosts();
-                container.innerHTML = posts.map(function (post) {
-                    return '<div class="col-lg-4 col-md-6 fade-in">' +
-                        '<div class="blog-card">' +
-                        '<img src="' + post.image + '" alt="' + post.title + '" class="blog-card-img" loading="lazy">' +
-                        '<div class="blog-card-body">' +
-                        '<span class="blog-card-category">' + post.category + '</span>' +
-                        '<h3 class="blog-card-title">' + post.title + '</h3>' +
-                        '<div class="blog-card-meta"><i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date) +
-                        ' <span class="mx-2">·</span><i class="fa fa-user" aria-hidden="true"></i> ' + post.author + '</div>' +
-                        '<p class="blog-card-excerpt">' + post.excerpt + '</p>' +
-                        '<a href="blog-post.html?id=' + post.id + '" class="blog-card-link">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>' +
-                        '</div></div></div>';
-                }).join('');
+        function setT(id, text) {
+            var el = document.getElementById(id);
+            if (el) el.textContent = text;
+        }
 
-                /* Re-observe new elements */
-                document.querySelectorAll('.fade-in').forEach(function (el) { observer.observe(el); });
-            }
+        /* Render posts as book cards */
+        function renderPosts(l) {
+            var container = document.getElementById('all-blog-posts');
+            if (!container) return;
+            var posts = getBlogPosts();
+            container.innerHTML = posts.map(function (p) {
+                var title   = l === 'zh' ? p.title   : (p.titleEn   || p.title);
+                var excerpt = l === 'zh' ? p.excerpt : (p.excerptEn || p.excerpt);
+                var readBtn = t[l].readMore;
+                return '<a class="book-card" href="blog-post.html?id=' + p.id + '" aria-label="' + title + '">' +
+                    '<img src="' + p.image + '" alt="' + title + '" class="book-cover-img" loading="lazy">' +
+                    '<span class="book-cat-badge">' + p.category + '</span>' +
+                    '<div class="book-overlay">' +
+                        '<div class="book-overlay-title">' + title + '</div>' +
+                        '<div class="book-overlay-sub">' + excerpt + '</div>' +
+                        '<span class="book-overlay-btn">' + readBtn + '</span>' +
+                    '</div>' +
+                '</a>';
+            }).join('');
+        }
 
-            loadAllBlogPosts();
-        })();
+        /* Fade-in */
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.fade-in').forEach(function (el) { obs.observe(el); });
+
+        /* Loading screen */
+        window.addEventListener('load', function () {
+            var ls = document.querySelector('.loading-screen');
+            if (ls) setTimeout(function () { ls.classList.add('hidden'); }, 400);
+        });
+
+        applyLang(lang);
+    })();
     </script>
 </body>
 

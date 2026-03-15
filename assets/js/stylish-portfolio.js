@@ -9,7 +9,7 @@
       langButton: '中文',
       /* Nav */
       navHome: 'Home', navAbout: 'About', navServices: 'Services',
-      navPortfolio: 'Portfolio', navBlog: 'Blog', navContact: 'Contact',
+      navPortfolio: 'Portfolio', navBlog: 'Bookshelf', navContact: 'Contact',
       /* Hero */
       heroEyebrow: 'Southern Medical University',
       heroTitle: 'Self Introduction',
@@ -99,13 +99,18 @@
       labelName: 'Name *', labelEmail: 'Email *',
       labelSubject: 'Subject *', labelMessage: 'Message *',
       contactSubmit: 'Send Message',
+      /* Bookshelf */
+      shelfEyebrow: 'My Bookshelf', shelfHeading: 'Books & Writings',
+      shelfRow1: 'Recent Writings', shelfRow2: 'Currently Reading',
+      shelfRow3: 'Already Read', shelfViewAll: 'View Full Bookshelf →',
+      bookReadMore: 'Read Post →', bookStatusRead: 'Read', bookStatusReading: 'Reading',
       /* Footer */
       copyright: 'Copyright © July 2026'
     },
     zh: {
       langButton: 'EN',
       navHome: '首页', navAbout: '关于', navServices: '技能',
-      navPortfolio: '作品集', navBlog: '博客', navContact: '联系',
+      navPortfolio: '作品集', navBlog: '书架', navContact: '联系',
       heroEyebrow: '南方医科大学',
       heroTitle: '自我介绍',
       heroSubtitle: 'July',
@@ -189,6 +194,11 @@
       labelName: '姓名 *', labelEmail: '邮箱 *',
       labelSubject: '主题 *', labelMessage: '留言 *',
       contactSubmit: '发送消息',
+      /* 书架 */
+      shelfEyebrow: '我的书架', shelfHeading: '阅读与写作',
+      shelfRow1: '近期文章', shelfRow2: '正在阅读',
+      shelfRow3: '已读书目', shelfViewAll: '查看完整书架 →',
+      bookReadMore: '阅读全文 →', bookStatusRead: '已读', bookStatusReading: '在读',
       copyright: '版权所有 © July 2026'
     }
   };
@@ -308,6 +318,17 @@
 
     /* Footer */
     setText('footer-copy', t.copyright);
+
+    /* Bookshelf preview */
+    setText('shelf-eyebrow', t.shelfEyebrow);
+    setText('shelf-heading', t.shelfHeading);
+    setText('shelf-row1-label', t.shelfRow1);
+    setText('shelf-row2-label', t.shelfRow2);
+    setText('shelf-row3-label', t.shelfRow3);
+    setText('shelf-view-all', t.shelfViewAll);
+    /* Re-render shelf cards in current language */
+    if (typeof getBlogPosts !== 'undefined') renderShelfBlogPosts(lang);
+    if (typeof getBooks !== 'undefined') renderShelfBooks(lang);
   }
 
   /* ============================================================
@@ -441,7 +462,7 @@
   }
 
   /* ============================================================
-     Blog posts (homepage)
+     Bookshelf — Homepage shelf preview
      ============================================================ */
   function formatDate(dateString) {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -449,65 +470,75 @@
     });
   }
 
-  function loadBlogPosts() {
-    var container = document.getElementById('blog-posts');
-    if (!container) return;
-
-    var posts = getBlogPosts(3);
-    var html = '';
-
-    posts.forEach(function (post, i) {
-      if (i === 0) {
-        /* ── Featured post: large horizontal card ── */
-        html += '<div class="col-12 fade-in">' +
-          '<a class="blog-featured" href="blog-post.html?id=' + post.id + '" aria-label="' + post.title + '">' +
-          '<img src="' + post.image + '" alt="' + post.title + '" class="blog-featured-img" loading="lazy">' +
-          '<div class="blog-featured-body">' +
-          '<span class="blog-featured-label">' + post.category + '</span>' +
-          '<h3 class="blog-featured-title">' + post.title + '</h3>' +
-          '<div class="blog-card-meta"><i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date) +
-          ' <span class="mx-2">·</span><i class="fa fa-user" aria-hidden="true"></i> ' + post.author + '</div>' +
-          '<p class="blog-featured-excerpt">' + post.excerpt + '</p>' +
-          '<span class="blog-card-link">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></span>' +
-          '</div></a></div>';
-      } else if (i === 1) {
-        /* ── Sub-grid wrapper opens on second post ── */
-        html += '<div class="col-12"><div class="blog-sub-grid">';
-        html += buildSmallCard(post);
-      } else {
-        /* ── Third post closes the sub-grid ── */
-        html += buildSmallCard(post);
-        html += '</div></div>';
-      }
-    });
-
-    /* If only 2 posts, close the sub-grid */
-    if (posts.length === 2) { html += '</div></div>'; }
-
-    container.innerHTML = html;
-
-    /* Observe newly added fade-in elements */
-    container.querySelectorAll('.fade-in').forEach(function (el) {
-      fadeObserver.observe(el);
-    });
+  /* Build one book card HTML (blog post) */
+  function buildBlogBookCard(post, lang) {
+    var title   = lang === 'zh' ? post.title   : (post.titleEn   || post.title);
+    var excerpt = lang === 'zh' ? post.excerpt : (post.excerptEn || post.excerpt);
+    var btnText = translations[lang].bookReadMore;
+    return '<a class="book-card" href="blog-post.html?id=' + post.id + '" aria-label="' + title + '">' +
+      '<img src="' + post.image + '" alt="' + title + '" class="book-cover-img" loading="lazy">' +
+      '<span class="book-cat-badge">' + post.category + '</span>' +
+      '<div class="book-overlay">' +
+        '<div class="book-overlay-title">' + title + '</div>' +
+        '<div class="book-overlay-sub">' + excerpt + '</div>' +
+        '<span class="book-overlay-btn">' + btnText + '</span>' +
+      '</div>' +
+    '</a>';
   }
 
-  function buildSmallCard(post) {
-    return '<div class="fade-in">' +
-      '<div class="blog-card">' +
-      '<img src="' + post.image + '" alt="' + post.title + '" class="blog-card-img" loading="lazy">' +
-      '<div class="blog-card-body">' +
-      '<span class="blog-card-category">' + post.category + '</span>' +
-      '<h3 class="blog-card-title">' + post.title + '</h3>' +
-      '<div class="blog-card-meta"><i class="fa fa-calendar" aria-hidden="true"></i> ' + formatDate(post.date) +
-      ' <span class="mx-2">·</span><i class="fa fa-user" aria-hidden="true"></i> ' + post.author + '</div>' +
-      '<p class="blog-card-excerpt">' + post.excerpt + '</p>' +
-      '<a href="blog-post.html?id=' + post.id + '" class="blog-card-link">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>' +
-      '</div></div></div>';
+  /* Build one book card HTML (reading list) */
+  function buildBookCard(book, lang) {
+    var title  = lang === 'zh' ? book.title  : (book.titleEn  || book.title);
+    var author = lang === 'zh' ? book.author : (book.authorEn || book.author);
+    var badge  = book.status === 'reading'
+      ? translations[lang].bookStatusReading
+      : translations[lang].bookStatusRead;
+    var badgeCls = book.status === 'reading' ? 'badge-reading' : 'badge-read';
+    var inner = book.cover
+      ? '<img src="' + book.cover + '" alt="' + title + '" class="book-cover-img" loading="lazy">'
+      : '<div class="book-cover-color" style="background:' + book.color + ';">' +
+          '<span class="book-spine-title">' + title + '</span>' +
+          '<span class="book-spine-author">' + author + '</span>' +
+        '</div>';
+    return '<div class="book-card">' +
+      inner +
+      '<span class="book-status-badge ' + badgeCls + '">' + badge + '</span>' +
+      '<div class="book-overlay">' +
+        '<div class="book-overlay-title">' + title + '</div>' +
+        '<div class="book-overlay-sub">' + author + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderShelfBlogPosts(lang) {
+    var container = document.getElementById('shelf-blog-posts');
+    if (!container) return;
+    var posts = getBlogPosts(4);
+    container.innerHTML = posts.map(function (p) {
+      return buildBlogBookCard(p, lang);
+    }).join('');
+  }
+
+  function renderShelfBooks(lang) {
+    var reading = document.getElementById('shelf-reading');
+    var read    = document.getElementById('shelf-read');
+    if (reading) {
+      reading.innerHTML = getBooks('reading').map(function (b) {
+        return buildBookCard(b, lang);
+      }).join('');
+    }
+    if (read) {
+      read.innerHTML = getBooks('read').map(function (b) {
+        return buildBookCard(b, lang);
+      }).join('');
+    }
   }
 
   if (typeof getBlogPosts !== 'undefined') {
-    loadBlogPosts();
+    renderShelfBlogPosts(currentLang);
+  }
+  if (typeof getBooks !== 'undefined') {
+    renderShelfBooks(currentLang);
   }
 
   /* ============================================================
