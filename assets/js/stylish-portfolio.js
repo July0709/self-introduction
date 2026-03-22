@@ -1,9 +1,6 @@
 (function () {
   "use strict";
 
-  /* Mark document as JS-loaded (enables CSS animations that require JS) */
-  document.documentElement.classList.add('js-loaded');
-
   /* ============================================================
      Translations
      ============================================================ */
@@ -480,7 +477,7 @@
     var btnText = translations[lang].bookReadMore;
     return '<a class="book-card" href="blog-post.html?id=' + post.id + '" aria-label="' + title + '">' +
       '<img src="' + post.image + '" alt="' + title + '" class="book-cover-img" loading="lazy">' +
-      '<span class="book-cat-badge" data-category="' + post.category + '">' + post.category + '</span>' +
+      '<span class="book-cat-badge">' + post.category + '</span>' +
       '<div class="book-overlay">' +
         '<div class="book-overlay-title">' + title + '</div>' +
         '<div class="book-overlay-sub">' + excerpt + '</div>' +
@@ -698,6 +695,81 @@
 
 })();
 
+/* ============================================================
+   Falling Leaves Animation
+   ============================================================ */
+(function () {
+  var container = document.getElementById('leaves-container');
+  if (!container) return;
+
+  /* Respect reduced motion preference */
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* Leaf color palette — multiple green shades + occasional warm-gold */
+  var colors = [
+    '#2d9e6b', '#1a7a52', '#4ecb8a', '#34b87a',
+    '#3dbd80', '#26a66b', '#52c788', '#8bc34a'
+  ];
+
+  /* Leaf size variants (px) */
+  var sizes = [12, 15, 18, 20, 14, 22, 16];
+
+  /* Animation variants (CSS class suffix) */
+  var anims = [1, 2, 3];
+
+  var spawnInterval = null;
+
+  function createLeaf() {
+    var leaf      = document.createElement('div');
+    var size      = sizes[Math.floor(Math.random() * sizes.length)];
+    var color     = colors[Math.floor(Math.random() * colors.length)];
+    var animIdx   = anims[Math.floor(Math.random() * anims.length)];
+    var leftPct   = Math.random() * 96;          /* 0–96% horizontal position */
+    var duration  = 9 + Math.random() * 10;      /* 9–19 seconds per fall */
+    var delay     = Math.random() * 1.5;         /* 0–1.5s stagger */
+    /* Vary opacity slightly: subtle decoration (0.18–0.38) */
+    var opacity   = 0.18 + Math.random() * 0.20;
+
+    leaf.className = 'leaf leaf-anim-' + animIdx;
+    leaf.style.cssText = [
+      'width:'             + size     + 'px',
+      'height:'            + size     + 'px',
+      'left:'              + leftPct  + '%',
+      'top:-25px',
+      'background:'        + color,
+      'opacity:'           + opacity,
+      'animation-duration:'  + duration + 's',
+      'animation-delay:'     + delay    + 's',
+      'animation-fill-mode:forwards'
+    ].join(';');
+
+    container.appendChild(leaf);
+
+    /* Auto-remove after animation completes to avoid DOM bloat */
+    setTimeout(function () {
+      if (leaf.parentNode) leaf.parentNode.removeChild(leaf);
+    }, (duration + delay + 0.8) * 1000);
+  }
+
+  /* Initial burst: 10 leaves staggered */
+  for (var i = 0; i < 10; i++) {
+    (function (idx) {
+      setTimeout(createLeaf, idx * 280);
+    })(i);
+  }
+
+  /* Continuous: one leaf every ~900ms */
+  spawnInterval = setInterval(createLeaf, 900);
+
+  /* Pause leaves when page is hidden to save CPU */
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      clearInterval(spawnInterval);
+    } else {
+      spawnInterval = setInterval(createLeaf, 900);
+    }
+  });
+})();
 
 /* ============================================================
    Chip2 interactive hotspot viewer (Plan B)

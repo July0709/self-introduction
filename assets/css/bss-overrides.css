@@ -6,7 +6,6 @@
 :root {
   --apple-bg:        #f5f5f7;
   --apple-bg-dark:   #1d1d1f;
-  --apple-bg-warm:   #faf8f4;
   --apple-white:     #ffffff;
   --apple-black:     #000000;
   --apple-text:      #1d1d1f;
@@ -14,11 +13,6 @@
   --apple-text-ter:  #86868b;
   --apple-green:     #2d9e6b;
   --apple-green-dark: #1a7a52;
-  /* Extended palette — blue (computational/digital) + amber (achievements) */
-  --apple-blue:      #0066cc;
-  --apple-blue-dark: #004d99;
-  --apple-amber:     #e59514;
-  --apple-amber-text:#6b4a00;
   --apple-border:    rgba(0, 0, 0, 0.1);
   --apple-card-bg:   #ffffff;
   --apple-nav-bg:    rgba(255, 255, 255, 0.85);
@@ -34,11 +28,6 @@
 [data-bs-theme="dark"] {
   --apple-bg:       #000000;
   --apple-bg-dark:  #1c1c1e;
-  --apple-bg-warm:  #1a1915;
-  --apple-blue:      #4da3ff;
-  --apple-blue-dark: #3b8ae5;
-  --apple-amber:     #ffc13d;
-  --apple-amber-text:#ffc13d;
   --apple-white:    #1c1c1e;
   --apple-text:     #f5f5f7;
   --apple-text-sec: #a1a1a6;
@@ -48,25 +37,6 @@
   --apple-nav-bg:   rgba(0, 0, 0, 0.85);
   --apple-shadow:   0 4px 24px rgba(0, 0, 0, 0.4);
   --apple-shadow-lg:0 12px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* Skip Navigation Link */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 1rem;
-  z-index: 100000;
-  background: var(--apple-text);
-  color: var(--apple-bg);
-  padding: 0.5rem 1rem;
-  border-radius: 0 0 8px 8px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: top 0.15s ease;
-}
-.skip-link:focus {
-  top: 0;
 }
 
 /* --- Reset & Base --- */
@@ -239,8 +209,8 @@ body {
 
 /* --- Theme Toggle --- */
 .theme-toggle {
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid var(--apple-border);
   background: transparent;
@@ -263,9 +233,9 @@ body {
 
 /* --- Language Toggle --- */
 .lang-toggle {
-  height: 44px;
+  height: 28px;
   padding: 0 0.75rem;
-  border-radius: 22px;
+  border-radius: 14px;
   border: 1px solid var(--apple-border);
   background: transparent;
   color: var(--apple-text);
@@ -437,7 +407,7 @@ body {
   color: #ffffff;
 }
 .apple-btn-primary:hover {
-  background: var(--apple-green-dark);
+  background: #1a7a52;
   color: #ffffff;
   transform: scale(1.02);
 }
@@ -771,7 +741,10 @@ body {
   font-size: 1.0625rem;
   line-height: 2.0;
   color: var(--apple-text);
-  background: var(--apple-bg-warm);
+  background: #faf8f4;
+}
+[data-bs-theme="dark"] .blog-post-content {
+  background: #1a1915;
 }
 .blog-post-content h2 {
   font-family: var(--font-heading);
@@ -850,7 +823,6 @@ body {
 }
 .cta-section .section-title { color: #f5f5f7; }
 .cta-section .section-subtitle { color: #a1a1a6; }
-.cta-subtitle { color: #a1a1a6; }
 
 /* ========================================
    Contact Section
@@ -924,8 +896,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #a1a1a6;
@@ -1248,16 +1220,13 @@ body {
   align-items: start;
   gap: 0 2rem;
   margin-bottom: 6rem;
-}
-.timeline-item:last-child { margin-bottom: 0; }
-/* Only apply hidden state when JS is loaded (avoids invisible content without JS) */
-.js-loaded .timeline-item {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.js-loaded .timeline-item.tl-visible { opacity: 1; transform: translateY(0); }
-.js-loaded .timeline-item:nth-child(2) { transition-delay: 0.15s; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item.tl-visible { opacity: 1; transform: translateY(0); }
+.timeline-item:nth-child(2) { transition-delay: 0.15s; }
 
 /* Left column: visual, right-aligned towards axis */
 .timeline-visual-col {
@@ -1471,7 +1440,6 @@ body {
   display: block;
   opacity: 0;
   pointer-events: none;
-  will-change: transform, opacity;
 }
 .chip-bg  { left:14.61%; top:17.32%; width:74.17%; height:70.76%; opacity: 1; }
 .chip-l1  { left:37.38%; top:35.85%; width:24.74%; height:31.23%; }
@@ -1515,32 +1483,32 @@ body {
   border-color: var(--apple-green);
 }
 
-/* Chip assembly keyframes — all use transform (GPU-composited, no layout reflow) */
+/* Chip assembly keyframes */
 @keyframes chip-fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 @keyframes chip-drop {
-  from { transform: translateY(-19px); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
+  from { top: 14.80%; opacity: 0; }
+  to   { top: 23.69%; opacity: 1; }
 }
 @keyframes chip-rise {
-  from { transform: translateY(19px);  opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
+  from { top: 58.74%; opacity: 0; }
+  to   { top: 49.94%; opacity: 1; }
 }
 @keyframes chip-drop-b {
-  from { transform: translateY(-22px); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
+  from { top: 21.21%; opacity: 0; }
+  to   { top: 31.74%; opacity: 1; }
 }
 @keyframes chip-wipe {
   from { clip-path: inset(0 100% 0 0); opacity: 0; }
   to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
 }
 @keyframes chip-bounce {
-  0%   { transform: translateY(-122px); opacity: 0; }
-  60%  { transform: translateY(5px);    opacity: 1; }
-  80%  { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+  0%   { top: 16.59%; opacity: 0; }
+  60%  { top: 76.00%; opacity: 1; }
+  80%  { top: 71.00%; }
+  100% { top: 73.70%; }
 }
 
 /* Triggered by .chip-animate class */
@@ -1551,13 +1519,6 @@ body {
 .chip-viewer.chip-animate .chip-l4  { animation: chip-wipe    0.5s ease         forwards 1.4s; }
 .chip-viewer.chip-animate .chip-label-badge {
   animation: chip-bounce 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards 2.2s;
-}
-
-/* ──────── Tablet timeline (768–991px) ──────── */
-@media (min-width: 768px) and (max-width: 991px) {
-  .timeline-circle { width: 240px; height: 240px; }
-  .chip-viewer { width: 300px; }
-  .chip2-wrap  { width: 300px; }
 }
 
 /* ──────── Mobile timeline ──────── */
@@ -1952,6 +1913,71 @@ body {
   .viz-carousel-slide img { height: 180px; }
 }
 
+/* ========================================
+   Falling Leaves — Full-Page Decoration
+   ======================================== */
+#leaves-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9990;
+  overflow: hidden;
+}
+
+.leaf {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+  /* Leaf shape: asymmetric oval with pointed tip */
+  border-radius: 50% 5% 50% 5%;
+  transform-origin: 30% 60%;
+}
+
+/* Three distinct fall paths for variety */
+@keyframes leaf-fall-1 {
+  0%   { transform: translateY(-20px) translateX(0)    rotate(0deg)   skewX(5deg);  opacity: 0; }
+  6%   { opacity: 0.85; }
+  25%  { transform: translateY(28vh)  translateX(38px) rotate(95deg)  skewX(-4deg); }
+  50%  { transform: translateY(52vh)  translateX(-22px)rotate(210deg) skewX(7deg);  opacity: 0.7; }
+  75%  { transform: translateY(76vh)  translateX(45px) rotate(340deg) skewX(-5deg); }
+  90%  { opacity: 0.35; }
+  100% { transform: translateY(108vh) translateX(12px) rotate(480deg) skewX(3deg);  opacity: 0; }
+}
+@keyframes leaf-fall-2 {
+  0%   { transform: translateY(-20px) translateX(0)     rotate(30deg);  opacity: 0; }
+  7%   { opacity: 0.75; }
+  30%  { transform: translateY(30vh)  translateX(-44px) rotate(-45deg); }
+  55%  { transform: translateY(55vh)  translateX(28px)  rotate(155deg); opacity: 0.65; }
+  80%  { transform: translateY(80vh)  translateX(-18px) rotate(315deg); }
+  92%  { opacity: 0.3; }
+  100% { transform: translateY(108vh) translateX(6px)   rotate(410deg); opacity: 0; }
+}
+@keyframes leaf-fall-3 {
+  0%   { transform: translateY(-20px) translateX(0)     rotate(-15deg) scale(1);    opacity: 0; }
+  8%   { opacity: 0.7; }
+  22%  { transform: translateY(22vh)  translateX(55px)  rotate(65deg)  scale(0.95); }
+  48%  { transform: translateY(48vh)  translateX(-30px) rotate(185deg) scale(1.02); opacity: 0.6; }
+  72%  { transform: translateY(72vh)  translateX(25px)  rotate(305deg) scale(0.97); }
+  90%  { opacity: 0.25; }
+  100% { transform: translateY(108vh) translateX(-8px)  rotate(455deg) scale(0.9);  opacity: 0; }
+}
+
+.leaf-anim-1 { animation-name: leaf-fall-1; animation-timing-function: ease-in-out; }
+.leaf-anim-2 { animation-name: leaf-fall-2; animation-timing-function: linear; }
+.leaf-anim-3 { animation-name: leaf-fall-3; animation-timing-function: ease-in-out; }
+
+/* Respect reduced motion: hide leaves entirely */
+@media (prefers-reduced-motion: reduce) {
+  #leaves-container { display: none; }
+}
+/* Hide on small screens to preserve performance */
+@media (max-width: 575px) {
+  #leaves-container { display: none; }
+}
 
 /* ========================================
    Academic Portfolio — Vision & Philosophy
@@ -2513,122 +2539,4 @@ body {
   .book-card { width: 100px; min-width: 100px; height: 152px; }
   .blog-books-grid .book-card { height: 180px; }
   .movies-grid, .books-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-}
-
-/* ========================================
-   Strategic Color Expansion
-   Green (60%) = biology / life sciences / active
-   Blue  (30%) = computational / digital / completed chapters
-   Amber (10%) = achievements / awards / highlights
-   ======================================== */
-
-/* ── About photo: outer ring gets a blue tint for visual depth ── */
-.about-photo-wrap::after {
-  border-color: rgba(0, 102, 204, 0.12);
-}
-[data-bs-theme="dark"] .about-photo-wrap::after {
-  border-color: rgba(77, 163, 255, 0.1);
-}
-
-/* ── Research Pillars: each pillar has a distinct color identity ── */
-/* Pillar 1 — Computational Medicine → blue (data/algorithms) */
-.acad-pillars .acad-pillar:nth-child(1) .acad-pillar-icon {
-  background: linear-gradient(135deg, rgba(0,102,204,0.14) 0%, rgba(77,163,255,0.08) 100%);
-}
-.acad-pillars .acad-pillar:nth-child(1) .acad-pillar-icon svg { stroke: var(--apple-blue); }
-.acad-pillars .acad-pillar:nth-child(1):hover {
-  border-color: rgba(0, 102, 204, 0.3);
-  box-shadow: 0 8px 28px rgba(0, 102, 204, 0.10);
-}
-
-/* Pillar 2 — Translational Research → green (biology, default brand) */
-/* no override needed — inherits default green */
-.acad-pillars .acad-pillar:nth-child(2):hover {
-  border-color: rgba(45, 158, 107, 0.35);
-}
-
-/* Pillar 3 — Open & Reproducible Science → amber (collaborative/open knowledge) */
-.acad-pillars .acad-pillar:nth-child(3) .acad-pillar-icon {
-  background: linear-gradient(135deg, rgba(229,149,20,0.14) 0%, rgba(255,193,61,0.08) 100%);
-}
-.acad-pillars .acad-pillar:nth-child(3) .acad-pillar-icon svg { stroke: var(--apple-amber); }
-.acad-pillars .acad-pillar:nth-child(3):hover {
-  border-color: rgba(229, 149, 20, 0.35);
-  box-shadow: 0 8px 28px rgba(229, 149, 20, 0.10);
-}
-
-/* ── Skills: Web Design tab → blue (digital/web domain) ── */
-#tab-web-btn.active {
-  background: var(--apple-blue);
-  border-color: var(--apple-blue);
-  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.30);
-}
-#tab-web-btn:not(.active):hover {
-  background: rgba(0, 102, 204, 0.06);
-  color: var(--apple-blue);
-  border-color: rgba(0, 102, 204, 0.28);
-}
-
-/* Web Design panel: skill tags → blue */
-#panel-web .skill-tag {
-  background: rgba(0, 102, 204, 0.07);
-  color: var(--apple-blue);
-  border-color: rgba(0, 102, 204, 0.18);
-}
-[data-bs-theme="dark"] #panel-web .skill-tag {
-  background: rgba(77, 163, 255, 0.10);
-  border-color: rgba(77, 163, 255, 0.22);
-  color: var(--apple-blue);
-}
-
-/* Web Design panel: project card hover accent → blue */
-#panel-web .web-project-card:hover {
-  border-color: rgba(0, 102, 204, 0.30);
-  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.08);
-}
-
-/* ── Timeline: past chapter badge → blue (completed, not active) ── */
-#tl2-date {
-  background: rgba(0, 102, 204, 0.08);
-  color: var(--apple-blue);
-  border-color: rgba(0, 102, 204, 0.22);
-}
-[data-bs-theme="dark"] #tl2-date {
-  background: rgba(77, 163, 255, 0.10);
-  border-color: rgba(77, 163, 255, 0.22);
-}
-
-/* ── Awards: amber highlight for achievement moments ── */
-.timeline-awards-toggle {
-  color: var(--apple-amber-text);
-}
-.timeline-awards-toggle:hover {
-  background: rgba(229, 149, 20, 0.08);
-  border-color: rgba(229, 149, 20, 0.40);
-}
-[data-bs-theme="dark"] .timeline-awards-toggle {
-  color: var(--apple-amber-text);
-}
-[data-bs-theme="dark"] .timeline-awards-toggle:hover {
-  background: rgba(255, 193, 61, 0.10);
-  border-color: rgba(255, 193, 61, 0.40);
-}
-.award-year {
-  color: var(--apple-amber-text);
-}
-.timeline-awards-list li {
-  border-bottom-color: rgba(229, 149, 20, 0.15);
-}
-[data-bs-theme="dark"] .timeline-awards-list li {
-  border-bottom-color: rgba(255, 193, 61, 0.12);
-}
-
-/* ── Blog category badges: semantically color-coded ── */
-.book-cat-badge[data-category="Life"] {
-  background: rgba(229, 149, 20, 0.85);
-  color: #3d2800;
-}
-.book-cat-badge[data-category="Research"] {
-  background: rgba(0, 102, 204, 0.85);
-  color: #ffffff;
 }
