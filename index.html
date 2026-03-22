@@ -14,11 +14,12 @@
     <meta property="og:url" content="https://july0709.github.io/self-introduction/">
     <meta property="og:title" content="July — Clinical Medicine Student">
     <meta property="og:description" content="Clinical medicine student at Southern Medical University.">
-    <meta property="og:image" content="https://july0709.github.io/self-introduction/assets/img/profile picture.jpg">
+    <meta property="og:image" content="https://july0709.github.io/self-introduction/assets/img/profile%20picture.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,12 +30,13 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <noscript><style>.timeline-item{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 
 <body id="page-top">
 
-    <!-- Falling Leaves Decoration -->
-    <div id="leaves-container" aria-hidden="true"></div>
+    <!-- Skip Navigation Link -->
+    <a class="skip-link" href="#about">Skip to main content</a>
 
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
@@ -47,7 +49,7 @@
     <!-- ==============================
          Apple-style Top Navigation
          ============================== -->
-    <nav class="apple-nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <nav class="apple-nav" id="main-nav" aria-label="Main navigation">
         <div class="apple-nav-inner">
             <!-- Brand -->
             <a class="apple-nav-brand" href="#page-top">July</a>
@@ -58,13 +60,13 @@
             </button>
 
             <!-- Nav links -->
-            <ul class="apple-nav-menu" id="nav-menu" role="menubar">
-                <li role="none"><a href="#page-top" role="menuitem">Home</a></li>
-                <li role="none"><a href="#about" role="menuitem">About</a></li>
-                <li role="none"><a href="#services" role="menuitem">Services</a></li>
-                <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
-                <li role="none"><a href="bookshelf.html" role="menuitem">Blog</a></li>
-                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            <ul class="apple-nav-menu" id="nav-menu">
+                <li><a href="#page-top">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="bookshelf.html">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
 
             <!-- Actions -->
@@ -82,8 +84,8 @@
     <!-- ==============================
          Hero
          ============================== -->
-    <header class="masthead fade-in" role="banner" id="hero">
-        <video class="hero-video" id="hero-video" autoplay muted loop playsinline
+    <header class="masthead fade-in" id="hero">
+        <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="none"
                poster="assets/img/bg-masthead.jpg">
             <source src="assets/video/hero-bg.mp4" type="video/mp4">
         </video>
@@ -91,7 +93,7 @@
             <span class="hero-eyebrow" id="hero-eyebrow">Southern Medical University</span>
             <h1 class="hero-title" id="hero-title">Self Introduction</h1>
             <p class="hero-subtitle"><em id="hero-subtitle">July</em></p>
-            <a class="apple-btn apple-btn-outline" href="#about" id="hero-btn" aria-label="Learn more about July">
+            <a class="apple-btn apple-btn-outline" href="#about" id="hero-btn">
                 Find Out More <i class="fa fa-chevron-down ms-1" aria-hidden="true"></i>
             </a>
         </div>
@@ -111,7 +113,7 @@
                     <p class="section-subtitle mb-4" id="about-text">
                         Passionate about combining medical knowledge with technology to make a difference in healthcare.
                     </p>
-                    <a class="apple-btn apple-btn-outline-dark" href="#services" id="about-btn" aria-label="See what July does">
+                    <a class="apple-btn apple-btn-outline-dark" href="#services" id="about-btn">
                         Who I Am
                     </a>
                 </div>
@@ -501,14 +503,14 @@
     <section id="bookshelf" class="apple-section apple-section-gray fade-in" role="region" aria-labelledby="shelf-heading">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="section-eyebrow" id="shelf-eyebrow">我的书架</span>
-                <h2 class="section-title" id="shelf-heading">阅读与写作</h2>
+                <span class="section-eyebrow" id="shelf-eyebrow">My Bookshelf</span>
+                <h2 class="section-title" id="shelf-heading">Books &amp; Writings</h2>
             </div>
 
             <!-- Row 1: Currently Reading -->
             <div class="shelf-header mt-4">
                 <span class="shelf-header-icon">📖</span>
-                <span class="shelf-header-title" id="shelf-row2-label">正在阅读</span>
+                <span class="shelf-header-title" id="shelf-row2-label">Currently Reading</span>
             </div>
             <div class="shelf-row" id="shelf-reading"></div>
             <div class="shelf-plank"></div>
@@ -516,7 +518,7 @@
             <!-- Row 3: Already Read (scrollable) -->
             <div class="shelf-header mt-4">
                 <span class="shelf-header-icon">📚</span>
-                <span class="shelf-header-title" id="shelf-row3-label">已读书目</span>
+                <span class="shelf-header-title" id="shelf-row3-label">Already Read</span>
             </div>
             <div class="shelf-row" id="shelf-read"></div>
             <div class="shelf-plank"></div>
@@ -533,7 +535,7 @@
     <section class="cta-section fade-in" role="region" aria-label="Call to action">
         <div class="container text-center">
             <h2 class="section-title mb-3" id="cta-heading">Let's Connect!</h2>
-            <p class="section-subtitle mx-auto mb-4" style="color:#a1a1a6;">
+            <p class="section-subtitle cta-subtitle mx-auto mb-4">
                 Whether you want to collaborate or just say hello.
             </p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
@@ -567,7 +569,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="subject" class="form-label" id="label-subject">Subject *</label>
-                            <input type="text" class="form-control" id="subject" name="subject" required placeholder="What's this about?">
+                            <input type="text" class="form-control" id="subject" name="subject" required autocomplete="off" placeholder="What's this about?">
                             <div class="invalid-feedback">Please enter a subject.</div>
                         </div>
                         <div class="mb-4">
@@ -593,12 +595,6 @@
     <footer class="apple-footer" role="contentinfo">
         <div class="container">
             <div class="apple-footer-links mb-3">
-                <a class="social-icon" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <i class="icon-social-facebook" aria-hidden="true"></i>
-                </a>
-                <a class="social-icon" href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <i class="icon-social-twitter" aria-hidden="true"></i>
-                </a>
                 <a class="social-icon" href="https://github.com/July0709" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i class="icon-social-github" aria-hidden="true"></i>
                 </a>
