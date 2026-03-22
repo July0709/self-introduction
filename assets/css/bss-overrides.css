@@ -14,6 +14,11 @@
   --apple-text-ter:  #86868b;
   --apple-green:     #2d9e6b;
   --apple-green-dark: #1a7a52;
+  /* Extended palette — blue (computational/digital) + amber (achievements) */
+  --apple-blue:      #0066cc;
+  --apple-blue-dark: #004d99;
+  --apple-amber:     #e59514;
+  --apple-amber-text:#6b4a00;
   --apple-border:    rgba(0, 0, 0, 0.1);
   --apple-card-bg:   #ffffff;
   --apple-nav-bg:    rgba(255, 255, 255, 0.85);
@@ -30,6 +35,10 @@
   --apple-bg:       #000000;
   --apple-bg-dark:  #1c1c1e;
   --apple-bg-warm:  #1a1915;
+  --apple-blue:      #4da3ff;
+  --apple-blue-dark: #3b8ae5;
+  --apple-amber:     #ffc13d;
+  --apple-amber-text:#ffc13d;
   --apple-white:    #1c1c1e;
   --apple-text:     #f5f5f7;
   --apple-text-sec: #a1a1a6;
@@ -2504,4 +2513,122 @@ body {
   .book-card { width: 100px; min-width: 100px; height: 152px; }
   .blog-books-grid .book-card { height: 180px; }
   .movies-grid, .books-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+}
+
+/* ========================================
+   Strategic Color Expansion
+   Green (60%) = biology / life sciences / active
+   Blue  (30%) = computational / digital / completed chapters
+   Amber (10%) = achievements / awards / highlights
+   ======================================== */
+
+/* ── About photo: outer ring gets a blue tint for visual depth ── */
+.about-photo-wrap::after {
+  border-color: rgba(0, 102, 204, 0.12);
+}
+[data-bs-theme="dark"] .about-photo-wrap::after {
+  border-color: rgba(77, 163, 255, 0.1);
+}
+
+/* ── Research Pillars: each pillar has a distinct color identity ── */
+/* Pillar 1 — Computational Medicine → blue (data/algorithms) */
+.acad-pillars .acad-pillar:nth-child(1) .acad-pillar-icon {
+  background: linear-gradient(135deg, rgba(0,102,204,0.14) 0%, rgba(77,163,255,0.08) 100%);
+}
+.acad-pillars .acad-pillar:nth-child(1) .acad-pillar-icon svg { stroke: var(--apple-blue); }
+.acad-pillars .acad-pillar:nth-child(1):hover {
+  border-color: rgba(0, 102, 204, 0.3);
+  box-shadow: 0 8px 28px rgba(0, 102, 204, 0.10);
+}
+
+/* Pillar 2 — Translational Research → green (biology, default brand) */
+/* no override needed — inherits default green */
+.acad-pillars .acad-pillar:nth-child(2):hover {
+  border-color: rgba(45, 158, 107, 0.35);
+}
+
+/* Pillar 3 — Open & Reproducible Science → amber (collaborative/open knowledge) */
+.acad-pillars .acad-pillar:nth-child(3) .acad-pillar-icon {
+  background: linear-gradient(135deg, rgba(229,149,20,0.14) 0%, rgba(255,193,61,0.08) 100%);
+}
+.acad-pillars .acad-pillar:nth-child(3) .acad-pillar-icon svg { stroke: var(--apple-amber); }
+.acad-pillars .acad-pillar:nth-child(3):hover {
+  border-color: rgba(229, 149, 20, 0.35);
+  box-shadow: 0 8px 28px rgba(229, 149, 20, 0.10);
+}
+
+/* ── Skills: Web Design tab → blue (digital/web domain) ── */
+#tab-web-btn.active {
+  background: var(--apple-blue);
+  border-color: var(--apple-blue);
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.30);
+}
+#tab-web-btn:not(.active):hover {
+  background: rgba(0, 102, 204, 0.06);
+  color: var(--apple-blue);
+  border-color: rgba(0, 102, 204, 0.28);
+}
+
+/* Web Design panel: skill tags → blue */
+#panel-web .skill-tag {
+  background: rgba(0, 102, 204, 0.07);
+  color: var(--apple-blue);
+  border-color: rgba(0, 102, 204, 0.18);
+}
+[data-bs-theme="dark"] #panel-web .skill-tag {
+  background: rgba(77, 163, 255, 0.10);
+  border-color: rgba(77, 163, 255, 0.22);
+  color: var(--apple-blue);
+}
+
+/* Web Design panel: project card hover accent → blue */
+#panel-web .web-project-card:hover {
+  border-color: rgba(0, 102, 204, 0.30);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.08);
+}
+
+/* ── Timeline: past chapter badge → blue (completed, not active) ── */
+#tl2-date {
+  background: rgba(0, 102, 204, 0.08);
+  color: var(--apple-blue);
+  border-color: rgba(0, 102, 204, 0.22);
+}
+[data-bs-theme="dark"] #tl2-date {
+  background: rgba(77, 163, 255, 0.10);
+  border-color: rgba(77, 163, 255, 0.22);
+}
+
+/* ── Awards: amber highlight for achievement moments ── */
+.timeline-awards-toggle {
+  color: var(--apple-amber-text);
+}
+.timeline-awards-toggle:hover {
+  background: rgba(229, 149, 20, 0.08);
+  border-color: rgba(229, 149, 20, 0.40);
+}
+[data-bs-theme="dark"] .timeline-awards-toggle {
+  color: var(--apple-amber-text);
+}
+[data-bs-theme="dark"] .timeline-awards-toggle:hover {
+  background: rgba(255, 193, 61, 0.10);
+  border-color: rgba(255, 193, 61, 0.40);
+}
+.award-year {
+  color: var(--apple-amber-text);
+}
+.timeline-awards-list li {
+  border-bottom-color: rgba(229, 149, 20, 0.15);
+}
+[data-bs-theme="dark"] .timeline-awards-list li {
+  border-bottom-color: rgba(255, 193, 61, 0.12);
+}
+
+/* ── Blog category badges: semantically color-coded ── */
+.book-cat-badge[data-category="Life"] {
+  background: rgba(229, 149, 20, 0.85);
+  color: #3d2800;
+}
+.book-cat-badge[data-category="Research"] {
+  background: rgba(0, 102, 204, 0.85);
+  color: #ffffff;
 }

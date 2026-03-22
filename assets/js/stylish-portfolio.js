@@ -480,7 +480,7 @@
     var btnText = translations[lang].bookReadMore;
     return '<a class="book-card" href="blog-post.html?id=' + post.id + '" aria-label="' + title + '">' +
       '<img src="' + post.image + '" alt="' + title + '" class="book-cover-img" loading="lazy">' +
-      '<span class="book-cat-badge">' + post.category + '</span>' +
+      '<span class="book-cat-badge" data-category="' + post.category + '">' + post.category + '</span>' +
       '<div class="book-overlay">' +
         '<div class="book-overlay-title">' + title + '</div>' +
         '<div class="book-overlay-sub">' + excerpt + '</div>' +
