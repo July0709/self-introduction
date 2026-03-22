@@ -433,6 +433,13 @@ body {
 [data-bs-theme="dark"] .apple-btn-outline-dark:hover {
   background: rgba(255, 255, 255, 0.08);
 }
+.apple-btn:disabled,
+.apple-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  pointer-events: none;
+}
 
 /* ========================================
    Section Base
@@ -822,6 +829,21 @@ body {
   outline: none;
 }
 .apple-form .form-control::placeholder { color: var(--apple-text-ter); }
+.apple-form.was-validated .form-control:invalid,
+.apple-form .form-control.is-invalid {
+  border-color: #ff453a;
+  box-shadow: 0 0 0 3px rgba(255, 69, 58, 0.18);
+}
+.apple-form .invalid-feedback {
+  display: none;
+  font-size: 0.8125rem;
+  color: #ff453a;
+  margin-top: 0.35rem;
+}
+.apple-form.was-validated .form-control:invalid ~ .invalid-feedback,
+.apple-form .form-control.is-invalid ~ .invalid-feedback {
+  display: block;
+}
 
 /* ========================================
    Footer
@@ -1508,7 +1530,11 @@ body {
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-.chip2-toggle-btn:hover,
+.chip2-toggle-btn:hover {
+  background: rgba(45, 158, 107, 0.12);
+  color: var(--apple-green);
+  border-color: var(--apple-green);
+}
 .chip2-toggle-btn[aria-expanded="true"] {
   background: var(--apple-green);
   color: #fff;
@@ -1651,8 +1677,15 @@ body {
 /* Panels */
 .skills-panels { min-height: 320px; }
 
-.skill-panel { display: none; }
-.skill-panel.active { display: block; }
+.skill-panel { display: none; opacity: 0; }
+.skill-panel.active { display: block; opacity: 1; animation: panelFadeIn 0.25s ease both; }
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skill-panel.active { animation: none; }
+}
 
 /* ──────── Bioinformatics panel ──────── */
 .bio-skills-layout {
