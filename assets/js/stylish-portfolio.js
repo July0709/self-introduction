@@ -496,18 +496,28 @@
     var badgeCls = book.status === 'reading' ? 'badge-reading' : 'badge-read';
     var inner = book.cover
       ? '<img src="' + book.cover + '" alt="' + title + '" class="book-cover-img" loading="lazy">'
-      : '<div class="book-cover-color" style="background:' + book.color + ';">' +
+      : '<div class="book-cover-color" style="--book-color:' + book.color + ';">' +
           '<span class="book-spine-title">' + title + '</span>' +
           '<span class="book-spine-author">' + author + '</span>' +
         '</div>';
-    return '<div class="book-card">' +
+    var hasQuotes = book.quotes && book.quotes.length > 0;
+    var overlayExtra = hasQuotes
+      ? '<span class="book-overlay-read-more">' + (lang === 'zh' ? '点击查看摘抄 →' : 'View Excerpts →') + '</span>'
+      : '';
+    var cardInner =
       inner +
       '<span class="book-status-badge ' + badgeCls + '">' + badge + '</span>' +
       '<div class="book-overlay">' +
         '<div class="book-overlay-title">' + title + '</div>' +
         '<div class="book-overlay-sub">' + author + '</div>' +
-      '</div>' +
-    '</div>';
+        overlayExtra +
+      '</div>';
+    if (hasQuotes) {
+      return '<a class="book-card" href="book-quotes.html?id=' + book.id + '" aria-label="' + title + ' — 查看摘抄">' +
+        cardInner +
+      '</a>';
+    }
+    return '<div class="book-card">' + cardInner + '</div>';
   }
 
   function renderShelfBlogPosts(lang) {
@@ -534,9 +544,6 @@
     }
   }
 
-  if (typeof getBlogPosts !== 'undefined') {
-    renderShelfBlogPosts(currentLang);
-  }
   if (typeof getBooks !== 'undefined') {
     renderShelfBooks(currentLang);
   }

@@ -27,7 +27,11 @@ var booksData = [
     id: 'b4', title: '趁着年轻，我偏要勉强', titleEn: 'Young and Determined',
     author: '詹青云', authorEn: 'Zhan Qingyun',
     status: 'read', cover: null, color: '#e88a5a',
-    genre: '散文随笔', genreEn: 'Essays'
+    genre: '散文随笔', genreEn: 'Essays',
+    quotes: [
+      { id: 'q1', text: '爱是一个人闯荡世界的底气，是父母给我的最珍贵的东西。' },
+      { id: 'q2', text: '旅行和生活都不是为了去某个地方，而是为了尽可能高兴又丰富地度过闲暇时光。' }
+    ]
   },
   {
     id: 'b5', title: '绝密手稿', titleEn: 'The Secret Scripture',
@@ -94,13 +98,19 @@ var booksData = [
     id: 'b15', title: '自卑与超越', titleEn: 'What Life Could Mean to You',
     author: '阿尔弗雷德·阿德勒', authorEn: 'Alfred Adler',
     status: 'reading', cover: null, color: '#5a8fc4',
-    genre: '心理学', genreEn: 'Psychology'
+    genre: '心理学', genreEn: 'Psychology',
+    quotes: [
+      /* 待补充摘抄 */
+    ]
   },
   {
     id: 'b16', title: '百年孤独', titleEn: 'One Hundred Years of Solitude',
     author: '加西亚·马尔克斯', authorEn: 'Gabriel García Márquez',
     status: 'reading', cover: null, color: '#7a9e6b',
-    genre: '魔幻现实主义', genreEn: 'Magical Realism'
+    genre: '魔幻现实主义', genreEn: 'Magical Realism',
+    quotes: [
+      /* 待补充摘抄 */
+    ]
   },
   {
     id: 'b17', title: '素书', titleEn: 'Su Shu (The Plain Book)',
